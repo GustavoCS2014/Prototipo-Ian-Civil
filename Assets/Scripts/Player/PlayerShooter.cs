@@ -1,5 +1,5 @@
 using Input;
-using Items;
+using Items.MonoBehaviours;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,17 +7,19 @@ namespace Player
 {
     public sealed class PlayerShooter : MonoBehaviour
     {
-        [SerializeField] private Projectile projectileInfo;
+        [SerializeField] private Projectile projectilePrefab;
 
         private void Start()
         {
             GameplayInput.OnShoot += Shoot;
         }
 
-        private void Shoot(InputAction.CallbackContext callbackContext)
+        private void Shoot(InputAction.CallbackContext context)
         {
-            if (callbackContext.performed)
-                Projectile.Spawn(projectileInfo, transform.position, transform.rotation);
+            if (!context.performed) return;
+
+            Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            projectile.Launch(Vector2.right);
         }
 
         private void OnDisable()

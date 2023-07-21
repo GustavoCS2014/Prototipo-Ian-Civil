@@ -7,6 +7,8 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance { get; private set; }
+
         private static StateMachine _stateMachine;
 
         private float _direction;
@@ -47,6 +49,7 @@ namespace Player
 
         private void Awake()
         {
+            Instance = this;
             Rigidbody = GetComponent<Rigidbody2D>();
             _stateMachine = new StateMachine();
             IdleState = new IdleState(this, _stateMachine);
