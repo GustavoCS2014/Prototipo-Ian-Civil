@@ -1,7 +1,6 @@
 using System;
 using Core;
 using Input;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +17,10 @@ namespace Player.States
         public override void OnStart()
         {
             GameplayInput.OnMove += OnMoveInput;
+
+            float force = GetJumpForce();
+            Player.Rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+
             Started?.Invoke(this);
         }
 
@@ -40,8 +43,17 @@ namespace Player.States
                 y = Player.Rigidbody.velocity.y
             };
 
-            if (Player.Grounded)
-                StateMachine.ChangeState(Player.IdleState);
+            if (Player.Rigidbody.velocity.y < 0f)
+                StateMachine.ChangeState(Player.FallState);
+        }
+
+        private float GetJumpForce()
+        {
+            float gravityScaled = Physics2D.gravity.y * Player.Rigidbody.gravityScale;
+            float height = Player.Settings.JumpHeight;
+            float mass = Player.Rigidbody.mass;
+
+            return Mathf.Sqrt(-2f * gravityScaled * height) * mass;
         }
 
         public override string ToString() => nameof(JumpState);

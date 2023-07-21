@@ -17,6 +17,7 @@ namespace Player.States
         public override void OnStart()
         {
             GameplayInput.OnMove += OnMoveInput;
+            GameplayInput.OnJump += OnJumpInput;
 
             Player.Rigidbody.velocity = Vector2.zero;
 
@@ -26,6 +27,7 @@ namespace Player.States
         public override void OnEnd()
         {
             GameplayInput.OnMove -= OnMoveInput;
+            GameplayInput.OnJump -= OnJumpInput;
             Ended?.Invoke(this);
         }
 
@@ -36,6 +38,15 @@ namespace Player.States
             Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
 
             StateMachine.ChangeState(Player.MoveState);
+        }
+
+        private void OnJumpInput(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            if (!Player.Grounded) return;
+
+            StateMachine.ChangeState(Player.JumpState);
         }
 
         public override string ToString() => nameof(IdleState);
