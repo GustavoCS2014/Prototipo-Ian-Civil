@@ -15,6 +15,6 @@ MonoBehaviour:
   damage: 5
   speed: 25
   lifetime: 2
-  layerMask:
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384

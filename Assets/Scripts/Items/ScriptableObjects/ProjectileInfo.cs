@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Items
+namespace Items.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Projectile", menuName = "Items/Projectile")]
     public sealed class ProjectileInfo : ScriptableObject
@@ -14,7 +14,7 @@ namespace Items
         [SerializeField] private float lifetime;
         public float Lifetime => lifetime;
 
-        [SerializeField] private LayerMask layerMask;
-        public LayerMask LayerMask => layerMask;
+        [SerializeField] private LayerMask targetLayer;
+        public LayerMask TargetLayer => targetLayer;
     }
 }
