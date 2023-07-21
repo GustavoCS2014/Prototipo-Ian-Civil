@@ -36,8 +36,23 @@ namespace Player
         public float Direction
         {
             get => _direction;
-            set => _direction = Mathf.Clamp(value, -1f, 1f);
+            set
+            {
+                Vector3 localScale = transform.localScale;
+                if (value != 0f)
+                {
+                    transform.localScale = new Vector3(
+                        value * Mathf.Abs(localScale.x),
+                        localScale.y,
+                        localScale.z
+                    );
+                }
+
+                _direction = Mathf.Clamp(value, -1f, 1f);
+            }
         }
+
+        public Vector2 FacingDirection => transform.localScale.x * Vector2.right;
 
         public bool Grounded => Physics2D.OverlapCircle(
             Rigidbody.position,

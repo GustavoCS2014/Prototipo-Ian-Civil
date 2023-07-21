@@ -71,34 +71,12 @@ namespace Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a6150f5e-6ba2-49ec-a67b-3e0a936c32e1"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""4d936c21-b867-4667-8ee9-15a2873c6b39"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""NES"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26c2234a-a1c3-4b2f-9476-56bc94c7bdfb"",
-                    ""path"": ""<Gamepad>/dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c37fb71f-3d2f-4366-8667-42c86448a532"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -159,6 +137,28 @@ namespace Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0a87a988-d495-4d57-8654-a2bb585287dd"",
+                    ""path"": ""<XInputController>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NES"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd6108c6-2aac-4757-9bd8-d8b6dd00f114"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NES"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f740745c-fd46-4ee1-ba15-f7c1ea3bcdad"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -170,11 +170,11 @@ namespace Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""197fa77e-9e7f-4829-ae55-a0d1a6c6612a"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""03757c78-b686-4ded-89ae-9044753b2ed4"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""NES"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -195,11 +195,11 @@ namespace Input
             ]
         },
         {
-            ""name"": ""Gamepad"",
-            ""bindingGroup"": ""Gamepad"",
+            ""name"": ""NES"",
+            ""bindingGroup"": ""NES"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Gamepad>"",
+                    ""devicePath"": ""<XInputController>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -340,13 +340,13 @@ namespace Input
                 return asset.controlSchemes[m_KeyboardSchemeIndex];
             }
         }
-        private int m_GamepadSchemeIndex = -1;
-        public InputControlScheme GamepadScheme
+        private int m_NESSchemeIndex = -1;
+        public InputControlScheme NESScheme
         {
             get
             {
-                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-                return asset.controlSchemes[m_GamepadSchemeIndex];
+                if (m_NESSchemeIndex == -1) m_NESSchemeIndex = asset.FindControlSchemeIndex("NES");
+                return asset.controlSchemes[m_NESSchemeIndex];
             }
         }
         public interface IGroundActions

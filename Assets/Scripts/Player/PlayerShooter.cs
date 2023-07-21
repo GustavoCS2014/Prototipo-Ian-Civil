@@ -19,7 +19,7 @@ namespace Player
             if (!context.performed) return;
 
             Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            projectile.Launch(Vector2.right);
+            projectile.Launch(PlayerController.Instance.FacingDirection);
         }
 
         private void OnDisable()

@@ -30,9 +30,9 @@ namespace Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            if (!context.canceled) return;
+            Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
 
-            Player.Direction = 0f;
+            if (!context.canceled) return;
 
             StateMachine.ChangeState(Player.IdleState);
         }
