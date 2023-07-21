@@ -10,5 +10,11 @@ namespace Player
 
         [SerializeField] private float jumpHeight;
         public float JumpHeight => jumpHeight;
+
+        [SerializeField, Range(0f, 1f)] private float airInputInfluence;
+        public float AirInputInfluence => airInputInfluence;
+
+        [SerializeField] private LayerMask groundLayer;
+        public LayerMask GroundLayer => groundLayer;
     }
 }
