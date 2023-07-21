@@ -43,7 +43,7 @@ namespace Input
                     ""type"": ""Value"",
                     ""id"": ""fde01039-a43c-4d38-a14c-67420fb2d3db"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },

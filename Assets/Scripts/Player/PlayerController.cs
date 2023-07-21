@@ -4,17 +4,19 @@ using UnityEngine;
 
 namespace Player
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public sealed class PlayerController : MonoBehaviour
     {
         private static StateMachine _stateMachine;
 
+        private float _direction;
+
         #region Serialized Fields
 
         [SerializeField] private PlayerSettings settings;
-        [SerializeField] private new Rigidbody2D rigidbody;
 
         public PlayerSettings Settings => settings;
-        public Rigidbody2D Rigidbody => rigidbody;
+        public Rigidbody2D Rigidbody { get; private set;  }
 
         #endregion
 
@@ -23,15 +25,20 @@ namespace Player
         public IdleState IdleState { get; private set; }
         public MoveState MoveState { get; private set; }
         public JumpState JumpState { get; private set; }
+        public FallState FallState { get; private set; }
 
         #endregion
 
         #region Status Members
 
-        public float Direction { get; set; }
+        public float Direction
+        {
+            get => _direction;
+            set => _direction = Mathf.Clamp(value, -1f, 1f);
+        }
 
         public bool Grounded => Physics2D.OverlapCircle(
-            rigidbody.position,
+            Rigidbody.position,
             radius: 0.1f,
             settings.GroundLayer
         );
@@ -40,10 +47,12 @@ namespace Player
 
         private void Awake()
         {
+            Rigidbody = GetComponent<Rigidbody2D>();
             _stateMachine = new StateMachine();
             IdleState = new IdleState(this, _stateMachine);
             MoveState = new MoveState(this, _stateMachine);
             JumpState = new JumpState(this, _stateMachine);
+            FallState = new FallState(this, _stateMachine);
         }
 
         private void Start() => _stateMachine.Initialize(IdleState);

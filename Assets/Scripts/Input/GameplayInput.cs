@@ -25,28 +25,43 @@ namespace Input
         {
             _playerActions.Ground.Enable();
 
-            _playerActions.Ground.Jump.performed += OnJump;
-            _playerActions.Ground.Jump.canceled += OnJump;
+            _playerActions.Ground.Jump.performed += JumpAction;
+            _playerActions.Ground.Jump.canceled += JumpAction;
 
-            _playerActions.Ground.Move.performed += OnMove;
-            _playerActions.Ground.Move.canceled += OnMove;
+            _playerActions.Ground.Move.performed += MoveAction;
+            _playerActions.Ground.Move.canceled += MoveAction;
 
-            _playerActions.Ground.Shoot.performed += OnShoot;
-            _playerActions.Ground.Shoot.canceled += OnShoot;
+            _playerActions.Ground.Shoot.performed += ShootAction;
+            _playerActions.Ground.Shoot.canceled += ShootAction;
+        }
+
+        private static void JumpAction(InputAction.CallbackContext context)
+        {
+            OnJump?.Invoke(context);
+        }
+
+        private static void MoveAction(InputAction.CallbackContext context)
+        {
+            OnMove?.Invoke(context);
+        }
+
+        private static void ShootAction(InputAction.CallbackContext context)
+        {
+            OnShoot?.Invoke(context);
         }
 
         private void OnDisable()
         {
             _playerActions.Ground.Disable();
 
-            _playerActions.Ground.Jump.performed -= OnJump;
-            _playerActions.Ground.Jump.canceled -= OnJump;
+            _playerActions.Ground.Jump.performed -= JumpAction;
+            _playerActions.Ground.Jump.canceled -= JumpAction;
 
-            _playerActions.Ground.Move.performed -= OnMove;
-            _playerActions.Ground.Move.canceled -= OnMove;
+            _playerActions.Ground.Move.performed -= MoveAction;
+            _playerActions.Ground.Move.canceled -= MoveAction;
 
-            _playerActions.Ground.Shoot.performed -= OnShoot;
-            _playerActions.Ground.Shoot.canceled -= OnShoot;
+            _playerActions.Ground.Shoot.performed -= ShootAction;
+            _playerActions.Ground.Shoot.canceled -= ShootAction;
         }
     }
 }
