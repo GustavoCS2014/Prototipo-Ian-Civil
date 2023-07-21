@@ -1,8 +1,8 @@
 using Core;
-using Player.States;
+using Entities.Player.States;
 using UnityEngine;
 
-namespace Player
+namespace Entities.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class PlayerController : MonoBehaviour

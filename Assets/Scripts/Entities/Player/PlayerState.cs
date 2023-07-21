@@ -1,6 +1,6 @@
 using Core;
 
-namespace Player
+namespace Entities.Player
 {
     public abstract class PlayerState : State
     {

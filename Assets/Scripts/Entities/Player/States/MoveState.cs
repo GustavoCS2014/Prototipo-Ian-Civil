@@ -4,23 +4,20 @@ using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player.States
+namespace Entities.Player.States
 {
-    public sealed class IdleState : PlayerState
+    public sealed class MoveState : PlayerState
     {
-        public IdleState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
+        public MoveState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
 
-        public static event Action<IdleState> Started;
+        public static event Action<MoveState> Started;
 
-        public static event Action<IdleState> Ended;
+        public static event Action<MoveState> Ended;
 
         public override void OnStart()
         {
             GameplayInput.OnMove += OnMoveInput;
             GameplayInput.OnJump += OnJumpInput;
-
-            Player.Rigidbody.velocity = Vector2.zero;
-
             Started?.Invoke(this);
         }
 
@@ -33,11 +30,11 @@ namespace Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
-
             Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
 
-            StateMachine.ChangeState(Player.MoveState);
+            if (!context.canceled) return;
+
+            StateMachine.ChangeState(Player.IdleState);
         }
 
         private void OnJumpInput(InputAction.CallbackContext context)
@@ -49,6 +46,11 @@ namespace Player.States
             StateMachine.ChangeState(Player.JumpState);
         }
 
-        public override string ToString() => nameof(IdleState);
+        public override void FixedUpdate()
+        {
+            Player.Rigidbody.velocity = Player.Direction * Player.Settings.Speed * Vector2.right;
+        }
+
+        public override string ToString() => nameof(MoveState);
     }
 }

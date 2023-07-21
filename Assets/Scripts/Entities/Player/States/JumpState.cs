@@ -4,7 +4,7 @@ using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player.States
+namespace Entities.Player.States
 {
     public sealed class JumpState : PlayerState
     {

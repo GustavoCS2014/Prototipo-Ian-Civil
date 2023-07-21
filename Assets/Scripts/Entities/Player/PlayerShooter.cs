@@ -3,7 +3,7 @@ using Items.MonoBehaviours;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player
+namespace Entities.Player
 {
     public sealed class PlayerShooter : MonoBehaviour
     {
