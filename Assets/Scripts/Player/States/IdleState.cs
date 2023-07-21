@@ -3,9 +3,9 @@ using Core;
 
 namespace Player.States
 {
-    public sealed class IdleState : State
+    public sealed class IdleState : PlayerState
     {
-        public IdleState(StateMachine stateMachine) : base(stateMachine) { }
+        public IdleState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
 
         public static event Action<IdleState> Started;
 

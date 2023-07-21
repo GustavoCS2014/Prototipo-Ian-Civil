@@ -2,7 +2,7 @@ namespace Core
 {
     public abstract class State
     {
-        protected StateMachine StateMachine { get; }
+        protected readonly StateMachine StateMachine;
 
         protected State(StateMachine stateMachine)
         {
