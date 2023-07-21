@@ -6,15 +6,15 @@ using UnityEngine;
 namespace Items.MonoBehaviours
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Projectile : MonoBehaviour
+    public sealed class Projectile : MonoBehaviour
     {
-        public static event Action<Projectile, bool> OnHit;
+        public static event Action<Projectile, GameObject> Hit;
 
-        [SerializeField] private ProjectileInfo projectileInfo;
+        [SerializeField] private float radius;
         [SerializeField] private bool destroyOnHit;
+        [SerializeField] private ProjectileInfo projectileInfo;
 
         private Rigidbody2D _rigidbody;
-
         private Collider2D _lastCollider;
 
         private void Awake()
@@ -28,23 +28,32 @@ namespace Items.MonoBehaviours
             _rigidbody.velocity = direction * projectileInfo.Speed;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void FixedUpdate()
         {
             Transform t = transform;
-            Collider2D other = Physics2D.OverlapCircle(t.position, t.localScale.magnitude, projectileInfo.TargetLayer);
+            Collider2D other = Physics2D.OverlapCircle(t.position, radius, projectileInfo.TargetLayer);
 
-            if (other && other != _lastCollider)
-                _lastCollider = other;
-            else
-                return;
+            if (other == _lastCollider) return;
 
-            if (!other.TryGetComponent(out IDamageTaker damageTaker)) return;
+            _lastCollider = other;
 
-            bool success = damageTaker.TakeDamage(projectileInfo.Damage);
-            OnHit?.Invoke(this, success);
+            if (!other) return;
+
+            if (other.TryGetComponent(out IDamageTaker damageTaker))
+                damageTaker.TakeDamage(projectileInfo.Damage);
+
+            Hit?.Invoke(this, other.gameObject);
 
             if (destroyOnHit)
                 Destroy(gameObject);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Transform t = transform;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(t.position, radius);
         }
     }
 }
