@@ -14,10 +14,10 @@ TagManager:
   - Player
   - Ground
   - HurtBox
-  - 
-  - 
-  - 
-  - 
+  - PlayerHurtBox
+  - HitBox
+  - PlayerHitBox
+  - Collectable
   - 
   - 
   - 
