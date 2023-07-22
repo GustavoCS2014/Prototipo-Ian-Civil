@@ -11,11 +11,12 @@ namespace Units.Interactables
         public event Action Activated;
         public event Action Deactivated;
 
-        [SerializeField] private float activeTime;
         [SerializeField] private bool active;
         [SerializeField] private bool permanent;
 
         public bool Active => active;
+
+        public float ActiveTime { get; set; }
 
         public void TakeDamage(int damage)
         {
@@ -28,7 +29,7 @@ namespace Units.Interactables
         {
             active = true;
             Activated?.Invoke();
-            yield return new WaitForSeconds(activeTime);
+            yield return new WaitForSeconds(ActiveTime);
             active = false;
             Deactivated?.Invoke();
         }

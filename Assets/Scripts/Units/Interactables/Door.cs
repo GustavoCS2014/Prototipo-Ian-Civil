@@ -6,11 +6,15 @@ namespace Units.Interactables
     public class Door : MonoBehaviour
     {
         [SerializeField] private WallButton[] buttons;
+        [SerializeField] private float activeTime;
 
         private void Start()
         {
             foreach (WallButton button in buttons)
+            {
+                button.ActiveTime = activeTime;
                 button.Activated += OnButtonActivated;
+            }
         }
 
         private void OnButtonActivated()
@@ -19,10 +23,15 @@ namespace Units.Interactables
 
             foreach (WallButton button in buttons)
             {
-                button.Deactivated -= OnButtonActivated;
+                button.Activated -= OnButtonActivated;
                 button.SetPermanent();
             }
 
+            OpenDoor();
+        }
+
+        private void OpenDoor()
+        {
             Destroy(gameObject);
         }
     }
