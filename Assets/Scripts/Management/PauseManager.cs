@@ -9,37 +9,54 @@ namespace Management
 {
     public class PauseManager : MonoBehaviour
     {
+        public static PauseManager Instance { get; private set; }
+
         public static event Action Paused;
-        public static event Action Unpaused;
+        public static event Action Resumed;
 
         [SerializeField] private UnityEvent onPause;
-        [SerializeField] private UnityEvent onUnpause;
+        [SerializeField] private UnityEvent onResume;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void Start()
         {
             GameInput.PausePerformed += OnPausePerformed;
         }
 
+        private void OnDestroy()
+        {
+            GameInput.PausePerformed -= OnPausePerformed;
+        }
+
         private void OnPausePerformed(InputAction.CallbackContext context)
         {
-            var gameManager = GameManager.Instance;
-
-            gameManager.CurrentState = gameManager.CurrentState is GameState.Playing
-                ? GameState.Paused
-                : GameState.Playing;
-
-            if (gameManager.CurrentState is GameState.Paused)
+            switch (GameManager.Instance.CurrentState)
             {
-                Time.timeScale = 0f;
-                Paused?.Invoke();
-                onPause?.Invoke();
+                case GameState.Playing: Pause(); break;
+                case GameState.Paused: Resume(); break;
             }
-            else
-            {
-                Time.timeScale = 1f;
-                Unpaused?.Invoke();
-                onUnpause?.Invoke();
-            }
+        }
+
+        public void Pause()
+        {
+            GameManager.Instance.CurrentState = GameState.Paused;
+
+            Time.timeScale = 0f;
+            Paused?.Invoke();
+            onPause?.Invoke();
+        }
+
+        public void Resume()
+        {
+            GameManager.Instance.CurrentState = GameState.Playing;
+
+            Time.timeScale = 1f;
+            Resumed?.Invoke();
+            onResume?.Invoke();
         }
     }
 }
