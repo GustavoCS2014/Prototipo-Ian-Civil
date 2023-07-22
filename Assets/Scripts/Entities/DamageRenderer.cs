@@ -23,12 +23,13 @@ namespace Entities
 
         private void OnDamageTaken(int i)
         {
+            StopAllCoroutines();
             StartCoroutine(LerpColor());
         }
 
         private IEnumerator LerpColor()
         {
-            for (float t = 0; t < _time; t += Time.deltaTime)
+            for (var t = 0f; t < _time; t += Time.deltaTime)
             {
                 spriteRenderer.color = Color.Lerp(damageColor, NeutralColor, Utilities.Ease.InOutSine(t));
                 yield return null;

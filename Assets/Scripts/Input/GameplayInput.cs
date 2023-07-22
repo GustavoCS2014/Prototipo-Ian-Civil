@@ -14,7 +14,9 @@ namespace Input
 
         #endregion
 
-        private PlayerActions _playerActions;
+        public static Vector2 MoveDirection => _playerActions.Ground.Move.ReadValue<Vector2>();
+
+        private static PlayerActions _playerActions;
 
         private void Awake()
         {
@@ -35,6 +37,20 @@ namespace Input
             _playerActions.Ground.Shoot.canceled += ShootAction;
         }
 
+        private void OnDisable()
+        {
+            _playerActions.Ground.Disable();
+
+            _playerActions.Ground.Jump.performed -= JumpAction;
+            _playerActions.Ground.Jump.canceled -= JumpAction;
+
+            _playerActions.Ground.Move.performed -= MoveAction;
+            _playerActions.Ground.Move.canceled -= MoveAction;
+
+            _playerActions.Ground.Shoot.performed -= ShootAction;
+            _playerActions.Ground.Shoot.canceled -= ShootAction;
+        }
+
         private static void JumpAction(InputAction.CallbackContext context)
         {
             OnJump?.Invoke(context);
@@ -48,20 +64,6 @@ namespace Input
         private static void ShootAction(InputAction.CallbackContext context)
         {
             OnShoot?.Invoke(context);
-        }
-
-        private void OnDisable()
-        {
-            _playerActions.Ground.Disable();
-
-            _playerActions.Ground.Jump.performed -= JumpAction;
-            _playerActions.Ground.Jump.canceled -= JumpAction;
-
-            _playerActions.Ground.Move.performed -= MoveAction;
-            _playerActions.Ground.Move.canceled -= MoveAction;
-
-            _playerActions.Ground.Shoot.performed -= ShootAction;
-            _playerActions.Ground.Shoot.canceled -= ShootAction;
         }
     }
 }
