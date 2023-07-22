@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Utilities;
 
 namespace Units.Interactables
 {
@@ -41,12 +42,12 @@ namespace Units.Interactables
 
         private IEnumerator DisplaceDoor()
         {
-            var initialPos = transform.position;
-            var targetPos = transform.position + Vector3.up * transform.localScale.y;
+            Vector3 initialPos = transform.position;
+            Vector3 targetPos = transform.position + Vector3.up * transform.localScale.y;
 
             for (var t = 0f; t < displacementTime * 1.25f; t += Time.deltaTime)
             {
-                transform.position = Vector3.Lerp(initialPos, targetPos, Mathf.Clamp01(t / displacementTime));
+                transform.position = Vector3.Lerp(initialPos, targetPos, (t / displacementTime).Clamp01());
                 yield return null;
             }
         }
