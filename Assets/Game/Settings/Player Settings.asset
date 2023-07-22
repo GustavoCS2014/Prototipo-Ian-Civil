@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c461714a4f447d6b95b4adc64304bf8, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpHeight: 4
+  speed: 10
+  jumpHeight: 4.5
   airInputInfluence: 1
   groundLayer:
     serializedVersion: 2

@@ -1,12 +1,15 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Units.Interactables
 {
     public class Door : MonoBehaviour
     {
-        [SerializeField] private WallButton[] buttons;
+        [SerializeField] private bool freezeButtonsOnOpen;
         [SerializeField] private float activeTime;
+        [SerializeField, Min(1E-5f)] private float displacementTime;
+        [SerializeField] private WallButton[] buttons;
 
         private void Start()
         {
@@ -24,7 +27,8 @@ namespace Units.Interactables
             foreach (WallButton button in buttons)
             {
                 button.Activated -= OnButtonActivated;
-                button.SetPermanent();
+                if (freezeButtonsOnOpen)
+                    button.SetPermanent();
             }
 
             OpenDoor();
@@ -32,7 +36,19 @@ namespace Units.Interactables
 
         private void OpenDoor()
         {
-            Destroy(gameObject);
+            StartCoroutine(DisplaceDoor());
+        }
+
+        private IEnumerator DisplaceDoor()
+        {
+            var initialPos = transform.position;
+            var targetPos = transform.position + Vector3.up * transform.localScale.y;
+
+            for (var t = 0f; t < displacementTime * 1.25f; t += Time.deltaTime)
+            {
+                transform.position = Vector3.Lerp(initialPos, targetPos, Mathf.Clamp01(t / displacementTime));
+                yield return null;
+            }
         }
     }
 }
