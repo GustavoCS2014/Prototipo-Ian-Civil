@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Settings
   m_EditorClassIdentifier: 
   speed: 8
-  jumpHeight: 3
+  jumpHeight: 4
   airInputInfluence: 1
   groundLayer:
     serializedVersion: 2
