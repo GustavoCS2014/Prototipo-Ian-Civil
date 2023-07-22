@@ -1,4 +1,6 @@
 using System;
+using Core;
+using Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,11 +18,21 @@ namespace Input
 
         public static Vector2 MoveDirection => _playerActions.Ground.Move.ReadValue<Vector2>();
 
-        private static PlayerActions _playerActions;
+        private static GameActions _playerActions;
 
         private void Awake()
         {
-            _playerActions = new PlayerActions();
+            _playerActions = new GameActions();
+        }
+
+        private void Start()
+        {
+            GameManager.StateChanged += OnGameStateChanged;
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            enabled = state == GameState.Playing;
         }
 
         private void OnEnable()

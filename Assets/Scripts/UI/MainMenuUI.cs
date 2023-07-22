@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class MainMenuUI : MonoBehaviour
+    public sealed class MainMenuUI : MonoBehaviour
     {
         [SerializeField] private Scene sceneOnPlay;
         [SerializeField] private OptionsUI optionsPanel;

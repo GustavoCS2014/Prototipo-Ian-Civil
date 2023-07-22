@@ -2,7 +2,7 @@
 
 namespace UI
 {
-    public class OptionsUI : MonoBehaviour
+    public sealed class OptionsUI : MonoBehaviour
     {
         public void Show()
         {
