@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6942605024566233983}
   - component: {fileID: 5987418591238980041}
   - component: {fileID: 124777522887839385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8620920955282887244}
   - {fileID: 8276633007237425142}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6942605024566233983
 MonoBehaviour:
