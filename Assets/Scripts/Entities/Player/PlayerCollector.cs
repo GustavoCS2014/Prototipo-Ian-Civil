@@ -7,6 +7,8 @@ namespace Entities.Player
 {
     public class PlayerCollector : MonoBehaviour
     {
+        public static PlayerCollector Instance { get; private set; }
+
         public static event Action<int> CoinCollected;
 
         [SerializeField] private PlayerSettings settings;
@@ -20,6 +22,11 @@ namespace Entities.Player
             transform.eulerAngles.z,
             settings.CollectableLayer
         );
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void FixedUpdate()
         {

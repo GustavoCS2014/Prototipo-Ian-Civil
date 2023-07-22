@@ -23,10 +23,6 @@ namespace Input
         private void Awake()
         {
             _playerActions = new GameActions();
-        }
-
-        private void Start()
-        {
             GameManager.StateChanged += OnGameStateChanged;
         }
 
