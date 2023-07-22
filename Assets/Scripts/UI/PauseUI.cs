@@ -18,7 +18,11 @@ namespace UI
             if (optionsButton)
                 optionsButton.onClick.AddListener(() => Debug.Log("Options"));
             if (exitToTitleButton)
-                exitToTitleButton.onClick.AddListener(() => SceneManager.LoadScene(Scene.MainMenu));
+                exitToTitleButton.onClick.AddListener(() =>
+                {
+                    PauseManager.Instance.Resume();
+                    SceneManager.LoadScene(Scene.MainMenu);
+                });
             if (quitButton)
                 quitButton.onClick.AddListener(Application.Quit);
 

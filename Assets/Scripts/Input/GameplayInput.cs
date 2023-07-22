@@ -30,6 +30,11 @@ namespace Input
             GameManager.StateChanged += OnGameStateChanged;
         }
 
+        private void OnDestroy()
+        {
+            GameManager.StateChanged -= OnGameStateChanged;
+        }
+
         private void OnGameStateChanged(GameState state)
         {
             enabled = state == GameState.Playing;

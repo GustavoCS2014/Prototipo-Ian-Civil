@@ -66,6 +66,7 @@ namespace Entities.Player
         {
             Instance = this;
             Rigidbody = GetComponent<Rigidbody2D>();
+
             _stateMachine = new StateMachine();
             IdleState = new IdleState(this, _stateMachine);
             MoveState = new MoveState(this, _stateMachine);
@@ -78,5 +79,7 @@ namespace Entities.Player
         private void Update() => _stateMachine.CurrentState.Update();
 
         private void FixedUpdate() => _stateMachine.CurrentState.FixedUpdate();
+
+        private void OnDisable() => _stateMachine.Kill();
     }
 }

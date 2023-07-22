@@ -16,5 +16,11 @@ namespace Core
             CurrentState = state;
             CurrentState.OnStart();
         }
+
+        public void Kill()
+        {
+            CurrentState.OnEnd();
+            CurrentState = null;
+        }
     }
 }
