@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Entities.Player.States
 {
-    public sealed class MoveState : PlayerState
+    public sealed class MoveState : GroundState
     {
         public MoveState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
 
@@ -16,15 +16,15 @@ namespace Entities.Player.States
 
         public override void OnStart()
         {
+            base.OnStart();
             GameplayInput.OnMove += OnMoveInput;
-            GameplayInput.OnJump += OnJumpInput;
             Started?.Invoke(this);
         }
 
         public override void OnEnd()
         {
+            base.OnEnd();
             GameplayInput.OnMove -= OnMoveInput;
-            GameplayInput.OnJump -= OnJumpInput;
             Ended?.Invoke(this);
         }
 
@@ -37,17 +37,9 @@ namespace Entities.Player.States
             StateMachine.ChangeState(Player.IdleState);
         }
 
-        private void OnJumpInput(InputAction.CallbackContext context)
-        {
-            if (!context.performed) return;
-
-            if (!Player.Grounded) return;
-
-            StateMachine.ChangeState(Player.JumpState);
-        }
-
         public override void FixedUpdate()
         {
+            base.FixedUpdate();
             Player.Rigidbody.velocity = Player.Direction * Player.Settings.Speed * Vector2.right;
         }
 
