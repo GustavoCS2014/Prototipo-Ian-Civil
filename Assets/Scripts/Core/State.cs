@@ -1,11 +1,15 @@
+using UnityEngine;
+
 namespace Core
 {
-    public abstract class State
+    public abstract class State<T> where T : MonoBehaviour
     {
-        protected readonly StateMachine StateMachine;
+        protected readonly T Owner;
+        protected readonly StateMachine<T> StateMachine;
 
-        protected State(StateMachine stateMachine)
+        protected State(T owner, StateMachine<T> stateMachine)
         {
+            Owner = owner;
             StateMachine = stateMachine;
         }
 

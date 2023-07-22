@@ -8,7 +8,7 @@ namespace Entities.Player.States
 {
     public sealed class IdleState : GroundState
     {
-        public IdleState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
+        public IdleState(PlayerController player, StateMachine<PlayerController> stateMachine) : base(player, stateMachine) { }
 
         public static event Action<IdleState> Started;
 
@@ -19,7 +19,7 @@ namespace Entities.Player.States
             base.OnStart();
             GameplayInput.OnMove += OnMoveInput;
 
-            Player.Rigidbody.velocity = Vector2.zero;
+            Owner.Rigidbody.velocity = Vector2.zero;
 
             Started?.Invoke(this);
         }
@@ -35,18 +35,19 @@ namespace Entities.Player.States
         {
             if (!context.performed) return;
 
-            Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
 
-            StateMachine.ChangeState(Player.MoveState);
+            StateMachine.ChangeState(Owner.MoveState);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            Player.Rigidbody.velocity = new Vector2
+
+            Owner.Rigidbody.velocity = new Vector2
             {
                 x = 0f,
-                y = Player.Rigidbody.velocity.y
+                y = Owner.Rigidbody.velocity.y
             };
         }
 

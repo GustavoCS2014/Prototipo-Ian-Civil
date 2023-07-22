@@ -9,7 +9,7 @@ namespace Entities.Player
     {
         public static PlayerController Instance { get; private set; }
 
-        private static StateMachine _stateMachine;
+        private static StateMachine<PlayerController> _stateMachine;
 
         private float _direction;
 
@@ -66,7 +66,7 @@ namespace Entities.Player
         {
             Instance = this;
             Rigidbody = GetComponent<Rigidbody2D>();
-            _stateMachine = new StateMachine();
+            _stateMachine = new StateMachine<PlayerController>();
             IdleState = new IdleState(this, _stateMachine);
             MoveState = new MoveState(this, _stateMachine);
             JumpState = new JumpState(this, _stateMachine);
