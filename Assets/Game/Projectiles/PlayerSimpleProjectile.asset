@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5465fabd7a4642408148039b29feed5b, type: 3}
   m_Name: PlayerSimpleProjectile
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   speed: 25
   lifetime: 2
   targetLayer:

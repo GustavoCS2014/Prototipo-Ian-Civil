@@ -44,7 +44,19 @@ namespace Entities.Boss
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
-            Gizmos.DrawRay(transform.position + Vector3.up, Settings.DashDistance * Vector3.left);
+
+            if (!Settings) return;
+
+            Gizmos.color = Color.cyan;
+
+            Vector3 origin = transform.position + Vector3.up;
+            Gizmos.DrawRay(origin, Settings.DashDistance * Vector3.left);
+            Vector3 ray = new Vector3
+            {
+                x = -Settings.JumpDisplacement.x,
+                y = Settings.JumpDisplacement.y
+            };
+            Gizmos.DrawRay(origin, ray);
         }
 
         private void OnGUI()
