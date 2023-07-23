@@ -19,7 +19,7 @@ namespace Entities.Player.States
         {
             GameplayInput.OnMove += OnMoveInput;
 
-            float force = PhysicsCalculator.JumpForce(Owner.Rigidbody, Owner.Settings.JumpHeight);
+            float force = PhysicsCalculator.JumpStrength(Owner.Rigidbody, Owner.Settings.JumpHeight);
             Owner.Rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
             Started?.Invoke(this);

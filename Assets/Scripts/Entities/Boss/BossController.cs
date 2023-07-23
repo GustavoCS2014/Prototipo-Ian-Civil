@@ -16,6 +16,8 @@ namespace Entities.Boss
         public IdleState IdleState { get; private set; }
         public DashState DashState { get; private set; }
         public ShootState ShootState { get; private set; }
+        public JumpState JumpState { get; private set; }
+        public FallState FallState { get; private set; }
 
         protected override void Awake()
         {
@@ -23,6 +25,8 @@ namespace Entities.Boss
             IdleState = new IdleState(this, StateMachine);
             DashState = new DashState(this, StateMachine);
             ShootState = new ShootState(this, StateMachine);
+            JumpState = new JumpState(this, StateMachine);
+            FallState = new FallState(this, StateMachine);
         }
 
         private void Start()

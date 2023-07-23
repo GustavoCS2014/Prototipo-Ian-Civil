@@ -31,5 +31,9 @@ namespace Entities.Boss
 
         [SerializeField] private int timesToShoot;
         public int TimesToShoot => timesToShoot;
+
+        [Header("Jump")]
+        [SerializeField] private Vector2 jumpDisplacement;
+        public Vector2 JumpDisplacement => jumpDisplacement;
     }
 }

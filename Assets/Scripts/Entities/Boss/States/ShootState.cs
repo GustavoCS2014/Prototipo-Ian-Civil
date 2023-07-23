@@ -7,8 +7,6 @@ namespace Entities.Boss.States
 {
     public sealed class ShootState : State<BossController>
     {
-        private float _shootTime;
-
         public ShootState(BossController owner, StateMachine<BossController> stateMachine) : base(owner, stateMachine) { }
 
         public static event Action<ShootState> Started;

@@ -17,6 +17,7 @@ namespace Entities.Boss.States
 
         public override void OnStart()
         {
+            Owner.Rigidbody.velocity = Vector2.zero;
             Owner.FacePlayer();
 
             _idleTime = Time.time + Owner.Settings.IdleTime;
@@ -31,7 +32,12 @@ namespace Entities.Boss.States
         public override void Update()
         {
             if (Time.time >= _idleTime)
-                StateMachine.ChangeState(CoolerRandom.Bool() ? Owner.DashState : Owner.ShootState);
+                StateMachine.ChangeState(CoolerRandom.Int(3) switch
+                {
+                    0 => Owner.DashState,
+                    1 => Owner.ShootState,
+                    _ => Owner.JumpState
+                });
         }
 
         public override string ToString() => nameof(IdleState);

@@ -48,3 +48,4 @@ MonoBehaviour:
   shootCooldownTime: 0.5
   timeBetweenShots: 0.1
   timesToShoot: 3
+  jumpDisplacement: {x: 12, y: 6}
