@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8620920955282887244}
   - {fileID: 8276633007237425142}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6942605024566233983
 MonoBehaviour:
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683c269aa70246208eaaa13c5e156060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usePlayerInput: 1
   projectilePrefab: {fileID: 1512741206813134080, guid: d302435a9ff459640ac2984790481951, type: 3}
 --- !u!1 &7476859984379646938
 GameObject:
