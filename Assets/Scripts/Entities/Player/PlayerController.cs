@@ -1,4 +1,3 @@
-using System;
 using Entities.Player.States;
 using UnityEngine;
 
@@ -11,14 +10,10 @@ namespace Entities.Player
 
         public PlayerSettings Settings => settings as PlayerSettings;
 
-        #region States
-
         public IdleState IdleState { get; private set; }
         public MoveState MoveState { get; private set; }
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
-
-        #endregion
 
         protected override void Awake()
         {
@@ -38,8 +33,8 @@ namespace Entities.Player
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
-            Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, Settings.JumpHeight * Vector3.up);
+            if (Settings)
+                Gizmos.DrawRay(transform.position, Settings.JumpHeight * Vector3.up);
         }
     }
 }

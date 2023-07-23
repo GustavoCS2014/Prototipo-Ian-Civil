@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Entities
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseEntityController<T> : MonoBehaviour where T : BaseEntityController<T>
     {
         [SerializeField] protected BaseEntitySettings settings;
@@ -57,7 +58,8 @@ namespace Entities
         protected virtual void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, settings.GroundCheckRadius);
+            if (settings)
+                Gizmos.DrawWireSphere(transform.position, settings.GroundCheckRadius);
         }
     }
 }

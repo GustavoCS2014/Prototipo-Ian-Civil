@@ -1,9 +1,14 @@
-﻿using Entities.Boss.States;
+﻿using System;
+using Entities.Boss.States;
+using Entities.Player;
+using UnityEngine;
 
 namespace Entities.Boss
 {
     public class BossController : BaseEntityController<BossController>
     {
+        private PlayerController _player;
+
         public BossSettings Settings => settings as BossSettings;
 
         public IdleState IdleState { get; private set; }
@@ -20,7 +25,33 @@ namespace Entities.Boss
 
         private void Start()
         {
+            _player = PlayerController.Instance;
+            Direction = -1f;
             Initialize(IdleState);
+        }
+
+        public void FacePlayer()
+        {
+            Direction = _player.transform.position.x > transform.position.x ? 1f : -1f;
+        }
+
+        protected override void OnDrawGizmosSelected()
+        {
+            base.OnDrawGizmosSelected();
+            Gizmos.DrawRay(transform.position + Vector3.up, Settings.DashDistance * Vector3.left);
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(0f, 0f, Screen.width, Screen.height),
+                StateMachine.CurrentState.ToString(),
+                new GUIStyle
+                {
+                    fontSize = 16,
+                    alignment = TextAnchor.LowerLeft,
+                    normal = { textColor = Color.white }
+                }
+            );
         }
     }
 }
