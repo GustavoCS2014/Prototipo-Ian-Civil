@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Entities.Player
 {
     [CreateAssetMenu(fileName = "Player Settings", menuName = "Player/Player Settings")]
-    public sealed class PlayerSettings : ScriptableObject
+    public sealed class PlayerSettings : BaseEntitySettings
     {
         [SerializeField] private float speed;
         public float Speed => speed;
@@ -13,9 +13,6 @@ namespace Entities.Player
 
         [SerializeField, Range(0f, 1f)] private float airInputInfluence;
         public float AirInputInfluence => airInputInfluence;
-
-        [SerializeField] private LayerMask groundLayer;
-        public LayerMask GroundLayer => groundLayer;
 
         [SerializeField] private LayerMask collectableLayer;
         public LayerMask CollectableLayer => collectableLayer;

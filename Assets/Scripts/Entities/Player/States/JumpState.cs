@@ -3,6 +3,7 @@ using Core;
 using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utilities;
 
 namespace Entities.Player.States
 {
@@ -18,7 +19,7 @@ namespace Entities.Player.States
         {
             GameplayInput.OnMove += OnMoveInput;
 
-            float force = GetJumpForce();
+            float force = PhysicsCalculator.JumpForce(Owner.Rigidbody, Owner.Settings.JumpHeight);
             Owner.Rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
             Started?.Invoke(this);
@@ -45,15 +46,6 @@ namespace Entities.Player.States
 
             if (Owner.Rigidbody.velocity.y < 0f)
                 StateMachine.ChangeState(Owner.FallState);
-        }
-
-        private float GetJumpForce()
-        {
-            float gravityScaled = Physics2D.gravity.y * Owner.Rigidbody.gravityScale;
-            float height = Owner.Settings.JumpHeight;
-            float mass = Owner.Rigidbody.mass;
-
-            return Mathf.Sqrt(-2f * gravityScaled * height) * mass;
         }
 
         public override string ToString() => nameof(JumpState);

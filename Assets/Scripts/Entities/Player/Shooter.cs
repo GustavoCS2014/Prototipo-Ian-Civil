@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 namespace Entities.Player
 {
-    public sealed class PlayerShooter : MonoBehaviour
+    public sealed class Shooter : MonoBehaviour
     {
+        [SerializeField] private bool usePlayerInput;
+
         [SerializeField] private Projectile projectilePrefab;
 
         private void Start()
@@ -16,6 +18,7 @@ namespace Entities.Player
 
         private void Shoot(InputAction.CallbackContext context)
         {
+            if (!usePlayerInput) return;
             if (!context.performed) return;
 
             Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);

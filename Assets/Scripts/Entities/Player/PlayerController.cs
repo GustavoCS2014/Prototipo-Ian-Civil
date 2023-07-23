@@ -1,26 +1,15 @@
-using Core;
+using System;
 using Entities.Player.States;
 using UnityEngine;
 
 namespace Entities.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public sealed class PlayerController : MonoBehaviour
+    public sealed class PlayerController : BaseEntityController<PlayerController>
     {
         public static PlayerController Instance { get; private set; }
 
-        private static StateMachine<PlayerController> _stateMachine;
-
-        private float _direction;
-
-        #region Serialized Fields
-
-        [SerializeField] private PlayerSettings settings;
-
-        public PlayerSettings Settings => settings;
-        public Rigidbody2D Rigidbody { get; private set;  }
-
-        #endregion
+        public PlayerSettings Settings => settings as PlayerSettings;
 
         #region States
 
@@ -31,54 +20,26 @@ namespace Entities.Player
 
         #endregion
 
-        #region Status Members
-
-        public float Direction
+        protected override void Awake()
         {
-            get => _direction;
-            set
-            {
-                Vector3 localScale = transform.localScale;
-                if (value != 0f)
-                {
-                    transform.localScale = new Vector3(
-                        value * Mathf.Abs(localScale.x),
-                        localScale.y,
-                        localScale.z
-                    );
-                }
-
-                _direction = Mathf.Clamp(value, -1f, 1f);
-            }
-        }
-
-        public Vector2 FacingDirection => transform.localScale.x * Vector2.right;
-
-        public bool Grounded => Physics2D.OverlapCircle(
-            Rigidbody.position,
-            radius: 0.1f,
-            settings.GroundLayer
-        );
-
-        #endregion
-
-        private void Awake()
-        {
+            base.Awake();
             Instance = this;
-            Rigidbody = GetComponent<Rigidbody2D>();
-            _stateMachine = new StateMachine<PlayerController>();
-            IdleState = new IdleState(this, _stateMachine);
-            MoveState = new MoveState(this, _stateMachine);
-            JumpState = new JumpState(this, _stateMachine);
-            FallState = new FallState(this, _stateMachine);
+            IdleState = new IdleState(this, StateMachine);
+            MoveState = new MoveState(this, StateMachine);
+            JumpState = new JumpState(this, StateMachine);
+            FallState = new FallState(this, StateMachine);
         }
 
-        private void Start() => _stateMachine.Initialize(IdleState);
+        private void Start()
+        {
+            Initialize(IdleState);
+        }
 
-        private void Update() => _stateMachine.CurrentState.Update();
-
-        private void FixedUpdate() => _stateMachine.CurrentState.FixedUpdate();
-
-        private void OnDisable() => _stateMachine.Kill();
+        protected override void OnDrawGizmosSelected()
+        {
+            base.OnDrawGizmosSelected();
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, Settings.JumpHeight * Vector3.up);
+        }
     }
 }
