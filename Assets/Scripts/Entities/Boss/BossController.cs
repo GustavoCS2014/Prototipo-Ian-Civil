@@ -6,8 +6,10 @@ namespace Entities.Boss
 {
     public class BossController : MonoBehaviour
     {
-        private static StateMachine<BossController> _stateMachine;
+        [SerializeField] private BossSettings settings;
+        public BossSettings Settings => settings;
 
+        private static StateMachine<BossController> _stateMachine;
         public IdleState IdleState { get; private set; }
         public DashState DashState { get; private set; }
         public ShootState ShootState { get; private set; }
