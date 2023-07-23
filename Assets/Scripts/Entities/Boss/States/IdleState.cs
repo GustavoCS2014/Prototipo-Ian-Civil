@@ -1,10 +1,11 @@
 ﻿using System;
 using Core;
 using UnityEngine;
+using Utilities;
 
 namespace Entities.Boss.States
 {
-    public class IdleState : State<BossController>
+    public sealed class IdleState : State<BossController>
     {
         private float _idleTime;
 
@@ -18,7 +19,7 @@ namespace Entities.Boss.States
         {
             Owner.FacePlayer();
 
-            _idleTime = Time.time + Owner.Settings.IdleTime.Random;
+            _idleTime = Time.time + Owner.Settings.IdleTime;
             Started?.Invoke(this);
         }
 
@@ -30,7 +31,7 @@ namespace Entities.Boss.States
         public override void Update()
         {
             if (Time.time >= _idleTime)
-                StateMachine.ChangeState(Owner.DashState);
+                StateMachine.ChangeState(CoolerRandom.Bool() ? Owner.DashState : Owner.ShootState);
         }
 
         public override string ToString() => nameof(IdleState);

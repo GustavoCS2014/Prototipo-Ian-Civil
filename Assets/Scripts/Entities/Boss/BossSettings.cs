@@ -4,11 +4,11 @@ using Utilities;
 namespace Entities.Boss
 {
     [CreateAssetMenu(fileName = "Boss Settings", menuName = "Bosses/Boss Settings")]
-    public class BossSettings : BaseEntitySettings
+    public sealed class BossSettings : BaseEntitySettings
     {
         [Header("Idle")]
         [SerializeField] private Range idleTime;
-        public Range IdleTime => idleTime;
+        public float IdleTime => idleTime.Random;
 
         [Header("Dash")]
         [SerializeField] private float dashSpeed;
@@ -21,5 +21,15 @@ namespace Entities.Boss
 
         [SerializeField] private AnimationCurve dashCurve;
         public float DashCurve(float t) => dashCurve.Evaluate(t);
+
+        [Header("Shoot")]
+        [SerializeField] private float shootCooldownTime;
+        public float ShootCooldownTime => shootCooldownTime;
+
+        [SerializeField] private float timeBetweenShots;
+        public float TimeBetweenShots => timeBetweenShots;
+
+        [SerializeField] private int timesToShoot;
+        public int TimesToShoot => timesToShoot;
     }
 }

@@ -13,21 +13,25 @@ namespace Entities.Player
 
         private void Start()
         {
-            GameplayInput.OnShoot += Shoot;
+            if (usePlayerInput) GameplayInput.OnShoot += PlayerShoot;
         }
 
-        private void Shoot(InputAction.CallbackContext context)
+        private void PlayerShoot(InputAction.CallbackContext context)
         {
-            if (!usePlayerInput) return;
             if (!context.performed) return;
-
             Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectile.Launch(PlayerController.Instance.FacingDirection);
         }
 
+        public void Shoot(Vector2 direction)
+        {
+            Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            projectile.Launch(direction);
+        }
+
         private void OnDisable()
         {
-            GameplayInput.OnShoot -= Shoot;
+            if (usePlayerInput) GameplayInput.OnShoot -= PlayerShoot;
         }
     }
 }

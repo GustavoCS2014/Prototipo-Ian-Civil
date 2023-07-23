@@ -1030,8 +1030,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049127125}
-  - component: {fileID: 1049127127}
   - component: {fileID: 1049127126}
+  - component: {fileID: 1049127127}
   - component: {fileID: 1049127128}
   m_Layer: 13
   m_Name: Boss
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 9e8199b6f3d31de4fa9bb3bc6faed14c, type: 2}
+  shooter: {fileID: 1037169850}
 --- !u!50 &1049127127
 Rigidbody2D:
   serializedVersion: 4

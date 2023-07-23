@@ -19,7 +19,7 @@ MonoBehaviour:
   idleTime:
     min: 0.5
     max: 2
-  dashSpeed: 25
+  dashSpeed: 24
   dashDistance: 12
   dashCurve:
     serializedVersion: 2
@@ -45,3 +45,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  shootCooldownTime: 0.5
+  timeBetweenShots: 0.1
+  timesToShoot: 3

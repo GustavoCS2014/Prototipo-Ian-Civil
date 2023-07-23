@@ -1,15 +1,17 @@
-﻿using System;
-using Entities.Boss.States;
+﻿using Entities.Boss.States;
 using Entities.Player;
 using UnityEngine;
 
 namespace Entities.Boss
 {
-    public class BossController : BaseEntityController<BossController>
+    public sealed class BossController : BaseEntityController<BossController>
     {
+        [SerializeField] private Shooter shooter;
+
         private PlayerController _player;
 
         public BossSettings Settings => settings as BossSettings;
+        public Shooter Shooter => shooter;
 
         public IdleState IdleState { get; private set; }
         public DashState DashState { get; private set; }

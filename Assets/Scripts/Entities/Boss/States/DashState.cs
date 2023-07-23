@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Entities.Boss.States
 {
-    public class DashState : State<BossController>
+    public sealed class DashState : State<BossController>
     {
         private Vector2 _initialPosition;
         private Vector2 _targetPosition;
@@ -44,6 +44,7 @@ namespace Entities.Boss.States
         public override void FixedUpdate()
         {
             float t = _lerpTimer / Owner.Settings.DashTime;
+
             Owner.Rigidbody.MovePosition(Vector2.Lerp(
                 _initialPosition, _targetPosition,
                 Owner.Settings.DashCurve(t).Clamp01())
