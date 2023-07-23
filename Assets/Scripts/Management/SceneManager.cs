@@ -2,15 +2,16 @@
 {
     public static class SceneManager
     {
-        public static void LoadScene(Scene scene)
+        public static void LoadScene(GameScene scene)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene((int)scene);
         }
     }
 
-    public enum Scene
+    public enum GameScene
     {
         MainMenu,
-        Level1
+        Level1,
+        BossLevel
     }
 }

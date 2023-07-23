@@ -21,7 +21,7 @@ namespace UI
                 exitToTitleButton.onClick.AddListener(() =>
                 {
                     PauseManager.Instance.Resume();
-                    SceneManager.LoadScene(Scene.MainMenu);
+                    SceneManager.LoadScene(GameScene.MainMenu);
                 });
             if (quitButton)
                 quitButton.onClick.AddListener(Application.Quit);

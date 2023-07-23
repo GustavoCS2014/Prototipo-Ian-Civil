@@ -6,7 +6,7 @@ namespace Units.LevelHandlers
     [RequireComponent(typeof(Collider2D))]
     public class LevelExitTrigger : MonoBehaviour
     {
-        [SerializeField] private Scene nextScene;
+        [SerializeField] private GameScene nextScene;
 
         private void OnTriggerEnter2D(Collider2D other)
         {

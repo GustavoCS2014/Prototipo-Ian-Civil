@@ -6,7 +6,7 @@ namespace UI
 {
     public sealed class MainMenuUI : MonoBehaviour
     {
-        [SerializeField] private Scene sceneOnPlay;
+        [SerializeField] private GameScene sceneOnPlay;
         [SerializeField] private OptionsUI optionsPanel;
 
         [SerializeField] private Button playButton;
