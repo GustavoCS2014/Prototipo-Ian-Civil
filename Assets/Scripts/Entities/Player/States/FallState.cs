@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 namespace Entities.Player.States
 {
-    public sealed class FallState : PlayerState
+    public sealed class FallState : State<PlayerController>
     {
-        public FallState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
+        public FallState(PlayerController player, StateMachine<PlayerController> stateMachine) : base(player, stateMachine) { }
 
         public static event Action<FallState> Started;
 
@@ -28,19 +28,19 @@ namespace Entities.Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
         }
 
         public override void FixedUpdate()
         {
-            Player.Rigidbody.velocity = new Vector2
+            Owner.Rigidbody.velocity = new Vector2
             {
-                x = Player.Direction * Player.Settings.Speed * Player.Settings.AirInputInfluence,
-                y = Player.Rigidbody.velocity.y
+                x = Owner.Direction * Owner.Settings.Speed * Owner.Settings.AirInputInfluence,
+                y = Owner.Rigidbody.velocity.y
             };
 
-            if (Player.Grounded)
-                StateMachine.ChangeState(Player.Direction != 0f ? Player.MoveState : Player.IdleState);
+            if (Owner.Grounded)
+                StateMachine.ChangeState(Owner.Direction != 0f ? Owner.MoveState : Owner.IdleState);
         }
 
         public override string ToString() => nameof(FallState);

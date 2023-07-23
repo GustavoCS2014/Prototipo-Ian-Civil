@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 
 namespace Entities.Player.States
 {
-    public abstract class GroundState : PlayerState
+    public abstract class GroundState : State<PlayerController>
     {
-        protected GroundState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
+        protected GroundState(PlayerController player, StateMachine<PlayerController> stateMachine) : base(player, stateMachine) { }
 
         public override void OnStart()
         {
@@ -22,15 +22,15 @@ namespace Entities.Player.States
         {
             if (!context.performed) return;
 
-            if (!Player.Grounded) return;
+            if (!Owner.Grounded) return;
 
-            StateMachine.ChangeState(Player.JumpState);
+            StateMachine.ChangeState(Owner.JumpState);
         }
 
         public override void FixedUpdate()
         {
-            if (!Player.Grounded)
-                StateMachine.ChangeState(Player.FallState);
+            if (!Owner.Grounded)
+                StateMachine.ChangeState(Owner.FallState);
         }
     }
 }

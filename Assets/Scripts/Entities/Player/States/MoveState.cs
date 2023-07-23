@@ -8,7 +8,7 @@ namespace Entities.Player.States
 {
     public sealed class MoveState : GroundState
     {
-        public MoveState(PlayerController player, StateMachine stateMachine) : base(player, stateMachine) { }
+        public MoveState(PlayerController player, StateMachine<PlayerController> stateMachine) : base(player, stateMachine) { }
 
         public static event Action<MoveState> Started;
 
@@ -30,17 +30,17 @@ namespace Entities.Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            Player.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
 
             if (!context.canceled) return;
 
-            StateMachine.ChangeState(Player.IdleState);
+            StateMachine.ChangeState(Owner.IdleState);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            Player.Rigidbody.velocity = Player.Direction * Player.Settings.Speed * Vector2.right;
+            Owner.Rigidbody.velocity = Owner.Direction * Owner.Settings.Speed * Vector2.right;
         }
 
         public override string ToString() => nameof(MoveState);
