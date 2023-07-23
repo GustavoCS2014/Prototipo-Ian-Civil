@@ -8,6 +8,7 @@ namespace Entities
     public sealed class HurtBox : MonoBehaviour, IDamageTaker
     {
         public event Action<int> DamageTaken;
+        public event Action HealthDepleted;
 
         [SerializeField, Min(0)] private int health;
         public int Health => health;
@@ -20,6 +21,8 @@ namespace Entities
             health -= damage;
             health = Mathf.Clamp(health, 0, int.MaxValue);
             DamageTaken?.Invoke(damage);
+            if (health <= 0)
+                HealthDepleted?.Invoke();
         }
     }
 }

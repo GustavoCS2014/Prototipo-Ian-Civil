@@ -2,7 +2,9 @@
 {
     public enum GameState
     {
+        SceneIntro,
         Playing,
-        Paused
+        Paused,
+        BossKilled
     }
 }

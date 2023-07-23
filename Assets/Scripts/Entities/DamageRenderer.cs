@@ -5,7 +5,6 @@ namespace Entities
 {
     public sealed class DamageRenderer : MonoBehaviour
     {
-        [SerializeField, Min(0f)] private float defaultTime;
         [SerializeField] private Color damageColor;
 
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -17,7 +16,7 @@ namespace Entities
 
         private void Start()
         {
-            _time = hurtBox.DamageTime > 0f ? hurtBox.DamageTime : defaultTime;
+            _time = hurtBox.DamageTime;
             hurtBox.DamageTaken += OnDamageTaken;
         }
 

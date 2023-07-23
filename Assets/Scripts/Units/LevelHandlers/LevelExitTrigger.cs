@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Units.LevelHandlers
 {
-    [RequireComponent(typeof(Collider2D))]
     public class LevelExitTrigger : MonoBehaviour
     {
         [SerializeField] private GameScene nextScene;
@@ -11,7 +10,12 @@ namespace Units.LevelHandlers
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
-                SceneManager.LoadScene(nextScene);
+                LoadScene();
+        }
+
+        public void LoadScene()
+        {
+            SceneManager.LoadScene(nextScene);
         }
     }
 }

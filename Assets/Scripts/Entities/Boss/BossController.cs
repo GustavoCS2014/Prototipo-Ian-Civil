@@ -1,5 +1,7 @@
-﻿using Entities.Boss.States;
+﻿using Core;
+using Entities.Boss.States;
 using Entities.Player;
+using Management;
 using UnityEngine;
 
 namespace Entities.Boss
@@ -7,6 +9,7 @@ namespace Entities.Boss
     public sealed class BossController : BaseEntityController<BossController>
     {
         [SerializeField] private Shooter shooter;
+        [SerializeField] private HurtBox hurtBox;
 
         private PlayerController _player;
 
@@ -34,6 +37,20 @@ namespace Entities.Boss
             _player = PlayerController.Instance;
             Direction = -1f;
             Initialize(IdleState);
+
+            if (hurtBox) hurtBox.HealthDepleted += OnHealthDepleted;
+        }
+
+        private void OnDestroy()
+        {
+            if (hurtBox) hurtBox.HealthDepleted -= OnHealthDepleted;
+        }
+
+        private void OnHealthDepleted()
+        {
+            hurtBox.enabled = false;
+            if (GameManager.Instance)
+                GameManager.Instance.CurrentState = GameState.BossKilled;
         }
 
         public void FacePlayer()
