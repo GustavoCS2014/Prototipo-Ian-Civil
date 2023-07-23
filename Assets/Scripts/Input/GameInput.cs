@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public class GameInput : MonoBehaviour
+    public sealed class GameInput : MonoBehaviour
     {
         public static event Action<InputAction.CallbackContext> PausePerformed;
 

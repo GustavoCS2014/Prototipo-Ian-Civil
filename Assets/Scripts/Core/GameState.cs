@@ -1,10 +1,13 @@
-﻿namespace Core
+﻿using System;
+
+namespace Core
 {
+    [Flags]
     public enum GameState
     {
-        SceneIntro,
-        Playing,
-        Paused,
-        BossKilled
+        SceneIntro = 1,
+        Playing = 2,
+        Paused = 4,
+        BossKilled = 8,
     }
 }

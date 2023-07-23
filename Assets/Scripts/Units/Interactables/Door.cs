@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Units.Interactables
 {
-    public class Door : MonoBehaviour
+    public sealed class Door : MonoBehaviour
     {
         [SerializeField] private bool freezeButtonsOnOpen;
         [SerializeField] private float activeTime;

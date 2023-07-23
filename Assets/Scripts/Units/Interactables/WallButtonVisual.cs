@@ -3,7 +3,7 @@
 namespace Units.Interactables
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class WallButtonVisual : MonoBehaviour
+    public sealed class WallButtonVisual : MonoBehaviour
     {
         [SerializeField] private Color offColor;
         [SerializeField] private Color onColor;

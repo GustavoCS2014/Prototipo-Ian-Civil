@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class PauseUI : MonoBehaviour
+    public sealed class PauseUI : MonoBehaviour
     {
         [SerializeField] private Button resumeButton;
         [SerializeField] private Button optionsButton;

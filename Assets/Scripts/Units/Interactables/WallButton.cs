@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Units.Interactables
 {
     [RequireComponent(typeof(Collider2D))]
-    public class WallButton : MonoBehaviour, IDamageTaker
+    public sealed class WallButton : MonoBehaviour, IDamageTaker
     {
         public event Action Activated;
         public event Action Deactivated;

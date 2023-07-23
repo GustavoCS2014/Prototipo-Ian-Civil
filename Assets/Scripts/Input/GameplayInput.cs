@@ -8,6 +8,8 @@ namespace Input
 {
     public sealed class GameplayInput : MonoBehaviour
     {
+        [SerializeField] private GameState enabledInStates;
+
         #region Events
 
         public static event Action<InputAction.CallbackContext> OnJump;
@@ -33,7 +35,7 @@ namespace Input
 
         private void OnGameStateChanged(GameState state)
         {
-            enabled = state is GameState.Playing or GameState.BossKilled;
+            enabled = (enabledInStates & state) == state;
         }
 
         private void OnEnable()

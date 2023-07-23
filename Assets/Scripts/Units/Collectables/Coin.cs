@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Units.Collectables
 {
-    public class Coin : MonoBehaviour, ICollectable<Coin>
+    public sealed class Coin : MonoBehaviour, ICollectable<Coin>
     {
         [SerializeField] private int value;
 

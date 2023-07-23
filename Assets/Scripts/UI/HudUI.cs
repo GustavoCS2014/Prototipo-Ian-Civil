@@ -1,11 +1,10 @@
-﻿using System;
-using Entities.Player;
+﻿using Entities.Player;
 using TMPro;
 using UnityEngine;
 
 namespace UI
 {
-    public class HudUI : MonoBehaviour
+    public sealed class HudUI : MonoBehaviour
     {
         private const char MultiplierSymbol = '\u00d7'; // ×
         [SerializeField] private TextMeshProUGUI coinsText;

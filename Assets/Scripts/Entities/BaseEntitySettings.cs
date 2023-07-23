@@ -2,7 +2,7 @@
 
 namespace Entities
 {
-    public class BaseEntitySettings : ScriptableObject
+    public abstract class BaseEntitySettings : ScriptableObject
     {
         [SerializeField] private int maxHealth;
         public int MaxHealth => maxHealth;

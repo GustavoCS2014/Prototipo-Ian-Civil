@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Entities.Player
 {
-    public class PlayerCollector : MonoBehaviour
+    public sealed class PlayerCollector : MonoBehaviour
     {
         public static PlayerCollector Instance { get; private set; }
 

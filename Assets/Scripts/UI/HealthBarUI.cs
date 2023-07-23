@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class HealthBarUI : MonoBehaviour
+    public sealed class HealthBarUI : MonoBehaviour
     {
         [SerializeField] private HurtBox entityHurtBox;
         [SerializeField] private BaseEntitySettings entitySettings;

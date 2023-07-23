@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Management
 {
-    public class PauseManager : MonoBehaviour
+    public sealed class PauseManager : MonoBehaviour
     {
         public static PauseManager Instance { get; private set; }
 
@@ -34,11 +34,10 @@ namespace Management
 
         private void OnPausePerformed(InputAction.CallbackContext context)
         {
-            switch (GameManager.Instance.CurrentState)
-            {
-                case GameState.Playing: Pause(); break;
-                case GameState.Paused: Resume(); break;
-            }
+            if (GameManager.Instance.CurrentState is GameState.Paused)
+                Resume();
+            else
+                Pause();
         }
 
         public void Pause()

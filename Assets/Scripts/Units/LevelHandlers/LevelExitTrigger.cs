@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Units.LevelHandlers
 {
-    public class LevelExitTrigger : MonoBehaviour
+    public sealed class LevelExitTrigger : MonoBehaviour
     {
         [SerializeField] private GameScene nextScene;
 
