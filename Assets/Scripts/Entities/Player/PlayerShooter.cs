@@ -1,5 +1,5 @@
 using Input;
-using Items.MonoBehaviours;
+using Units.Hazards;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

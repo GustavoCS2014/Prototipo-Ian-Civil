@@ -1,9 +1,8 @@
 using System;
 using Core;
-using Items.ScriptableObjects;
 using UnityEngine;
 
-namespace Items.MonoBehaviours
+namespace Units.Hazards
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class Projectile : MonoBehaviour

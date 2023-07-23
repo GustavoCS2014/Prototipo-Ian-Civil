@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Items.ScriptableObjects
+namespace Units.Hazards
 {
     [CreateAssetMenu(fileName = "New Projectile", menuName = "Items/Projectile")]
     public sealed class ProjectileInfo : ScriptableObject

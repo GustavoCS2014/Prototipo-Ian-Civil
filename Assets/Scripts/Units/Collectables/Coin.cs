@@ -1,7 +1,7 @@
 ﻿using Core;
 using UnityEngine;
 
-namespace Items.Collectables
+namespace Units.Collectables
 {
     public class Coin : MonoBehaviour, ICollectable<Coin>
     {

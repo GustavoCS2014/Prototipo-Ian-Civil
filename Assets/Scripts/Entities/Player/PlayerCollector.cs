@@ -1,6 +1,6 @@
 ﻿using System;
 using Core;
-using Items.Collectables;
+using Units.Collectables;
 using UnityEngine;
 
 namespace Entities.Player
