@@ -38,7 +38,11 @@ namespace Entities.Boss
             Direction = -1f;
             Initialize(IdleState);
 
-            if (hurtBox) hurtBox.HealthDepleted += OnHealthDepleted;
+            if (hurtBox)
+            {
+                hurtBox.Health = Settings.MaxHealth;
+                hurtBox.HealthDepleted += OnHealthDepleted;
+            }
         }
 
         private void OnDestroy()
@@ -48,7 +52,9 @@ namespace Entities.Boss
 
         private void OnHealthDepleted()
         {
-            hurtBox.enabled = false;
+            hurtBox.gameObject.SetActive(false);
+            StopAllCoroutines();
+            StateMachine.Kill();
             if (GameManager.Instance)
                 GameManager.Instance.CurrentState = GameState.BossKilled;
         }

@@ -33,7 +33,7 @@ namespace Input
 
         private void OnGameStateChanged(GameState state)
         {
-            enabled = state == GameState.Playing;
+            enabled = state is GameState.Playing or GameState.BossKilled;
         }
 
         private void OnEnable()

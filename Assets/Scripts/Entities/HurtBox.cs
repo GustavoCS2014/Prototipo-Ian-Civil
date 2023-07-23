@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using UnityEngine;
+using Utilities;
 
 namespace Entities
 {
@@ -11,7 +12,11 @@ namespace Entities
         public event Action HealthDepleted;
 
         [SerializeField, Min(0)] private int health;
-        public int Health => health;
+        public int Health
+        {
+            get => health;
+            set => health = value.ClampMin(0);
+        }
 
         [SerializeField, Min(0f)] private float damageTime;
         public float DamageTime => damageTime;
