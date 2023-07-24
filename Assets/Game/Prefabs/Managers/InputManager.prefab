@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 691835489207211851}
   - component: {fileID: 8349308416492097399}
   - component: {fileID: 2305635559986837687}
+  - component: {fileID: 2902662788521939732}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8349308416492097399
 MonoBehaviour:
@@ -59,3 +60,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledInStates: 6
+--- !u!114 &2902662788521939732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635287335384168040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc60d8054654929a71247c17925f488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledInStates: 4
