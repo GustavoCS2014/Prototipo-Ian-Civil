@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Units.LevelHandlers
 {
-    public sealed class LevelExitTrigger : MonoBehaviour
+    public sealed class LoadSceneTrigger : MonoBehaviour
     {
         [SerializeField] private GameState loadSceneIf;
 

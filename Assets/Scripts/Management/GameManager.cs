@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,9 +7,7 @@ namespace Management
 {
     public sealed class GameManager : MonoBehaviour
     {
-        public delegate void GameStateChanged(GameState state);
-
-        public static event GameStateChanged StateChanged;
+        public static event Action<GameState> StateChanged;
 
         [SerializeField] private GameState currentState;
 
@@ -24,6 +23,12 @@ namespace Management
             set
             {
                 if (value == currentState) return;
+                // If value has multiple flags, return
+                if (value != 0 && (value & (value - 1)) != 0)
+                {
+                    Debug.LogWarning("Cannot set multiple states at once.", this);
+                    return;
+                }
                 currentState = value;
                 StateChanged?.Invoke(currentState);
             }
@@ -44,7 +49,7 @@ namespace Management
                 case GameState.SceneIntro: onSceneIntroState?.Invoke(); break;
                 case GameState.Playing: onPlayingState?.Invoke(); break;
                 case GameState.Paused: onPausedState?.Invoke(); break;
-                case GameState.OutroScene: onSceneOutroState?.Invoke(); break;
+                case GameState.SceneOutro: onSceneOutroState?.Invoke(); break;
             }
         }
 
