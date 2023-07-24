@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 248095657}
   - component: {fileID: 248095656}
   - component: {fileID: 248095655}
+  - component: {fileID: 248095658}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -249,10 +250,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -310,6 +311,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248095653}
   m_CullTransparentMesh: 1
+--- !u!114 &248095658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248095653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalMoveAmount: 0
+  moveTime: 0.2
+  scaleAmount: 1.25
 --- !u!1 &367639718
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +829,7 @@ GameObject:
   - component: {fileID: 835267811}
   - component: {fileID: 835267810}
   - component: {fileID: 835267809}
+  - component: {fileID: 835267812}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -862,10 +879,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -923,6 +940,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835267807}
   m_CullTransparentMesh: 1
+--- !u!114 &835267812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835267807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalMoveAmount: 0
+  moveTime: 0.2
+  scaleAmount: 1.25
 --- !u!1 &873595602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1160,7 @@ GameObject:
   - component: {fileID: 1249108904}
   - component: {fileID: 1249108903}
   - component: {fileID: 1249108902}
+  - component: {fileID: 1249108905}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -1177,10 +1210,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1238,6 +1271,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249108900}
   m_CullTransparentMesh: 1
+--- !u!114 &1249108905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249108900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalMoveAmount: 0
+  moveTime: 0.2
+  scaleAmount: 1.25
 --- !u!1001 &1436684097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1415,6 +1463,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5544743596646418854, guid: d72a0da86e720af4d9614fe5947c7607, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
