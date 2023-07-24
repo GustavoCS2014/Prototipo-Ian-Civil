@@ -1,10 +1,9 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class GameInput : MonoBehaviour
+    public sealed class GameInput : Input
     {
         public static event Action<InputAction.CallbackContext> PausePerformed;
 

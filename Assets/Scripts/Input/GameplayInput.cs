@@ -1,15 +1,11 @@
 using System;
-using Core;
-using Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class GameplayInput : MonoBehaviour
+    public sealed class GameplayInput : Input
     {
-        [SerializeField] private GameState enabledInStates;
-
         #region Events
 
         public static event Action<InputAction.CallbackContext> OnJump;
@@ -25,17 +21,6 @@ namespace Input
         private void Awake()
         {
             _playerActions = new GameActions();
-            GameManager.StateChanged += OnGameStateChanged;
-        }
-
-        private void OnDestroy()
-        {
-            GameManager.StateChanged -= OnGameStateChanged;
-        }
-
-        private void OnGameStateChanged(GameState state)
-        {
-            enabled = (enabledInStates & state) == state;
         }
 
         private void OnEnable()
