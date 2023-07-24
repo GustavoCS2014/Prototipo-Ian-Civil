@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Input
@@ -7,29 +8,31 @@ namespace Input
     {
         public static event Action<InputAction.CallbackContext> PausePerformed;
 
-        private GameActions _playerActions;
+        private static GameActions _gameActions;
 
         private void Awake()
         {
-            _playerActions = new GameActions();
+            _gameActions = new GameActions();
         }
 
         private void OnEnable()
         {
-            _playerActions.UI.Enable();
+            _gameActions.General.Enable();
 
-            _playerActions.UI.Pause.performed += PauseAction;
+            _gameActions.General.Pause.performed += PauseAction;
         }
 
         private void OnDisable()
         {
-            _playerActions.UI.Disable();
+            _gameActions.General.Disable();
 
-            _playerActions.UI.Pause.performed -= PauseAction;
+            _gameActions.General.Pause.performed -= PauseAction;
         }
 
         private static void PauseAction(InputAction.CallbackContext context)
         {
+            CurrentControlScheme = context.control.device.name == "Keyboard" ? ControlScheme.Keyboard : ControlScheme.Gamepad;
+            Debug.Log(CurrentControlScheme);
             PausePerformed?.Invoke(context);
         }
     }

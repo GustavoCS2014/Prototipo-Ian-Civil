@@ -14,41 +14,41 @@ namespace Input
 
         #endregion
 
-        public static Vector2 MoveDirection => _playerActions.Ground.Move.ReadValue<Vector2>();
+        public static Vector2 MoveDirection => _gameplayActions.Ground.Move.ReadValue<Vector2>();
 
-        private static GameActions _playerActions;
+        private static GameActions _gameplayActions;
 
         private void Awake()
         {
-            _playerActions = new GameActions();
+            _gameplayActions = new GameActions();
         }
 
         private void OnEnable()
         {
-            _playerActions.Ground.Enable();
+            _gameplayActions.Ground.Enable();
 
-            _playerActions.Ground.Jump.performed += JumpAction;
-            _playerActions.Ground.Jump.canceled += JumpAction;
+            _gameplayActions.Ground.Jump.performed += JumpAction;
+            _gameplayActions.Ground.Jump.canceled += JumpAction;
 
-            _playerActions.Ground.Move.performed += MoveAction;
-            _playerActions.Ground.Move.canceled += MoveAction;
+            _gameplayActions.Ground.Move.performed += MoveAction;
+            _gameplayActions.Ground.Move.canceled += MoveAction;
 
-            _playerActions.Ground.Shoot.performed += ShootAction;
-            _playerActions.Ground.Shoot.canceled += ShootAction;
+            _gameplayActions.Ground.Shoot.performed += ShootAction;
+            _gameplayActions.Ground.Shoot.canceled += ShootAction;
         }
 
         private void OnDisable()
         {
-            _playerActions.Ground.Disable();
+            _gameplayActions.Ground.Disable();
 
-            _playerActions.Ground.Jump.performed -= JumpAction;
-            _playerActions.Ground.Jump.canceled -= JumpAction;
+            _gameplayActions.Ground.Jump.performed -= JumpAction;
+            _gameplayActions.Ground.Jump.canceled -= JumpAction;
 
-            _playerActions.Ground.Move.performed -= MoveAction;
-            _playerActions.Ground.Move.canceled -= MoveAction;
+            _gameplayActions.Ground.Move.performed -= MoveAction;
+            _gameplayActions.Ground.Move.canceled -= MoveAction;
 
-            _playerActions.Ground.Shoot.performed -= ShootAction;
-            _playerActions.Ground.Shoot.canceled -= ShootAction;
+            _gameplayActions.Ground.Shoot.performed -= ShootAction;
+            _gameplayActions.Ground.Shoot.canceled -= ShootAction;
         }
 
         private static void JumpAction(InputAction.CallbackContext context)

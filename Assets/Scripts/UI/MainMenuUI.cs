@@ -1,4 +1,5 @@
 ﻿using Core;
+using Input;
 using Management;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,8 @@ namespace UI
                 optionsButton.onClick.AddListener(optionsPanel.Show);
             if (quitButton)
                 quitButton.onClick.AddListener(Application.Quit);
+
+            UIManager.Instance.SetSelectedObject(playButton.gameObject);
         }
     }
 }

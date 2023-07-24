@@ -7,6 +7,8 @@ namespace Input
 {
     public abstract class Input : MonoBehaviour
     {
+        public static ControlScheme CurrentControlScheme { get; protected set; }
+
         [SerializeField] protected GameState enabledInStates;
 
         private void Start()

@@ -37,6 +37,12 @@ namespace Management
             get => currentState;
         }
 
+        private void OnValidate()
+        {
+            if ((initialState & (initialState - 1)) != 0)
+                Debug.LogWarning("Cannot set multiple states at once.", this);
+        }
+
         private void Awake()
         {
             Instance = this;

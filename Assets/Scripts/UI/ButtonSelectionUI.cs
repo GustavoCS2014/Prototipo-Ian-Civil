@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using Input;
+using Management;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace UI
 {
-    public class ButtonSelectionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+    public sealed class ButtonSelectionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private float verticalMoveAmount;
         [SerializeField] private float moveTime;
@@ -17,6 +20,28 @@ namespace UI
         {
             _startPosition = transform.position;
             _startScale = transform.localScale;
+
+            UIInput.Navigate += OnNavigate;
+            UIInput.PointPerformed += OnPointPerformed;
+        }
+
+        private void OnDestroy()
+        {
+            UIInput.Navigate -= OnNavigate;
+            UIInput.PointPerformed -= OnPointPerformed;
+        }
+
+        private void OnNavigate(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                EventSystem.current.SetSelectedGameObject(UIManager.Instance.LastSelectedObject);
+        }
+
+        private void OnPointPerformed(InputAction.CallbackContext context)
+        {
+            if (EventSystem.current.currentSelectedGameObject == UIManager.Instance.LastSelectedObject)
+                return;
+            EventSystem.current.SetSelectedGameObject(null);
         }
 
         private IEnumerator MoveCard(bool startingAnimation)
@@ -60,6 +85,8 @@ namespace UI
         public void OnSelect(BaseEventData eventData)
         {
             StartCoroutine(MoveCard(true));
+
+            UIManager.Instance.LastSelectedObject = gameObject;
         }
 
         public void OnDeselect(BaseEventData eventData)
