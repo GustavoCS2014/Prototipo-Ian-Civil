@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
-    public sealed class ButtonSelectionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+    public sealed class SelectableHandlerUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         public event UnityAction PointerEntered
         {
