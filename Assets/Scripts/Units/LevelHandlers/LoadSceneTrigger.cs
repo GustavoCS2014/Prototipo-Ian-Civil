@@ -6,7 +6,7 @@ namespace Units.LevelHandlers
 {
     public sealed class LoadSceneTrigger : MonoBehaviour
     {
-        [SerializeField] private GameState loadSceneIf;
+        [SerializeField] private GameState loadSceneIfState;
 
         [SerializeField] private GameScene nextScene;
 
@@ -23,19 +23,19 @@ namespace Units.LevelHandlers
 
         private void Start()
         {
-            if (loadSceneIf != 0)
+            if (loadSceneIfState != 0)
                 GameManager.StateChanged += OnGameStateChange;
         }
 
         private void OnGameStateChange(GameState state)
         {
-            if (state.HasFlag(loadSceneIf))
+            if (state.HasFlag(loadSceneIfState))
                 LoadNextScene();
         }
 
         private void OnDestroy()
         {
-            if (loadSceneIf != 0)
+            if (loadSceneIfState != 0)
                 GameManager.StateChanged -= OnGameStateChange;
         }
     }

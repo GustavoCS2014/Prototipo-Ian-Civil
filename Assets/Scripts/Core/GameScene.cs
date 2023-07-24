@@ -4,6 +4,7 @@
     {
         MainMenu,
         Level1,
-        BossLevel
+        BossLevel,
+        Credits
     }
 }

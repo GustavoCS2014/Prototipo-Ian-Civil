@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossPlayground.unity
     guid: 8008b9e9c27b1a6408bdaada9b482a66
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 29b609aadf7ec414797f694af0b3057f
   m_configObjects: {}
