@@ -242,10 +242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1249108902}
+    m_SelectOnDown: {fileID: 835267809}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -323,9 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalMoveAmount: 0
   moveTime: 0.2
-  scaleAmount: 1.25
+  scaleAmount: 1.1
 --- !u!1001 &361682223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,10 +953,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 248095655}
+    m_SelectOnDown: {fileID: 1249108902}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1035,9 +1034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalMoveAmount: 0
   moveTime: 0.2
-  scaleAmount: 1.25
+  scaleAmount: 1.1
 --- !u!1 &873595602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,9 +1428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalMoveAmount: 0
   moveTime: 0.2
-  scaleAmount: 1.25
+  scaleAmount: 1.1
 --- !u!1 &1427121916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3628600682385158891, guid: b0c18272353c8334bb8dbca513d6979e, type: 3}
@@ -1460,7 +1457,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2397110254529593214, guid: b0c18272353c8334bb8dbca513d6979e, type: 3}
       propertyPath: m_MoveRepeatDelay
-      value: 0.12
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2551785192553124279, guid: b0c18272353c8334bb8dbca513d6979e, type: 3}
       propertyPath: m_RootOrder
