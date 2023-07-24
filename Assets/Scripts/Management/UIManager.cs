@@ -11,7 +11,7 @@ namespace Management
 
         public GameObject LastSelectedObject { get; set; }
 
-        public void SetSelectedObject(GameObject selectedObject)
+        public static void SetSelectedObject(GameObject selectedObject)
         {
             EventSystem.current.SetSelectedGameObject(selectedObject);
         }

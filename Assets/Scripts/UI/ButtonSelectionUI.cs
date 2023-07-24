@@ -10,29 +10,32 @@ namespace UI
         [SerializeField] private float moveTime;
         [SerializeField] private float scaleAmount;
 
+        private RectTransform _rectTransform;
         private Vector3 _startScale;
 
-        private void Start()
+        private void Awake()
         {
-            _startScale = transform.localScale;
+            _rectTransform = GetComponent<RectTransform>();
+            _startScale = _rectTransform.localScale;
         }
 
         private IEnumerator MoveCard(bool startingAnimation)
         {
+            Vector3 endScale;
+            if (startingAnimation)
+            {
+                endScale = _startScale * scaleAmount;
+            }
+            else
+            {
+                endScale = _startScale;
+            }
+
             for (var t = 0f; t < moveTime; t += Time.deltaTime)
             {
-                Vector3 endScale;
-                if (startingAnimation)
-                {
-                    endScale = _startScale * scaleAmount;
-                }
-                else
-                {
-                    endScale = _startScale;
-                }
-                Vector3 lerpScale = Vector3.Lerp(transform.localScale, endScale, t / moveTime);
+                Vector3 lerpScale = Vector3.Lerp(_rectTransform.localScale, endScale, t / moveTime);
 
-                transform.localScale = lerpScale;
+                _rectTransform.localScale = lerpScale;
 
                 yield return null;
             }
