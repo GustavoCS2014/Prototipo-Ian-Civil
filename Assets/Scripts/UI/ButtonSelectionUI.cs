@@ -1,4 +1,5 @@
-﻿using Management;
+﻿using System;
+using Management;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -9,54 +10,60 @@ namespace UI
     {
         public event UnityAction PointerEntered
         {
-            add => onPointerEnter.AddListener(value);
-            remove => onPointerEnter.RemoveListener(value);
+            add => events.onPointerEnter.AddListener(value);
+            remove => events.onPointerEnter.RemoveListener(value);
         }
 
         public event UnityAction PointerExited
         {
-            add => onPointerExit.AddListener(value);
-            remove => onPointerExit.RemoveListener(value);
+            add => events.onPointerExit.AddListener(value);
+            remove => events.onPointerExit.RemoveListener(value);
         }
 
         public event UnityAction Selected
         {
-            add => onSelect.AddListener(value);
-            remove => onSelect.RemoveListener(value);
+            add => events.onSelect.AddListener(value);
+            remove => events.onSelect.RemoveListener(value);
         }
 
         public event UnityAction Deselected
         {
-            add => onDeselect.AddListener(value);
-            remove => onDeselect.RemoveListener(value);
+            add => events.onDeselect.AddListener(value);
+            remove => events.onDeselect.RemoveListener(value);
         }
 
-        [SerializeField] private UnityEvent onPointerEnter;
-        [SerializeField] private UnityEvent onPointerExit;
-        [SerializeField] private UnityEvent onSelect;
-        [SerializeField] private UnityEvent onDeselect;
+        [SerializeField] private Events events;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            onPointerEnter?.Invoke();
+            events.onPointerEnter?.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             eventData.selectedObject = null;
-            onPointerExit?.Invoke();
+            events.onPointerExit?.Invoke();
         }
 
         public void OnSelect(BaseEventData eventData)
         {
             UIManager.Instance.LastSelectedObject = gameObject;
-            onSelect?.Invoke();
+            events.onSelect?.Invoke();
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
-            onDeselect?.Invoke();
+            events.onDeselect?.Invoke();
+        }
+
+        [Serializable]
+        private struct Events
+        {
+            [SerializeField] public UnityEvent onPointerEnter;
+            [SerializeField] public UnityEvent onPointerExit;
+            [SerializeField] public UnityEvent onSelect;
+            [SerializeField] public UnityEvent onDeselect;
         }
     }
 }
