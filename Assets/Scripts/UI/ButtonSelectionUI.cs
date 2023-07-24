@@ -1,66 +1,62 @@
-﻿using System.Collections;
-using Management;
+﻿using Management;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace UI
 {
     public sealed class ButtonSelectionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
-        [SerializeField] private float moveTime;
-        [SerializeField] private float scaleAmount;
-
-        private RectTransform _rectTransform;
-        private Vector3 _startScale;
-
-        private void Awake()
+        public event UnityAction PointerEntered
         {
-            _rectTransform = GetComponent<RectTransform>();
-            _startScale = _rectTransform.localScale;
+            add => onPointerEnter.AddListener(value);
+            remove => onPointerEnter.RemoveListener(value);
         }
 
-        private IEnumerator MoveCard(bool startingAnimation)
+        public event UnityAction PointerExited
         {
-            Vector3 endScale;
-            if (startingAnimation)
-            {
-                endScale = _startScale * scaleAmount;
-            }
-            else
-            {
-                endScale = _startScale;
-            }
-
-            for (var t = 0f; t < moveTime; t += Time.deltaTime)
-            {
-                Vector3 lerpScale = Vector3.Lerp(_rectTransform.localScale, endScale, t / moveTime);
-
-                _rectTransform.localScale = lerpScale;
-
-                yield return null;
-            }
+            add => onPointerExit.AddListener(value);
+            remove => onPointerExit.RemoveListener(value);
         }
+
+        public event UnityAction Selected
+        {
+            add => onSelect.AddListener(value);
+            remove => onSelect.RemoveListener(value);
+        }
+
+        public event UnityAction Deselected
+        {
+            add => onDeselect.AddListener(value);
+            remove => onDeselect.RemoveListener(value);
+        }
+
+        [SerializeField] private UnityEvent onPointerEnter;
+        [SerializeField] private UnityEvent onPointerExit;
+        [SerializeField] private UnityEvent onSelect;
+        [SerializeField] private UnityEvent onDeselect;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
+            onPointerEnter?.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             eventData.selectedObject = null;
+            onPointerExit?.Invoke();
         }
 
         public void OnSelect(BaseEventData eventData)
         {
-            StartCoroutine(MoveCard(true));
-
             UIManager.Instance.LastSelectedObject = gameObject;
+            onSelect?.Invoke();
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
-            StartCoroutine(MoveCard(false));
+            onDeselect?.Invoke();
         }
     }
 }
