@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSimpleProjectile
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 25
+  speed: 40
   lifetime: 2
   targetLayer:
     serializedVersion: 2
