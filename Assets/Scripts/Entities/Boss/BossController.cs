@@ -1,16 +1,12 @@
 ﻿using Entities.Boss.States;
 using Entities.Player;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Entities.Boss
 {
     public sealed class BossController : BaseEntityController<BossController>
     {
         [SerializeField] private Shooter shooter;
-        [SerializeField] private HurtBox hurtBox;
-
-        [SerializeField] private UnityEvent onDie;
 
         private PlayerController _player;
 
@@ -22,6 +18,7 @@ namespace Entities.Boss
         public ShootState ShootState { get; private set; }
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
+        private DieState DieState { get; set; }
 
         protected override void Awake()
         {
@@ -31,6 +28,7 @@ namespace Entities.Boss
             ShootState = new ShootState(this, StateMachine);
             JumpState = new JumpState(this, StateMachine);
             FallState = new FallState(this, StateMachine);
+            DieState = new DieState(this, StateMachine);
         }
 
         private void Start()
@@ -38,12 +36,7 @@ namespace Entities.Boss
             _player = PlayerController.Instance;
             Direction = -1f;
             Initialize(IdleState);
-
-            if (hurtBox)
-            {
-                hurtBox.Health = Settings.MaxHealth;
-                hurtBox.HealthDepleted += OnHealthDepleted;
-            }
+            if (hurtBox) hurtBox.HealthDepleted += OnHealthDepleted;
         }
 
         protected override void OnDestroy()
@@ -54,10 +47,9 @@ namespace Entities.Boss
 
         private void OnHealthDepleted()
         {
-            hurtBox.gameObject.SetActive(false);
             StopAllCoroutines();
-            StateMachine.Kill();
-            onDie?.Invoke();
+            Rigidbody.velocity = Vector2.zero;
+            StateMachine.ChangeState(DieState);
         }
 
         public void FacePlayer()
@@ -81,19 +73,6 @@ namespace Entities.Boss
                 y = Settings.JumpDisplacement.y
             };
             Gizmos.DrawRay(origin, ray);
-        }
-
-        private void OnGUI()
-        {
-            GUI.Label(new Rect(0f, 0f, Screen.width, Screen.height),
-                StateMachine.CurrentState.ToString(),
-                new GUIStyle
-                {
-                    fontSize = 16,
-                    alignment = TextAnchor.LowerLeft,
-                    normal = { textColor = Color.white }
-                }
-            );
         }
     }
 }

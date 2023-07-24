@@ -22,14 +22,14 @@ namespace Core
         public void Kill()
         {
             CurrentState.OnEnd();
-            CurrentState = new DeathState();
+            CurrentState = new NullState();
         }
 
-        private class DeathState : State<T>
+        private class NullState : State<T>
         {
-            public DeathState() : base(null, null) { }
+            public NullState() : base(null, null) { }
 
-            public override string ToString() => nameof(DeathState);
+            public override string ToString() => nameof(NullState);
         }
     }
 }

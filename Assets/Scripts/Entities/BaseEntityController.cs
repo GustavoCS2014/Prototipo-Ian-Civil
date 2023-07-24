@@ -7,6 +7,7 @@ namespace Entities
     public abstract class BaseEntityController<T> : MonoBehaviour where T : BaseEntityController<T>
     {
         [SerializeField] protected BaseEntitySettings settings;
+        [SerializeField] protected HurtBox hurtBox;
 
         private float _direction;
 
