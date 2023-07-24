@@ -1,8 +1,7 @@
-﻿using Core;
-using Entities.Boss.States;
+﻿using Entities.Boss.States;
 using Entities.Player;
-using Management;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Entities.Boss
 {
@@ -10,6 +9,8 @@ namespace Entities.Boss
     {
         [SerializeField] private Shooter shooter;
         [SerializeField] private HurtBox hurtBox;
+
+        [SerializeField] private UnityEvent onDie;
 
         private PlayerController _player;
 
@@ -45,8 +46,9 @@ namespace Entities.Boss
             }
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             if (hurtBox) hurtBox.HealthDepleted -= OnHealthDepleted;
         }
 
@@ -55,8 +57,7 @@ namespace Entities.Boss
             hurtBox.gameObject.SetActive(false);
             StopAllCoroutines();
             StateMachine.Kill();
-            if (GameManager.Instance)
-                GameManager.Instance.CurrentState = GameState.BossKilled;
+            onDie?.Invoke();
         }
 
         public void FacePlayer()

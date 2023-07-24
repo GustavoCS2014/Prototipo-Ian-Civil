@@ -1,17 +1,27 @@
-﻿namespace Management
+﻿using System.Collections;
+using Core;
+using UnityEngine;
+
+namespace Management
 {
-    public static class SceneManager
+    public sealed class SceneManager : MonoBehaviour
     {
+        [SerializeField] private GameScene defaultNextScene;
+
         public static void LoadScene(GameScene scene)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene((int)scene);
         }
-    }
 
-    public enum GameScene
-    {
-        MainMenu,
-        Level1,
-        BossLevel
+        public void LoadSceneAfterDelay(float delay)
+        {
+            StartCoroutine(LoadSceneCoroutine());
+
+            IEnumerator LoadSceneCoroutine()
+            {
+                yield return new WaitForSeconds(delay);
+                LoadScene(defaultNextScene);
+            }
+        }
     }
 }

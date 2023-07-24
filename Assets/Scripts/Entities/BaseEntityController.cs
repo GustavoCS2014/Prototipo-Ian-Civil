@@ -53,7 +53,7 @@ namespace Entities
 
         private void FixedUpdate() => StateMachine.CurrentState.FixedUpdate();
 
-        private void OnDestroy() => StateMachine.Kill();
+        protected virtual void OnDestroy() => StateMachine.Kill();
 
         protected virtual void OnDrawGizmosSelected()
         {

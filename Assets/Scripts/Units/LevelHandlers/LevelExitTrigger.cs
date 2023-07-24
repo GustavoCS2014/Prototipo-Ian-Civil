@@ -1,10 +1,13 @@
-﻿using Management;
+﻿using Core;
+using Management;
 using UnityEngine;
 
 namespace Units.LevelHandlers
 {
     public sealed class LevelExitTrigger : MonoBehaviour
     {
+        [SerializeField] private GameState loadSceneIf;
+
         [SerializeField] private GameScene nextScene;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +19,24 @@ namespace Units.LevelHandlers
         public void LoadScene()
         {
             SceneManager.LoadScene(nextScene);
+        }
+
+        private void Start()
+        {
+            if (loadSceneIf != 0)
+                GameManager.StateChanged += OnGameStateChange;
+        }
+
+        private void OnGameStateChange(GameState state)
+        {
+            if (state.HasFlag(loadSceneIf))
+                LoadScene();
+        }
+
+        private void OnDestroy()
+        {
+            if (loadSceneIf != 0)
+                GameManager.StateChanged -= OnGameStateChange;
         }
     }
 }
