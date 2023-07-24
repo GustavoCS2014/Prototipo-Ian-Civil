@@ -9,6 +9,8 @@ namespace Management
     {
         public static event Action<GameState> StateChanged;
 
+        [Tooltip("The initial state of the game is set to currentState on Start.")]
+        [SerializeField] private GameState initialState;
         [SerializeField] private GameState currentState;
 
         [SerializeField] private UnityEvent onSceneIntroState;
@@ -38,8 +40,12 @@ namespace Management
         private void Awake()
         {
             Instance = this;
-            currentState = GameState.Playing;
             StateChanged += OnStateChanged;
+        }
+
+        private void Start()
+        {
+            CurrentState = initialState;
         }
 
         private void OnStateChanged(GameState state)

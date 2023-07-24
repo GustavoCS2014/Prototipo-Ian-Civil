@@ -13,10 +13,10 @@ namespace Units.LevelHandlers
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
-                LoadScene();
+                LoadNextScene();
         }
 
-        public void LoadScene()
+        public void LoadNextScene()
         {
             SceneManager.LoadScene(nextScene);
         }
@@ -30,7 +30,7 @@ namespace Units.LevelHandlers
         private void OnGameStateChange(GameState state)
         {
             if (state.HasFlag(loadSceneIf))
-                LoadScene();
+                LoadNextScene();
         }
 
         private void OnDestroy()

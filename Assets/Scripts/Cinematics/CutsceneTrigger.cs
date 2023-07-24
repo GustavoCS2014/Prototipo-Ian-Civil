@@ -13,7 +13,7 @@ namespace Cinematics
         [SerializeField] private UnityEvent onStartCutscene;
         [SerializeField] private UnityEvent onEndCutscene;
 
-        private void Start()
+        private void Awake()
         {
             GameManager.StateChanged += OnStateChanged;
         }
