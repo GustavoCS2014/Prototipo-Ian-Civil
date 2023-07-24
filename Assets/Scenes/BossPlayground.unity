@@ -1614,30 +1614,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onSceneOutroState.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onSceneOutroState.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1977454344}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7156612043429012537, guid: db163140f3e473348af9c082d2dd221a, type: 3}
-      propertyPath: onSceneOutroState.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

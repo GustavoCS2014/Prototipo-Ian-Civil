@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8311f8160446faa71bc3163f154e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 12
   triggerOnState: 2
   onStartCutscene:
     m_PersistentCalls:

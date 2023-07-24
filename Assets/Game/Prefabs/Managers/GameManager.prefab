@@ -45,7 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b4e34a3afb4f2bb62fc3f4d7d0a59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStateChanged:
+  initialState: 2
+  currentState: 0
+  onSceneIntroState:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayingState:
+    m_PersistentCalls:
+      m_Calls: []
+  onPausedState:
+    m_PersistentCalls:
+      m_Calls: []
+  onSceneOutroState:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4142877840601212308
