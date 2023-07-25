@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b05668e9111454cbf0ca4d40eb6d69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadSceneIf: 0
+  loadSceneIfState: 0
   nextScene: 3
 --- !u!1001 &155889442987404510
 PrefabInstance:
@@ -1880,10 +1880,6 @@ PrefabInstance:
     - target: {fileID: 691835489207211851, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305635559986837687, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
-      propertyPath: enabledInStates
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5635287335384168040, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
       propertyPath: m_Name
