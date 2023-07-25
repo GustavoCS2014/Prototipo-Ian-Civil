@@ -2,16 +2,29 @@
 using Core;
 using Management;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Input
 {
     public abstract class Input : MonoBehaviour
     {
-        public static ControlScheme CurrentControlScheme { get; protected set; }
+        public static event Action<ControlScheme> ControlSchemeChanged;
+
+        public static ControlScheme CurrentControlScheme
+        {
+            get => _currentControlScheme;
+            private set
+            {
+                _currentControlScheme = value;
+                ControlSchemeChanged?.Invoke(value);
+            }
+        }
+
+        private static ControlScheme _currentControlScheme;
 
         [SerializeField] protected GameState enabledInStates;
 
-        private void Start()
+        protected virtual void Awake()
         {
             GameManager.StateChanged += OnGameStateChanged;
         }
@@ -24,6 +37,15 @@ namespace Input
         private void OnGameStateChanged(GameState state)
         {
             enabled = (enabledInStates & state) == state;
+        }
+
+        protected static void SetCurrentControlScheme(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            CurrentControlScheme = context.control.device.name is "Keyboard" or "Mouse"
+                ? ControlScheme.Keyboard
+                : ControlScheme.Gamepad;
         }
     }
 }

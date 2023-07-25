@@ -18,8 +18,9 @@ namespace Input
 
         private static GameActions _gameplayActions;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _gameplayActions = new GameActions();
         }
 
@@ -53,16 +54,19 @@ namespace Input
 
         private static void JumpAction(InputAction.CallbackContext context)
         {
+            SetCurrentControlScheme(context);
             OnJump?.Invoke(context);
         }
 
         private static void MoveAction(InputAction.CallbackContext context)
         {
+            SetCurrentControlScheme(context);
             OnMove?.Invoke(context);
         }
 
         private static void ShootAction(InputAction.CallbackContext context)
         {
+            SetCurrentControlScheme(context);
             OnShoot?.Invoke(context);
         }
     }

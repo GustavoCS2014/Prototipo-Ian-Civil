@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Input
@@ -10,8 +9,9 @@ namespace Input
 
         private static GameActions _gameActions;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _gameActions = new GameActions();
         }
 
@@ -31,8 +31,7 @@ namespace Input
 
         private static void PauseAction(InputAction.CallbackContext context)
         {
-            CurrentControlScheme = context.control.device.name == "Keyboard" ? ControlScheme.Keyboard : ControlScheme.Gamepad;
-            Debug.Log(CurrentControlScheme);
+            SetCurrentControlScheme(context);
             PausePerformed?.Invoke(context);
         }
     }
