@@ -7,30 +7,27 @@ namespace Management
 {
     public sealed class UIManager : MonoBehaviour
     {
-        public static UIManager Instance { get; private set; }
+        public static GameObject LastSelectedObject { get; set; }
 
-        public GameObject LastSelectedObject { get; set; }
-
-        public static void SetSelectedObject(GameObject selectedObject)
+        public static void SetSelectedGameObject(GameObject selectedObject)
         {
             EventSystem.current.SetSelectedGameObject(selectedObject);
         }
 
         private void Awake()
         {
-            Instance = this;
-            UIInput.Navigate += OnNavigate;
+            UIInput.NavigatePerformed += OnNavigatePerformed;
             UIInput.PointPerformed += OnPointPerformed;
         }
 
         private void OnDestroy()
         {
-            UIInput.Navigate -= OnNavigate;
+            UIInput.NavigatePerformed -= OnNavigatePerformed;
             UIInput.PointPerformed -= OnPointPerformed;
         }
 
 
-        private void OnNavigate(InputAction.CallbackContext context)
+        private void OnNavigatePerformed(InputAction.CallbackContext context)
         {
             if (context.performed)
                 EventSystem.current.SetSelectedGameObject(LastSelectedObject);

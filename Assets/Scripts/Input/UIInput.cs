@@ -6,7 +6,7 @@ namespace Input
 {
     public sealed class UIInput : Input
     {
-        public static event Action<InputAction.CallbackContext> Navigate;
+        public static event Action<InputAction.CallbackContext> NavigatePerformed;
         public static event Action<InputAction.CallbackContext> SubmitPerformed;
         public static event Action<InputAction.CallbackContext> CancelPerformed;
         public static event Action<InputAction.CallbackContext> PointPerformed;
@@ -44,7 +44,7 @@ namespace Input
         private static void NavigateAction(InputAction.CallbackContext context)
         {
             SetCurrentControlScheme(context);
-            Navigate?.Invoke(context);
+            NavigatePerformed?.Invoke(context);
         }
 
         private static void SubmitAction(InputAction.CallbackContext context)

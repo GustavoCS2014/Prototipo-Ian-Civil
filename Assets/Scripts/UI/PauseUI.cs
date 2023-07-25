@@ -36,6 +36,8 @@ namespace UI
         private void OnPause()
         {
             gameObject.SetActive(true);
+            if (resumeButton)
+                UIManager.SetSelectedGameObject(resumeButton.gameObject);
         }
 
         private void OnResume()

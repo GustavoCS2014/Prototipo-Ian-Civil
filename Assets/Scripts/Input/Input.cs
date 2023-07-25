@@ -15,6 +15,7 @@ namespace Input
             get => _currentControlScheme;
             private set
             {
+                if (_currentControlScheme == value) return;
                 _currentControlScheme = value;
                 ControlSchemeChanged?.Invoke(value);
             }
