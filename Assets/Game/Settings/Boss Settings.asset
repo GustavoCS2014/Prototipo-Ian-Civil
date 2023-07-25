@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a802016614b4409bfa64225a9236bb3, type: 3}
   m_Name: Boss Settings
   m_EditorClassIdentifier: 
-  maxHealth: 32
+  maxHealth: 16
+  damageTime: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
