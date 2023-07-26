@@ -75,7 +75,7 @@ namespace Input
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -141,7 +141,7 @@ namespace Input
                     ""path"": ""<XInputController>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -152,7 +152,7 @@ namespace Input
                     ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -174,7 +174,7 @@ namespace Input
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -294,7 +294,7 @@ namespace Input
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -305,7 +305,7 @@ namespace Input
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -316,7 +316,7 @@ namespace Input
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -327,7 +327,7 @@ namespace Input
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -338,7 +338,7 @@ namespace Input
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -349,7 +349,7 @@ namespace Input
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -360,7 +360,7 @@ namespace Input
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -371,7 +371,7 @@ namespace Input
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -382,7 +382,7 @@ namespace Input
                     ""path"": ""<Gamepad>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;NES"",
+                    ""groups"": ""Gamepad;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -404,7 +404,7 @@ namespace Input
                     ""path"": ""<Joystick>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick;NES"",
+                    ""groups"": ""Joystick;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -415,7 +415,7 @@ namespace Input
                     ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick;NES"",
+                    ""groups"": ""Joystick;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -426,7 +426,7 @@ namespace Input
                     ""path"": ""<Joystick>/stick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick;NES"",
+                    ""groups"": ""Joystick;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -437,7 +437,7 @@ namespace Input
                     ""path"": ""<Joystick>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick;NES"",
+                    ""groups"": ""Joystick;Gamepad"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -687,22 +687,55 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""2dfbbbfd-bfde-4318-8432-85fc70b2cd25"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<AndroidGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""475215b3-1bf4-499d-a328-e7325ef74948"",
+                    ""id"": ""1dc90223-4fef-4f19-99e0-ef07cf35232c"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17180b0a-67fb-44c1-bf2e-7eddfe307642"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ebcf41e-e7ad-499c-b21d-d8a9a47dd742"",
+                    ""path"": ""<WebGLGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a3cb5c2-bb0e-4322-8729-a74f90b06c6f"",
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
-                    ""action"": ""Cancel"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -713,6 +746,61 @@ namespace Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""475215b3-1bf4-499d-a328-e7325ef74948"",
+                    ""path"": ""<AndroidGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa866c56-f327-4a6e-b747-aa2421979921"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e078ba66-a519-49ef-abd6-eb5149f910ac"",
+                    ""path"": ""<SwitchProControllerHID>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73637cbb-4775-490d-bd59-e3822ff7bc47"",
+                    ""path"": ""<WebGLGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3430a4f3-edd8-4e05-b6a9-f378970b57a1"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -731,6 +819,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""41e8f149-f8bf-4719-adfb-495aa73cf0f4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -748,11 +845,33 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""7c76a34e-9bbd-4b74-99f6-7f7d247d0339"",
-                    ""path"": ""<XInputController>/start"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""NES"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d962d3e-e651-47bd-a423-271c18fda786"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94462665-e60b-4e9b-9812-737b8a6c607b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -777,11 +896,11 @@ namespace Input
             ]
         },
         {
-            ""name"": ""NES"",
-            ""bindingGroup"": ""NES"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<XInputController>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -809,6 +928,7 @@ namespace Input
             // General
             m_General = asset.FindActionMap("General", throwIfNotFound: true);
             m_General_Pause = m_General.FindAction("Pause", throwIfNotFound: true);
+            m_General_Skip = m_General.FindAction("Skip", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1051,11 +1171,13 @@ namespace Input
         private readonly InputActionMap m_General;
         private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
         private readonly InputAction m_General_Pause;
+        private readonly InputAction m_General_Skip;
         public struct GeneralActions
         {
             private @GameActions m_Wrapper;
             public GeneralActions(@GameActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Pause => m_Wrapper.m_General_Pause;
+            public InputAction @Skip => m_Wrapper.m_General_Skip;
             public InputActionMap Get() { return m_Wrapper.m_General; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1068,6 +1190,9 @@ namespace Input
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
             }
 
             private void UnregisterCallbacks(IGeneralActions instance)
@@ -1075,6 +1200,9 @@ namespace Input
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @Skip.started -= instance.OnSkip;
+                @Skip.performed -= instance.OnSkip;
+                @Skip.canceled -= instance.OnSkip;
             }
 
             public void RemoveCallbacks(IGeneralActions instance)
@@ -1101,13 +1229,13 @@ namespace Input
                 return asset.controlSchemes[m_KeyboardSchemeIndex];
             }
         }
-        private int m_NESSchemeIndex = -1;
-        public InputControlScheme NESScheme
+        private int m_GamepadSchemeIndex = -1;
+        public InputControlScheme GamepadScheme
         {
             get
             {
-                if (m_NESSchemeIndex == -1) m_NESSchemeIndex = asset.FindControlSchemeIndex("NES");
-                return asset.controlSchemes[m_NESSchemeIndex];
+                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+                return asset.controlSchemes[m_GamepadSchemeIndex];
             }
         }
         public interface IGroundActions
@@ -1132,6 +1260,7 @@ namespace Input
         public interface IGeneralActions
         {
             void OnPause(InputAction.CallbackContext context);
+            void OnSkip(InputAction.CallbackContext context);
         }
     }
 }
