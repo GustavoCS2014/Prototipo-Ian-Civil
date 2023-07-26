@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1808317304182529259}
   - component: {fileID: 8404025681626343855}
   m_Layer: 5
-  m_Name: BossHUD
+  m_Name: ProgressBarPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,8 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa748c37ca14b3ebe52b0b1092b7641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityHurtBox: {fileID: 0}
-  entitySettings: {fileID: 11400000, guid: 9e8199b6f3d31de4fa9bb3bc6faed14c, type: 2}
+  hasProgress: {fileID: 0}
   type: {fileID: 4374361710592760586}
 --- !u!222 &1808317304182529259
 CanvasRenderer:
@@ -105,7 +104,7 @@ GameObject:
   - component: {fileID: 5780040928224739123}
   - component: {fileID: 4374361710592760586}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5019608, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7529412, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
