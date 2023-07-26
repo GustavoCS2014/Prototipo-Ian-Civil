@@ -11,6 +11,8 @@ namespace UI
         [SerializeField] private GameInputCommand showOnInput;
         [SerializeField, Min(0f)] private float showForSeconds;
 
+        private float _timer;
+
         private void Start()
         {
             if (startHidden)
@@ -20,26 +22,25 @@ namespace UI
         private void Awake()
         {
             if (showOnInput.HasFlag(GameInputCommand.Pause))
-                GameInput.PausePerformed += OnInputPerformed;
+                PauseInput.PausePerformed += OnInputPerformed;
 
             if (showOnInput.HasFlag(GameInputCommand.Skip))
-                GameInput.SkipPressed += OnInputPerformed;
+                UIInput.SkipPressed += OnInputPerformed;
         }
 
         private void OnDestroy()
         {
             if (showOnInput.HasFlag(GameInputCommand.Pause))
-                GameInput.PausePerformed -= OnInputPerformed;
+                PauseInput.PausePerformed -= OnInputPerformed;
 
             if (showOnInput.HasFlag(GameInputCommand.Skip))
-                GameInput.SkipPressed -= OnInputPerformed;
+                UIInput.SkipPressed -= OnInputPerformed;
         }
 
         private void OnInputPerformed(InputAction.CallbackContext callbackContext)
         {
+            _timer = 0f;
             Show();
-            if (showForSeconds > 0f)
-                Invoke(nameof(Hide), showForSeconds);
         }
 
         public void Show()
@@ -50,6 +51,22 @@ namespace UI
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (showForSeconds <= 0f)
+                return;
+
+            if (!gameObject.activeSelf) return;
+
+            if (_timer >= showForSeconds)
+            {
+                _timer = 0f;
+                Hide();
+            }
+
+            _timer += Time.unscaledDeltaTime;
         }
     }
 }

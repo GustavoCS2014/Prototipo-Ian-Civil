@@ -24,8 +24,8 @@ namespace Cinematics
         private void Awake()
         {
             _timer = 0f;
-            GameInput.SkipPressed += OnSkipPressed;
-            GameInput.SkipReleased += OnSkipReleased;
+            UIInput.SkipPressed += OnSkipPressed;
+            UIInput.SkipReleased += OnSkipReleased;
         }
 
         private void Update()
@@ -50,8 +50,8 @@ namespace Cinematics
 
         private void OnDestroy()
         {
-            GameInput.SkipPressed -= OnSkipPressed;
-            GameInput.SkipReleased -= OnSkipReleased;
+            UIInput.SkipPressed -= OnSkipPressed;
+            UIInput.SkipReleased -= OnSkipReleased;
         }
 
         private void OnSkipPressed(InputAction.CallbackContext context)

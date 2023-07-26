@@ -6,6 +6,8 @@ namespace Input
 {
     public sealed class UIInput : Input
     {
+        public static event Action<InputAction.CallbackContext> SkipPressed;
+        public static event Action<InputAction.CallbackContext> SkipReleased;
         public static event Action<InputAction.CallbackContext> NavigatePerformed;
         public static event Action<InputAction.CallbackContext> SubmitPerformed;
         public static event Action<InputAction.CallbackContext> CancelPerformed;
@@ -29,6 +31,8 @@ namespace Input
             _uiActions.UI.Submit.performed += SubmitAction;
             _uiActions.UI.Cancel.performed += CancelAction;
             _uiActions.UI.Point.performed += PointAction;
+            _uiActions.UI.Skip.performed += SkipAction;
+            _uiActions.UI.Skip.canceled += SkipAction;
         }
 
         private void OnDisable()
@@ -39,6 +43,8 @@ namespace Input
             _uiActions.UI.Submit.performed -= SubmitAction;
             _uiActions.UI.Cancel.performed -= CancelAction;
             _uiActions.UI.Point.performed -= PointAction;
+            _uiActions.UI.Skip.performed -= SkipAction;
+            _uiActions.UI.Skip.canceled -= SkipAction;
         }
 
         private static void NavigateAction(InputAction.CallbackContext context)
@@ -63,6 +69,15 @@ namespace Input
         {
             SetCurrentControlScheme(context);
             PointPerformed?.Invoke(context);
+        }
+
+        private static void SkipAction(InputAction.CallbackContext context)
+        {
+            SetCurrentControlScheme(context);
+            if (context.performed)
+                SkipPressed?.Invoke(context);
+            else if (context.canceled)
+                SkipReleased?.Invoke(context);
         }
     }
 }
