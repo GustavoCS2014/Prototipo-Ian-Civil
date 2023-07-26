@@ -58,6 +58,9 @@ namespace UI
             if (showForSeconds <= 0f)
                 return;
 
+            if (UIInput.SkipIsPressed)
+                _timer = 0f;
+
             if (!gameObject.activeSelf) return;
 
             if (_timer >= showForSeconds)

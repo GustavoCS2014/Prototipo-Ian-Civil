@@ -13,7 +13,8 @@ namespace Input
         public static event Action<InputAction.CallbackContext> CancelPerformed;
         public static event Action<InputAction.CallbackContext> PointPerformed;
 
-        public Vector2 Direction => _uiActions.UI.Navigate.ReadValue<Vector2>();
+        public static Vector2 Direction => _uiActions.UI.Navigate.ReadValue<Vector2>();
+        public static bool SkipIsPressed { get; private set; }
 
         private static GameActions _uiActions;
 
@@ -74,6 +75,7 @@ namespace Input
         private static void SkipAction(InputAction.CallbackContext context)
         {
             SetCurrentControlScheme(context);
+            SkipIsPressed = context.performed;
             if (context.performed)
                 SkipPressed?.Invoke(context);
             else if (context.canceled)
