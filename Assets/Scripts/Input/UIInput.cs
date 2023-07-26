@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class UIInput : Input
+    public sealed class UIInput : GameInput
     {
         public static event Action<InputAction.CallbackContext> SkipPressed;
         public static event Action<InputAction.CallbackContext> SkipReleased;

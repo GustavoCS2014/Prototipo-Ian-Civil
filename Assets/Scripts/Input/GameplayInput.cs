@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class GameplayInput : Input
+    public sealed class GameplayInput : GameInput
     {
         #region Events
 

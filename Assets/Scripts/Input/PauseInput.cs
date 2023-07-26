@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class PauseInput : Input
+    public sealed class PauseInput : GameInput
     {
         public static event Action<InputAction.CallbackContext> PausePerformed;
 

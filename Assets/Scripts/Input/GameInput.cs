@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public abstract class Input : MonoBehaviour
+    public abstract class GameInput : MonoBehaviour
     {
         public static event Action<ControlScheme> ControlSchemeChanged;
 
