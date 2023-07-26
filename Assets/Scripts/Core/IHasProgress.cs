@@ -1,4 +1,5 @@
 ﻿using System;
+using Range = Utilities.Range;
 
 namespace Core
 {
@@ -6,6 +7,8 @@ namespace Core
     {
         event Action<float> ProgressUpdated;
 
-        float Progress { get; }
+        float ProgressNormalized { get; }
+
+        Range ProgressRange { get; }
     }
 }

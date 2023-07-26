@@ -3,12 +3,14 @@ using Core;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
+using Range = Utilities.Range;
 
 namespace Entities
 {
     [RequireComponent(typeof(Collider2D))]
-    public sealed class HurtBox : MonoBehaviour, IDamageTaker
+    public sealed class HurtBox : MonoBehaviour, IDamageTaker, IHasProgress
     {
+        public event Action<float> ProgressUpdated;
         public event Action<int> DamageTaken;
         public event Action HealthDepleted;
 
@@ -24,6 +26,9 @@ namespace Entities
 
         public float DamageTime => entitySettings.DamageTime;
 
+        public float ProgressNormalized => (float)Health / entitySettings.MaxHealth;
+        public Range ProgressRange => new(0, entitySettings.MaxHealth);
+
         private void Start()
         {
             if (!entitySettings) return;
@@ -34,6 +39,7 @@ namespace Entities
         {
             Health -= damage;
             DamageTaken?.Invoke(damage);
+            ProgressUpdated?.Invoke(ProgressNormalized);
 
             if (health > 0) return;
             gameObject.SetActive(false);

@@ -4,6 +4,7 @@ using Input;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Range = Utilities.Range;
 
 namespace Cinematics
 {
@@ -17,10 +18,12 @@ namespace Cinematics
         private float _timer;
         private bool _isProgressing;
 
-        public float Progress => _timer / pressTime;
+        public float ProgressNormalized => _timer / pressTime;
+        public Range ProgressRange => new(0f, pressTime);
 
         private void Awake()
         {
+            _timer = 0f;
             GameInput.SkipPressed += OnSkipPressed;
             GameInput.SkipReleased += OnSkipReleased;
         }
@@ -30,7 +33,6 @@ namespace Cinematics
             if (!_isProgressing)
                 return;
 
-            _timer += Time.deltaTime;
             if (_timer >= pressTime)
             {
                 _isProgressing = false;
@@ -40,8 +42,10 @@ namespace Cinematics
             }
             else
             {
-                ProgressUpdated?.Invoke(Progress);
+                ProgressUpdated?.Invoke(ProgressNormalized);
             }
+
+            _timer += Time.unscaledDeltaTime;
         }
 
         private void OnDestroy()
