@@ -651,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.685396, y: 2.19033, z: -2}
+  m_LocalPosition: {x: 13.470809, y: 2.1959898, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2394,6 +2394,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5544743596646418854, guid: d72a0da86e720af4d9614fe5947c7607, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3018,7 +3022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b05668e9111454cbf0ca4d40eb6d69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadSceneIfState: 0
+  delay: 0
   nextScene: 2
 --- !u!61 &1956507164
 BoxCollider2D:
