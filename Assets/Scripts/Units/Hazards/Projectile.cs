@@ -1,5 +1,6 @@
 using System;
 using Core;
+using Units.Hazards.Settings;
 using UnityEngine;
 
 namespace Units.Hazards
@@ -11,7 +12,7 @@ namespace Units.Hazards
 
         [SerializeField] private float radius;
         [SerializeField] private bool destroyOnHit;
-        [SerializeField] private ProjectileInfo projectileInfo;
+        [SerializeField] private ProjectileSettings settings;
 
         private Rigidbody2D _rigidbody;
         private Collider2D _lastCollider;
@@ -19,19 +20,19 @@ namespace Units.Hazards
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            Destroy(gameObject, projectileInfo.Lifetime);
+            Destroy(gameObject, settings.Lifetime);
         }
 
         public void Launch(Vector2 direction)
         {
-            _rigidbody.velocity = direction * projectileInfo.Speed;
+            _rigidbody.velocity = direction * settings.Speed;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         private void FixedUpdate()
         {
             Transform t = transform;
-            Collider2D other = Physics2D.OverlapCircle(t.position, radius, projectileInfo.TargetLayer);
+            Collider2D other = Physics2D.OverlapCircle(t.position, radius, settings.TargetLayer);
 
             if (other == _lastCollider) return;
 
@@ -40,7 +41,7 @@ namespace Units.Hazards
             if (!other) return;
 
             if (other.TryGetComponent(out IDamageTaker damageTaker))
-                damageTaker.TakeDamage(projectileInfo.Damage);
+                damageTaker.TakeDamage(settings.Damage);
 
             Hit?.Invoke(this, other.gameObject);
 

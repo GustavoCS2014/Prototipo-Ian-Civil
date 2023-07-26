@@ -1,4 +1,5 @@
 ﻿using Core;
+using Entities.Settings;
 using UnityEngine;
 
 namespace Entities

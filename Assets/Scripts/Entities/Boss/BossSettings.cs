@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Entities.Settings;
+using UnityEngine;
 using Utilities;
 
 namespace Entities.Boss

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Units.Hazards
+namespace Units.Hazards.Settings
 {
     [CreateAssetMenu(fileName = "New Projectile", menuName = "Items/Projectile")]
-    public sealed class ProjectileInfo : ScriptableObject
+    public sealed class ProjectileSettings : ScriptableObject
     {
         [SerializeField] private int damage;
         public int Damage => damage;

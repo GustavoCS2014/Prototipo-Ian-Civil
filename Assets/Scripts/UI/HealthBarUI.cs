@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Settings;
 using UnityEngine;
 using UnityEngine.UI;
 

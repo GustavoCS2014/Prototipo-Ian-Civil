@@ -1,3 +1,4 @@
+using Entities.Settings;
 using UnityEngine;
 
 namespace Entities.Player

@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Entities.Settings;
 using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
