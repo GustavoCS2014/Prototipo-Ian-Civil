@@ -1,6 +1,10 @@
 # Not another platformer, please
 
+<center>
+
 ![Gameplay Demo](./Repo/level1-gameplay.gif)
+
+</center>
 
 ## Overview
 
