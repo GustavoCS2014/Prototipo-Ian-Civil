@@ -24,7 +24,7 @@ namespace UI
             if (quitButton)
                 quitButton.onClick.AddListener(Application.Quit);
 
-            UIManager.SetSelectedGameObject(playButton.gameObject);
+            UIManager.CurrentSelectedObject = playButton.gameObject;
         }
     }
 }

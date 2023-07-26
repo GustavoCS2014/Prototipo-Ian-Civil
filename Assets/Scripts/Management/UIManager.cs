@@ -3,6 +3,7 @@ using Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Management
 {
@@ -23,37 +24,41 @@ namespace Management
             }
         }
 
-        public static void SetSelectedGameObject(GameObject selectedObject)
+        public static GameObject CurrentSelectedObject
         {
-            EventSystem.current.SetSelectedGameObject(selectedObject);
-            SelectedChanged?.Invoke(selectedObject);
+            get => EventSystem.current.currentSelectedGameObject;
+            set
+            {
+                if (EventSystem.current.currentSelectedGameObject == value) return;
+                EventSystem.current.SetSelectedGameObject(value);
+                SelectedChanged?.Invoke(value);
+            }
         }
 
         private void Awake()
         {
             UIInput.NavigatePerformed += OnNavigatePerformed;
-            UIInput.PointPerformed += OnPointPerformed;
+            UIInput.SubmitPerformed += OnSubmitPerformed;
         }
 
         private void OnDestroy()
         {
             UIInput.NavigatePerformed -= OnNavigatePerformed;
-            UIInput.PointPerformed -= OnPointPerformed;
+            UIInput.SubmitPerformed -= OnSubmitPerformed;
         }
 
 
         private void OnNavigatePerformed(InputAction.CallbackContext context)
         {
-            if (context.performed)
-                SetSelectedGameObject(LastSelectedObject);
+            CurrentSelectedObject = LastSelectedObject;
         }
 
-        private void OnPointPerformed(InputAction.CallbackContext context)
+        private void OnSubmitPerformed(InputAction.CallbackContext context)
         {
-            // todo: fix this
-            if (EventSystem.current.currentSelectedGameObject == LastSelectedObject)
-                return;
-            SetSelectedGameObject(null);
+            if (CurrentSelectedObject) return;
+
+            if (LastSelectedObject.TryGetComponent(out Button button))
+                button.onClick?.Invoke();
         }
     }
 }
