@@ -10,6 +10,8 @@ namespace Input
     {
         public static event Action<ControlScheme> ControlSchemeChanged;
 
+        public static string CurrentDevice { get; private set; }
+
         public static ControlScheme CurrentControlScheme
         {
             get => _currentControlScheme;
@@ -44,9 +46,18 @@ namespace Input
         {
             if (!context.performed) return;
 
-            CurrentControlScheme = context.control.device.name is "Keyboard" or "Mouse"
-                ? ControlScheme.Keyboard
-                : ControlScheme.Gamepad;
+            CurrentDevice = context.control.device.name;
+
+            CurrentControlScheme = CurrentDevice switch
+            {
+                "Keyboard" or "Mouse" => ControlScheme.Keyboard,
+                "AndroidGamepad" => ControlScheme.AndroidGamepad,
+                "PlayStation" => ControlScheme.PLayStation,
+                "Switch" => ControlScheme.Switch,
+                "WebGLGamepad" => ControlScheme.WebGLGamepad,
+                "Xbox" => ControlScheme.Xbox,
+                _ => ControlScheme.Gamepad
+            };
         }
     }
 }
