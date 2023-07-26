@@ -1,5 +1,4 @@
-﻿using System;
-using Input;
+﻿using Input;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,7 +29,7 @@ namespace UI
 
         private void OnControlSchemeChanged(ControlScheme controlScheme)
         {
-            UpdateText();
+            UpdateText(controlScheme);
         }
 
         private void UpdateText(ControlScheme controlScheme = ControlScheme.Keyboard)
