@@ -30,6 +30,8 @@ namespace UI
             PauseManager.Paused += OnPause;
             PauseManager.Resumed += OnResume;
 
+            UIManager.SetSelectedGameObject(resumeButton.gameObject);
+
             OnResume();
         }
 

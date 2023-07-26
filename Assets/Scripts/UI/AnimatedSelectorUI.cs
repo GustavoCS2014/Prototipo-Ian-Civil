@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class SelectorUI : MonoBehaviour
+    public class AnimatedSelectorUI : MonoBehaviour
     {
         [SerializeField] private Vector2 offset;
         [SerializeField] private float baseScale;
@@ -42,9 +42,9 @@ namespace UI
 
         private void Update()
         {
-            _rectTransform.position = Vector3.Lerp(_rectTransform.position, _targetPosition, transitionSpeed * Time.deltaTime);
-            _rectTransform.sizeDelta = Vector2.Lerp(_rectTransform.sizeDelta, _targetSizeDelta, transitionSpeed * Time.deltaTime);
-            _rectTransform.localScale = Vector3.one * (baseScale + Mathf.Sin(Time.time * scaleSpeed) * amplitude);
+            _rectTransform.position = Vector3.Lerp(_rectTransform.position, _targetPosition, transitionSpeed * Time.unscaledDeltaTime);
+            _rectTransform.sizeDelta = Vector2.Lerp(_rectTransform.sizeDelta, _targetSizeDelta, transitionSpeed * Time.unscaledDeltaTime);
+            _rectTransform.localScale = Vector3.one * (baseScale + Mathf.Sin(Time.unscaledTime * scaleSpeed) * amplitude);
         }
     }
 }
