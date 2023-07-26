@@ -19,7 +19,7 @@ namespace UI
 
         private void Start()
         {
-            UpdateText();
+            UpdateText(GameInput.CurrentControlScheme);
         }
 
         private void OnDestroy()
