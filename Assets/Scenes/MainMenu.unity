@@ -319,19 +319,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onPointerEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    onPointerExit:
-      m_PersistentCalls:
-        m_Calls: []
-    onSelect:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselect:
-      m_PersistentCalls:
-        m_Calls: []
+  onPointerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onPointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeselect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &361682223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1023,19 +1022,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onPointerEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    onPointerExit:
-      m_PersistentCalls:
-        m_Calls: []
-    onSelect:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselect:
-      m_PersistentCalls:
-        m_Calls: []
+  onPointerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onPointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeselect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &873595602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,19 +1423,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfc90944a8a49bd9729402bb890e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onPointerEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    onPointerExit:
-      m_PersistentCalls:
-        m_Calls: []
-    onSelect:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselect:
-      m_PersistentCalls:
-        m_Calls: []
+  onPointerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onPointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeselect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1436684097
 PrefabInstance:
   m_ObjectHideFlags: 0
