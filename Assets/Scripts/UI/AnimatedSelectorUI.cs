@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class AnimatedSelectorUI : MonoBehaviour
+    public sealed class AnimatedSelectorUI : MonoBehaviour
     {
         [SerializeField] private Vector2 offset;
         [SerializeField] private float baseScale;
@@ -13,16 +13,12 @@ namespace UI
         [SerializeField] private float amplitude;
 
         private RectTransform _rectTransform;
-        private Vector2 _targetSizeDelta;
-        private Vector3 _targetPosition;
+        private RectTransform _targetTransform;
 
         private void Awake()
         {
             UIManager.SelectedChanged += OnSelectedChanged;
-            _rectTransform = GetComponent<RectTransform>();
-
-            _targetSizeDelta = _rectTransform.sizeDelta;
-            _targetPosition = _rectTransform.position;
+            _targetTransform = _rectTransform = GetComponent<RectTransform>();
         }
 
         private void OnDestroy()
@@ -36,14 +32,19 @@ namespace UI
             var selectedTransform = selectedObject.GetComponent<RectTransform>();
 
             if (!selectedTransform) return;
-            _targetPosition = selectedTransform.position;
-            _targetSizeDelta = selectedTransform.sizeDelta + offset;
+            _targetTransform = selectedTransform;
         }
 
         private void Update()
         {
-            _rectTransform.position = Vector3.Lerp(_rectTransform.position, _targetPosition, transitionSpeed * Time.unscaledDeltaTime);
-            _rectTransform.sizeDelta = Vector2.Lerp(_rectTransform.sizeDelta, _targetSizeDelta, transitionSpeed * Time.unscaledDeltaTime);
+            _rectTransform.position = Vector3.Lerp(
+                _rectTransform.position, _targetTransform.position,
+                transitionSpeed * Time.unscaledDeltaTime
+            );
+            _rectTransform.sizeDelta = Vector2.Lerp(
+                _rectTransform.sizeDelta, _targetTransform.sizeDelta + offset,
+                transitionSpeed * Time.unscaledDeltaTime
+            );
             _rectTransform.localScale = Vector3.one * (baseScale + Mathf.Sin(Time.unscaledTime * scaleSpeed) * amplitude);
         }
     }
