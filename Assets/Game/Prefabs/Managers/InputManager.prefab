@@ -72,4 +72,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc60d8054654929a71247c17925f488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabledInStates: 4
+  enabledInStates: 20

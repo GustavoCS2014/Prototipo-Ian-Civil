@@ -15,7 +15,10 @@ namespace UI
         private void Start()
         {
             if (resumeButton)
+            {
                 resumeButton.onClick.AddListener(PauseManager.Instance.Resume);
+                UIManager.CurrentSelectedObject = resumeButton.gameObject;
+            }
             if (optionsButton)
                 optionsButton.onClick.AddListener(() => Debug.Log("Options"));
             if (exitToTitleButton)
@@ -37,7 +40,7 @@ namespace UI
         {
             gameObject.SetActive(true);
             if (resumeButton)
-                UIManager.SetSelectedGameObject(resumeButton.gameObject);
+                UIManager.CurrentSelectedObject = resumeButton.gameObject;
         }
 
         private void OnResume()

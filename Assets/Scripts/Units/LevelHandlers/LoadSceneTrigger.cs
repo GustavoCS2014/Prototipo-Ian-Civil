@@ -6,8 +6,7 @@ namespace Units.LevelHandlers
 {
     public sealed class LoadSceneTrigger : MonoBehaviour
     {
-        [SerializeField] private GameState loadSceneIfState;
-
+        [SerializeField, Min(0f)] private float delay;
         [SerializeField] private GameScene nextScene;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -18,25 +17,12 @@ namespace Units.LevelHandlers
 
         public void LoadNextScene()
         {
+            Invoke(nameof(LoadNextSceneWithDelay), delay);
+        }
+
+        private void LoadNextSceneWithDelay()
+        {
             SceneManager.LoadScene(nextScene);
-        }
-
-        private void Start()
-        {
-            if (loadSceneIfState != 0)
-                GameManager.StateChanged += OnGameStateChange;
-        }
-
-        private void OnGameStateChange(GameState state)
-        {
-            if (state.HasFlag(loadSceneIfState))
-                LoadNextScene();
-        }
-
-        private void OnDestroy()
-        {
-            if (loadSceneIfState != 0)
-                GameManager.StateChanged -= OnGameStateChange;
         }
     }
 }

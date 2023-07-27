@@ -24,12 +24,12 @@ namespace Management
 
         private void Start()
         {
-            GameInput.PausePerformed += OnPausePerformed;
+            PauseInput.PausePerformed += OnPausePerformed;
         }
 
         private void OnDestroy()
         {
-            GameInput.PausePerformed -= OnPausePerformed;
+            PauseInput.PausePerformed -= OnPausePerformed;
         }
 
         private void OnPausePerformed(InputAction.CallbackContext context)

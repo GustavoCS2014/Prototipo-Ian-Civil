@@ -1,10 +1,9 @@
-﻿using System;
-using Core;
+﻿using Core;
 using UnityEngine;
 
 namespace Management
 {
-    public class GameStateSetter : MonoBehaviour
+    public sealed class GameStateSetter : MonoBehaviour
     {
         [SerializeField] private GameState state;
 

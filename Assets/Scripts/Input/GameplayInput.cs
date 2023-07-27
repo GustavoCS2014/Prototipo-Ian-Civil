@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Input
 {
-    public sealed class GameplayInput : Input
+    public sealed class GameplayInput : GameInput
     {
         #region Events
 
@@ -54,20 +54,20 @@ namespace Input
 
         private static void JumpAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnJump?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Jump);
         }
 
         private static void MoveAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnMove?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Move);
         }
 
         private static void ShootAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnShoot?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Shoot);
         }
     }
 }

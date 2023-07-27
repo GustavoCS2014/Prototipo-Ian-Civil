@@ -1,44 +1,64 @@
-﻿using Input;
+﻿using System;
+using Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Management
 {
     public sealed class UIManager : MonoBehaviour
     {
-        public static GameObject LastSelectedObject { get; set; }
+        public static event Action<GameObject> SelectedChanged;
 
-        public static void SetSelectedGameObject(GameObject selectedObject)
+        private static GameObject _lastSelectedObject;
+
+        public static GameObject LastSelectedObject
         {
-            EventSystem.current.SetSelectedGameObject(selectedObject);
+            get => _lastSelectedObject;
+            set
+            {
+                if (_lastSelectedObject == value) return;
+                _lastSelectedObject = value;
+                SelectedChanged?.Invoke(value);
+            }
+        }
+
+        public static GameObject CurrentSelectedObject
+        {
+            get => EventSystem.current.currentSelectedGameObject;
+            set
+            {
+                if (EventSystem.current.currentSelectedGameObject == value) return;
+                EventSystem.current.SetSelectedGameObject(value);
+                SelectedChanged?.Invoke(value);
+            }
         }
 
         private void Awake()
         {
             UIInput.NavigatePerformed += OnNavigatePerformed;
-            UIInput.PointPerformed += OnPointPerformed;
+            UIInput.SubmitPerformed += OnSubmitPerformed;
         }
 
         private void OnDestroy()
         {
             UIInput.NavigatePerformed -= OnNavigatePerformed;
-            UIInput.PointPerformed -= OnPointPerformed;
+            UIInput.SubmitPerformed -= OnSubmitPerformed;
         }
 
 
         private void OnNavigatePerformed(InputAction.CallbackContext context)
         {
-            if (context.performed)
-                EventSystem.current.SetSelectedGameObject(LastSelectedObject);
+            CurrentSelectedObject = LastSelectedObject;
         }
 
-        private void OnPointPerformed(InputAction.CallbackContext context)
+        private void OnSubmitPerformed(InputAction.CallbackContext context)
         {
-            // todo: fix this
-            if (EventSystem.current.currentSelectedGameObject == LastSelectedObject)
-                return;
-            EventSystem.current.SetSelectedGameObject(null);
+            if (CurrentSelectedObject) return;
+
+            if (LastSelectedObject.TryGetComponent(out Button button))
+                button.onClick?.Invoke();
         }
     }
 }
