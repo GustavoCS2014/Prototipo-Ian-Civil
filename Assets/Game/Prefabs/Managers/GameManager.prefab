@@ -60,6 +60,9 @@ MonoBehaviour:
   onSceneOutroState:
     m_PersistentCalls:
       m_Calls: []
+  onCutsceneState:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2282102428119887689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseVisibleOnStates: 4
+  allowVisibleOnClick: 0
+  timeVisibleOnClick: 5
 --- !u!114 &4142877840601212308
 MonoBehaviour:
   m_ObjectHideFlags: 0
