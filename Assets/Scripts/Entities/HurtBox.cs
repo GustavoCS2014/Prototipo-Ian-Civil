@@ -29,7 +29,7 @@ namespace Entities
         public float ProgressNormalized => (float)Health / entitySettings.MaxHealth;
         public Range ProgressRange => new(0, entitySettings.MaxHealth);
 
-        private void Start()
+        private void Awake()
         {
             if (!entitySettings) return;
             Health = entitySettings.MaxHealth;
