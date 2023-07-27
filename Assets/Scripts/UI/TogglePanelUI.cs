@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace UI
 {
-    public class TogglePanelUI : MonoBehaviour
+    public sealed class TogglePanelUI : MonoBehaviour
     {
         [SerializeField] private bool startHidden;
         [SerializeField] private GameInputAction showOnInput;

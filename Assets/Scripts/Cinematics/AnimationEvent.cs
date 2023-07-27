@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Cinematics
 {
-    public class AnimationEvent : StateMachineBehaviour
+    public sealed class AnimationEvent : StateMachineBehaviour
     {
         [SerializeField] private string startTrigger;
         [SerializeField] private string endTrigger;

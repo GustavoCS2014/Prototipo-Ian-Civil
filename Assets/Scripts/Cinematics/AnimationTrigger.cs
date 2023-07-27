@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Cinematics
 {
-    public class AnimationTrigger : MonoBehaviour
+    public sealed class AnimationTrigger : MonoBehaviour
     {
         [SerializeField] private string startTrigger;
         [SerializeField] private UnityEvent onStart;

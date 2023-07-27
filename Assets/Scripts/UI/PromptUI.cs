@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class PromptUI : MonoBehaviour
+    public sealed class PromptUI : MonoBehaviour
     {
         [SerializeField] private GameInputAction gameInputAction;
         [SerializeField] private string message;

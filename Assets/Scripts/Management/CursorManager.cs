@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Management
 {
-    public class CursorManager : MonoBehaviour
+    public sealed class CursorManager : MonoBehaviour
     {
         [SerializeField] private GameState mouseVisibleOnStates;
 

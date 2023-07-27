@@ -8,11 +8,11 @@ using Range = Utilities.Range;
 
 namespace Cinematics
 {
-    public class CutsceneSkipper : MonoBehaviour, IHasProgress
+    public sealed class CutsceneSkipper : MonoBehaviour, IHasProgress
     {
         public event Action<float> ProgressUpdated;
 
-        [SerializeField] private float pressTime;
+        [SerializeField, Min(0f)] private float pressTime;
         [SerializeField] private UnityEvent onProgressCompleted;
 
         private float _timer;
