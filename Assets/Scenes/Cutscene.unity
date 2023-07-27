@@ -1211,7 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864054004188585374, guid: e5b7b1de580ec4641b6fb57e5df4155f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5864054004188585374, guid: e5b7b1de580ec4641b6fb57e5df4155f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1414,7 +1414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946563138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 9.5, y: 0.5, z: 0}
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2546,6 +2546,8 @@ GameObject:
   - component: {fileID: 1655587159}
   - component: {fileID: 1655587158}
   - component: {fileID: 1655587157}
+  - component: {fileID: 1655587161}
+  - component: {fileID: 1655587160}
   m_Layer: 0
   m_Name: Cutscene
   m_TagString: Untagged
@@ -2587,6 +2589,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animableEntity: {fileID: 155889442987404511}
+  onStartAnimating:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1655587161}
+        m_TargetAssemblyTypeName: Management.GameStateSetter, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStopAnimating:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1655587160}
+        m_TargetAssemblyTypeName: Management.GameStateSetter, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1655587159
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,6 +2634,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655587160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655587156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d964a01d43294d998858b90fffe2e4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+--- !u!114 &1655587161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655587156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d964a01d43294d998858b90fffe2e4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 16
 --- !u!1001 &1656630030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2653,6 +2711,10 @@ PrefabInstance:
     - target: {fileID: 691835489207211851, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305635559986837687, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
+      propertyPath: enabledInStates
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5635287335384168040, guid: 2c85cf986c381594ea6dccdb2ed1935e, type: 3}
       propertyPath: m_Name
@@ -3306,7 +3368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8652751626666528579, guid: 856abe099f7924448a7cbf2df08f2407, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8652751626666528579, guid: 856abe099f7924448a7cbf2df08f2407, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3367,11 +3429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864054004188585374, guid: e5b7b1de580ec4641b6fb57e5df4155f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 5864054004188585374, guid: e5b7b1de580ec4641b6fb57e5df4155f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5864054004188585374, guid: e5b7b1de580ec4641b6fb57e5df4155f, type: 3}
       propertyPath: m_LocalPosition.z

@@ -17,6 +17,8 @@ namespace Entities.Player
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
 
+        public bool Animating { get; set; }
+
         protected override void Awake()
         {
             base.Awake();

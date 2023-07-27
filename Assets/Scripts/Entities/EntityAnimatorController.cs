@@ -1,11 +1,14 @@
 ﻿using Core;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Entities
 {
     public class EntityAnimatorController : MonoBehaviour
     {
         [SerializeField] private GameObject animableEntity;
+        [SerializeField] private UnityEvent onStartAnimating;
+        [SerializeField] private UnityEvent onStopAnimating;
 
         private IAnimable _animableComponent;
 
@@ -13,7 +16,8 @@ namespace Entities
         {
             if (!animableEntity) return;
 
-            animableEntity.TryGetComponent(out _animableComponent);
+            if (!animableEntity.TryGetComponent(out _animableComponent))
+                Debug.Log($"{animableEntity.name} does not have an <b>IAnimable</b> component", this);
         }
 
         public void ChangeState(string state)
@@ -24,6 +28,22 @@ namespace Entities
         public void FaceDirection(float direction)
         {
             _animableComponent?.FaceDirection(direction);
+        }
+
+        public void StartAnimating()
+        {
+            if (_animableComponent is null) return;
+
+            _animableComponent.Animating = true;
+            onStartAnimating?.Invoke();
+        }
+
+        public void StopAnimating()
+        {
+            if (_animableComponent is null) return;
+
+            _animableComponent.Animating = false;
+            onStopAnimating?.Invoke();
         }
     }
 }
