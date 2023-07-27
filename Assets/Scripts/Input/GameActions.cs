@@ -72,7 +72,7 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""4d936c21-b867-4667-8ee9-15a2873c6b39"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -138,7 +138,7 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""0a87a988-d495-4d57-8654-a2bb585287dd"",
-                    ""path"": ""<XInputController>/dpad"",
+                    ""path"": ""<Gamepad>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -149,7 +149,7 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""fd6108c6-2aac-4757-9bd8-d8b6dd00f114"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -170,8 +170,19 @@ namespace Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""968bcd7b-e3ed-4369-88c8-8cd6323d1fe1"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""03757c78-b686-4ded-89ae-9044753b2ed4"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
