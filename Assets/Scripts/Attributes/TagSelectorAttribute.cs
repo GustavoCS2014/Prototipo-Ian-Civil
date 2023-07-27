@@ -9,7 +9,7 @@ namespace Attributes
 
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(TagSelectorAttribute))]
-    public class TagSelectorDrawer : PropertyDrawer
+    public class TagSelectorPropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
