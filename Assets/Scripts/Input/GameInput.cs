@@ -13,6 +13,13 @@ namespace Input
         private const string GameActionsPath = "Assets/Settings/GameActions.inputactions";
 
         public static event Action<ControlScheme> ControlSchemeChanged;
+        public static event Action<InputAction.CallbackContext, GameInputAction> OnAny;
+
+        private static InputActionAsset _actionsAsset;
+
+        private static ControlScheme _currentControlScheme;
+
+        [SerializeField] protected GameState enabledInStates;
 
         public static string CurrentDevice { get; private set; }
 
@@ -27,8 +34,6 @@ namespace Input
             }
         }
 
-        private static InputActionAsset _actionsAsset;
-
         public static InputActionAsset ActionsAsset
         {
             get
@@ -39,9 +44,10 @@ namespace Input
             }
         }
 
-        private static ControlScheme _currentControlScheme;
-
-        [SerializeField] protected GameState enabledInStates;
+        protected static void OnAnyInput(InputAction.CallbackContext context, GameInputAction action)
+        {
+            OnAny?.Invoke(context, action);
+        }
 
         protected virtual void Awake()
         {
@@ -52,6 +58,13 @@ namespace Input
         private void OnDestroy()
         {
             GameManager.StateChanged -= OnGameStateChanged;
+        }
+
+        public static string GetBindingForAction(GameInputAction action)
+        {
+            var index = (int)CurrentControlScheme;
+            InputBinding inputBinding = ActionsAsset.FindAction(action.ToString()).bindings[index];
+            return inputBinding.ToDisplayString();
         }
 
         private static void OnAnyButtonPress(InputControl control)

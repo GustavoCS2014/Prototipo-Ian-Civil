@@ -1,13 +1,12 @@
 ﻿using Input;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace UI
 {
     public class PromptUI : MonoBehaviour
     {
-        [SerializeField] private GameInputCommand inputCommand;
+        [SerializeField] private GameInputAction gameInputAction;
         [SerializeField] private string message;
         [SerializeField] private TextMeshProUGUI text;
 
@@ -18,7 +17,7 @@ namespace UI
 
         private void Start()
         {
-            UpdateText(GameInput.CurrentControlScheme);
+            UpdateText();
         }
 
         private void OnDestroy()
@@ -28,15 +27,13 @@ namespace UI
 
         private void OnControlSchemeChanged(ControlScheme controlScheme)
         {
-            UpdateText(controlScheme);
+            UpdateText();
         }
 
-        private void UpdateText(ControlScheme controlScheme)
+        private void UpdateText()
         {
-            InputActionAsset actionsAsset = GameInput.ActionsAsset;
-            var index = (int)controlScheme;
-            InputBinding inputBinding = actionsAsset.FindAction(inputCommand.ToString()).bindings[index];
-            text.text = string.Format(message, inputBinding.ToDisplayString());
+            string inputBinding = GameInput.GetBindingForAction(gameInputAction);
+            text.text = string.Format(message, inputBinding);
         }
     }
 }

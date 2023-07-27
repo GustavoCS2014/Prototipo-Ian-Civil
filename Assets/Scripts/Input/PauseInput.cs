@@ -32,6 +32,7 @@ namespace Input
         private static void PauseAction(InputAction.CallbackContext context)
         {
             PausePerformed?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Pause);
         }
     }
 }

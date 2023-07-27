@@ -55,16 +55,19 @@ namespace Input
         private static void JumpAction(InputAction.CallbackContext context)
         {
             OnJump?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Jump);
         }
 
         private static void MoveAction(InputAction.CallbackContext context)
         {
             OnMove?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Move);
         }
 
         private static void ShootAction(InputAction.CallbackContext context)
         {
             OnShoot?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Shoot);
         }
     }
 }

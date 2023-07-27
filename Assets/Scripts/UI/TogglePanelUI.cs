@@ -7,9 +7,10 @@ namespace UI
     public class TogglePanelUI : MonoBehaviour
     {
         [SerializeField] private bool startHidden;
-        [SerializeField] private GameInputCommand showOnInput;
+        [SerializeField] private GameInputAction showOnInput;
         [SerializeField, Min(0f)] private float showForSeconds;
 
+        private bool _holdingInput;
         private float _timer;
 
         private void Start()
@@ -20,24 +21,22 @@ namespace UI
 
         private void Awake()
         {
-            if (showOnInput.HasFlag(GameInputCommand.Pause))
-                PauseInput.PausePerformed += OnInputPerformed;
-
-            if (showOnInput.HasFlag(GameInputCommand.Skip))
-                UIInput.SkipPressed += OnInputPerformed;
+            GameInput.OnAny += OnAnyInput;
         }
 
         private void OnDestroy()
         {
-            if (showOnInput.HasFlag(GameInputCommand.Pause))
-                PauseInput.PausePerformed -= OnInputPerformed;
-
-            if (showOnInput.HasFlag(GameInputCommand.Skip))
-                UIInput.SkipPressed -= OnInputPerformed;
+            GameInput.OnAny -= OnAnyInput;
         }
 
-        private void OnInputPerformed(InputAction.CallbackContext callbackContext)
+        private void OnAnyInput(InputAction.CallbackContext context, GameInputAction action)
         {
+            if (action != showOnInput) return;
+
+            _holdingInput = context.performed;
+
+            if (!context.performed) return;
+
             _timer = 0f;
             Show();
         }
@@ -57,7 +56,7 @@ namespace UI
             if (showForSeconds <= 0f)
                 return;
 
-            if (UIInput.SkipIsPressed)
+            if (_holdingInput)
                 _timer = 0f;
 
             if (!gameObject.activeSelf) return;
