@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3da067bdfd420193defcff759baeb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressTime: 2
+  pressTime: 1
   onProgressCompleted:
     m_PersistentCalls:
       m_Calls:
