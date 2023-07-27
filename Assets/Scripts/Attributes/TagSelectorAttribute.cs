@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace Attributes
 {
-    public class TagSelectorAttribute : PropertyAttribute
-    {
-    }
+    public class TagSelectorAttribute : PropertyAttribute { }
 
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(TagSelectorAttribute))]
@@ -16,7 +14,10 @@ namespace Attributes
             if (property.propertyType is SerializedPropertyType.String)
             {
                 EditorGUI.BeginProperty(position, label, property);
-                string tag = EditorGUI.TagField(position, label, property.stringValue);
+
+                string tagValue = string.IsNullOrEmpty(property.stringValue) ? "Untagged" : property.stringValue;
+
+                string tag = EditorGUI.TagField(position, label, tagValue);
                 property.stringValue = tag;
                 EditorGUI.EndProperty();
             }
