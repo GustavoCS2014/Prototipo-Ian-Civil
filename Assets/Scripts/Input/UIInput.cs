@@ -50,31 +50,26 @@ namespace Input
 
         private static void NavigateAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             NavigatePerformed?.Invoke(context);
         }
 
         private static void SubmitAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             SubmitPerformed?.Invoke(context);
         }
 
         private static void CancelAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             CancelPerformed?.Invoke(context);
         }
 
         private static void PointAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             PointPerformed?.Invoke(context);
         }
 
         private static void SkipAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             SkipIsPressed = context.performed;
             if (context.performed)
                 SkipPressed?.Invoke(context);

@@ -31,7 +31,6 @@ namespace Input
 
         private static void PauseAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             PausePerformed?.Invoke(context);
         }
     }

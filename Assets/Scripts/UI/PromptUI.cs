@@ -10,7 +10,6 @@ namespace UI
         [SerializeField] private GameInputCommand inputCommand;
         [SerializeField] private string message;
         [SerializeField] private TextMeshProUGUI text;
-        [SerializeField] private InputActionAsset actionsAsset;
 
         private void Awake()
         {
@@ -32,9 +31,10 @@ namespace UI
             UpdateText(controlScheme);
         }
 
-        private void UpdateText(ControlScheme controlScheme = ControlScheme.Keyboard)
+        private void UpdateText(ControlScheme controlScheme)
         {
-            int index = (int)controlScheme;
+            InputActionAsset actionsAsset = GameInput.ActionsAsset;
+            var index = (int)controlScheme;
             InputBinding inputBinding = actionsAsset.FindAction(inputCommand.ToString()).bindings[index];
             text.text = string.Format(message, inputBinding.ToDisplayString());
         }

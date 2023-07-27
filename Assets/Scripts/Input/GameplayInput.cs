@@ -54,19 +54,16 @@ namespace Input
 
         private static void JumpAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnJump?.Invoke(context);
         }
 
         private static void MoveAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnMove?.Invoke(context);
         }
 
         private static void ShootAction(InputAction.CallbackContext context)
         {
-            SetCurrentControlScheme(context);
             OnShoot?.Invoke(context);
         }
     }

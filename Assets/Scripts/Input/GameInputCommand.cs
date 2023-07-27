@@ -1,11 +1,12 @@
-﻿using System;
-
-namespace Input
+﻿namespace Input
 {
-    [Flags]
     public enum GameInputCommand
     {
-        Pause = 1,
-        Skip = 2
+        Jump,
+        Shoot,
+        Skip,
+        Submit,
+        Cancel,
+        Pause
     }
 }

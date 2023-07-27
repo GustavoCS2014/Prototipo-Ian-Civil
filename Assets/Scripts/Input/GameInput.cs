@@ -1,13 +1,17 @@
 ﻿using System;
 using Core;
 using Management;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 namespace Input
 {
     public abstract class GameInput : MonoBehaviour
     {
+        private const string GameActionsPath = "Assets/Settings/GameActions.inputactions";
+
         public static event Action<ControlScheme> ControlSchemeChanged;
 
         public static string CurrentDevice { get; private set; }
@@ -23,6 +27,18 @@ namespace Input
             }
         }
 
+        private static InputActionAsset _actionsAsset;
+
+        public static InputActionAsset ActionsAsset
+        {
+            get
+            {
+                if (_actionsAsset) return _actionsAsset;
+                _actionsAsset = AssetDatabase.LoadAssetAtPath<InputActionAsset>(GameActionsPath);
+                return _actionsAsset;
+            }
+        }
+
         private static ControlScheme _currentControlScheme;
 
         [SerializeField] protected GameState enabledInStates;
@@ -30,6 +46,7 @@ namespace Input
         protected virtual void Awake()
         {
             GameManager.StateChanged += OnGameStateChanged;
+            InputSystem.onAnyButtonPress.Call(OnAnyButtonPress);
         }
 
         private void OnDestroy()
@@ -37,16 +54,9 @@ namespace Input
             GameManager.StateChanged -= OnGameStateChanged;
         }
 
-        private void OnGameStateChanged(GameState state)
+        private static void OnAnyButtonPress(InputControl control)
         {
-            enabled = (enabledInStates & state) == state;
-        }
-
-        protected static void SetCurrentControlScheme(InputAction.CallbackContext context)
-        {
-            if (!context.performed) return;
-
-            CurrentDevice = context.control.device.name;
+            CurrentDevice = control.device.name;
 
             CurrentControlScheme = CurrentDevice switch
             {
@@ -58,6 +68,11 @@ namespace Input
                 "Xbox" => ControlScheme.Xbox,
                 _ => ControlScheme.Gamepad
             };
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            enabled = (enabledInStates & state) == state;
         }
     }
 }
