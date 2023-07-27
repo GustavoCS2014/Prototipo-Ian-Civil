@@ -11,6 +11,9 @@ namespace Input
         public static event Action<InputAction.CallbackContext> NavigatePerformed;
         public static event Action<InputAction.CallbackContext> SubmitPerformed;
         public static event Action<InputAction.CallbackContext> CancelPerformed;
+        public static event Action<InputAction.CallbackContext> LeftClickPerformed;
+        public static event Action<InputAction.CallbackContext> RightClickPerformed;
+        public static event Action<InputAction.CallbackContext> MiddleClickPerformed;
 
         public static Vector2 Direction => _uiActions.UI.Navigate.ReadValue<Vector2>();
         public static bool SkipIsPressed { get; private set; }
@@ -32,6 +35,9 @@ namespace Input
             _uiActions.UI.Cancel.performed += CancelAction;
             _uiActions.UI.Skip.performed += SkipAction;
             _uiActions.UI.Skip.canceled += SkipAction;
+            _uiActions.UI.Click.performed += ClickAction;
+            _uiActions.UI.RightClick.performed += RightClickAction;
+            _uiActions.UI.MiddleClick.performed += MiddleClickAction;
         }
 
         private void OnDisable()
@@ -43,6 +49,9 @@ namespace Input
             _uiActions.UI.Cancel.performed -= CancelAction;
             _uiActions.UI.Skip.performed -= SkipAction;
             _uiActions.UI.Skip.canceled -= SkipAction;
+            _uiActions.UI.Click.performed -= ClickAction;
+            _uiActions.UI.RightClick.performed -= RightClickAction;
+            _uiActions.UI.MiddleClick.performed -= MiddleClickAction;
         }
 
         private static void NavigateAction(InputAction.CallbackContext context)
@@ -71,6 +80,24 @@ namespace Input
             else if (context.canceled)
                 SkipReleased?.Invoke(context);
             OnAnyInput(context, GameInputAction.Skip);
+        }
+
+        private static void ClickAction(InputAction.CallbackContext context)
+        {
+            LeftClickPerformed?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Click);
+        }
+
+        private static void RightClickAction(InputAction.CallbackContext context)
+        {
+            RightClickPerformed?.Invoke(context);
+            OnAnyInput(context, GameInputAction.RightClick);
+        }
+
+        private static void MiddleClickAction(InputAction.CallbackContext context)
+        {
+            MiddleClickPerformed?.Invoke(context);
+            OnAnyInput(context, GameInputAction.MiddleClick);
         }
     }
 }

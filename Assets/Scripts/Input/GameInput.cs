@@ -1,7 +1,7 @@
 ﻿using System;
+using System.IO;
 using Core;
 using Management;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -10,8 +10,6 @@ namespace Input
 {
     public abstract class GameInput : MonoBehaviour
     {
-        private const string GameActionsPath = "Assets/Settings/GameActions.inputactions";
-
         public static event Action<ControlScheme> ControlSchemeChanged;
         public static event Action<InputAction.CallbackContext, GameInputAction> OnAny;
 
@@ -39,7 +37,7 @@ namespace Input
             get
             {
                 if (_actionsAsset) return _actionsAsset;
-                _actionsAsset = AssetDatabase.LoadAssetAtPath<InputActionAsset>(GameActionsPath);
+                _actionsAsset = Resources.Load<InputActionAsset>("Input/GameActions");
                 return _actionsAsset;
             }
         }

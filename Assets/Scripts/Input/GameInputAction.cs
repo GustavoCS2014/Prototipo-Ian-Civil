@@ -10,6 +10,9 @@
         Navigate,
         Submit,
         Cancel,
+        Click,
+        RightClick,
+        MiddleClick,
         Pause
     }
 }
