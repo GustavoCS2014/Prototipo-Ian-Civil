@@ -1,10 +1,12 @@
+using System;
+using Core;
 using Entities.Player.States;
 using UnityEngine;
 
 namespace Entities.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public sealed class PlayerController : BaseEntityController<PlayerController>
+    public sealed class PlayerController : BaseEntityController<PlayerController>, IAnimable
     {
         public static PlayerController Instance { get; private set; }
 
@@ -35,6 +37,38 @@ namespace Entities.Player
             base.OnDrawGizmosSelected();
             if (Settings)
                 Gizmos.DrawRay(transform.position, Settings.JumpHeight * Vector3.up);
+        }
+
+        public void ChangeState(string state)
+        {
+            StateMachine.ChangeState(state switch
+            {
+                "Idle" => IdleState,
+                "Move" => MoveState,
+                "Jump" => JumpState,
+                "Fall" => FallState,
+                _ => throw new Exception($"State {state} not found")
+            });
+        }
+
+        public void FaceDirection(float direction)
+        {
+            Direction = direction;
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(
+                new Rect(0f, 0f, Screen.width, Screen.height),
+                $"State: {StateMachine.CurrentState}",
+                new GUIStyle
+                {
+                    fontSize = 20,
+                    fontStyle = FontStyle.Bold,
+                    alignment = TextAnchor.LowerLeft,
+                    normal = { textColor = Color.white }
+                }
+            );
         }
     }
 }
