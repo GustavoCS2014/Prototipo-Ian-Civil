@@ -14,6 +14,11 @@ namespace Entities
 
         private void Awake()
         {
+            ValidateEntity();
+        }
+
+        public void ValidateEntity()
+        {
             if (!animableEntity) return;
 
             if (!animableEntity.TryGetComponent(out _animableComponent))
