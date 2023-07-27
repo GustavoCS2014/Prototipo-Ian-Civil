@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Entities
+namespace Cinematics
 {
     public class EntityAnimatorController : MonoBehaviour
     {
