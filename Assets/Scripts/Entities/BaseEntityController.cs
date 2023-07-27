@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Attributes;
+using Core;
 using UnityEngine;
 
 namespace Entities
@@ -6,6 +7,7 @@ namespace Entities
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseEntityController<T> : MonoBehaviour where T : BaseEntityController<T>
     {
+        [SerializeField, ReadOnly] private string currentState;
         [SerializeField] protected BaseEntitySettings settings;
         [SerializeField] protected HurtBox hurtBox;
 
@@ -18,6 +20,8 @@ namespace Entities
         protected virtual void Awake()
         {
             StateMachine = new StateMachine<T>();
+            StateMachine.StateChanged += OnStateChanged;
+
             Rigidbody = GetComponent<Rigidbody2D>();
         }
 
@@ -40,6 +44,7 @@ namespace Entities
             }
         }
 
+
         public Vector2 FacingDirection => transform.localScale.x * Vector2.right;
 
         public bool Grounded => Physics2D.OverlapCircle(
@@ -48,13 +53,20 @@ namespace Entities
             settings.GroundLayer
         );
 
-        protected void Initialize(State<T> state) => StateMachine.Initialize(state);
+        protected void Initialize(State<T> state) => StateMachine?.Initialize(state);
 
-        private void Update() => StateMachine.CurrentState.Update();
+        private void OnStateChanged(State<T> state) => currentState = state.ToString();
 
-        private void FixedUpdate() => StateMachine.CurrentState.FixedUpdate();
+        private void Update() => StateMachine?.CurrentState?.Update();
 
-        protected virtual void OnDestroy() => StateMachine.Kill();
+        private void FixedUpdate() => StateMachine?.CurrentState?.FixedUpdate();
+
+        protected virtual void OnDestroy()
+        {
+            StateMachine?.Kill();
+            if (StateMachine is not null)
+                StateMachine.StateChanged -= OnStateChanged;
+        }
 
         protected virtual void OnDrawGizmosSelected()
         {

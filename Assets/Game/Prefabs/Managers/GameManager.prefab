@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseVisibleOnStates: 4
   allowVisibleOnClick: 0
-  timeVisibleOnClick: 5
+  timeVisible: 5
 --- !u!114 &4142877840601212308
 MonoBehaviour:
   m_ObjectHideFlags: 0

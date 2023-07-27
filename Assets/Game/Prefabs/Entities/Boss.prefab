@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4825221287457222622}
-  - component: {fileID: 473289642114331027}
   - component: {fileID: 6333694077941118587}
+  - component: {fileID: 473289642114331027}
   m_Layer: 8
   m_Name: HurtBox
   m_TagString: Untagged
@@ -33,6 +33,37 @@ Transform:
   m_Father: {fileID: 1201769993451750535}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6333694077941118587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859468493171822175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1ac51d115043f9877b77641f2a2e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  health: 0
+  hasCooldown: 0
+  damageTime: 0
+  onHealthDepleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.PopUpMessageUI, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &473289642114331027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78,36 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 2.25}
   m_EdgeRadius: 0
---- !u!114 &6333694077941118587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859468493171822175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1ac51d115043f9877b77641f2a2e43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entitySettings: {fileID: 11400000, guid: 9e8199b6f3d31de4fa9bb3bc6faed14c, type: 2}
-  hasCooldown: 0
-  health: 0
-  onHealthDepleted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.PopUpMessageUI, Assembly-CSharp
-        m_MethodName: Show
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1872972248814424272
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ Transform:
   - {fileID: 6301027825974546939}
   - {fileID: 4825221287457222622}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3412037578943078806
 MonoBehaviour:
@@ -288,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4b90a5c5cf43a29ba75827163bd938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 
   settings: {fileID: 11400000, guid: 9e8199b6f3d31de4fa9bb3bc6faed14c, type: 2}
   hurtBox: {fileID: 6333694077941118587}
   shooter: {fileID: 6847822960989713338}
