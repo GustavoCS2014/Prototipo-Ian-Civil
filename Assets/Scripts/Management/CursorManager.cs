@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Attributes;
+using Core;
 using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,7 +10,10 @@ namespace Management
     {
         [SerializeField] private GameState mouseVisibleOnStates;
         [SerializeField] private bool allowVisibleOnClick;
-        [SerializeField, Min(0f)] private float timeVisibleOnClick;
+        [SerializeField]
+        [ShowIfBool(nameof(allowVisibleOnClick))]
+        [Min(0f)]
+        private float timeVisible;
 
         private void Awake()
         {
@@ -36,8 +40,8 @@ namespace Management
         {
             if (!allowVisibleOnClick) return;
             Cursor.visible = true;
-            if (timeVisibleOnClick <= 0) return;
-            Invoke(nameof(ResetVisible), timeVisibleOnClick);
+            if (timeVisible <= 0) return;
+            Invoke(nameof(ResetVisible), timeVisible);
         }
 
         private void ResetVisible()

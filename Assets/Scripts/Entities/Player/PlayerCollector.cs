@@ -1,4 +1,5 @@
 ﻿using System;
+using Attributes;
 using Core;
 using Units.Collectables;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Entities.Player
         public static event Action<int> CoinCollected;
 
         [SerializeField] private PlayerSettings settings;
-        [SerializeField] private int coinAmount;
+        [SerializeField, ReadOnly] private int coinAmount;
 
         public int CoinAmount => coinAmount;
 

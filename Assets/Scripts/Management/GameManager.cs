@@ -1,4 +1,5 @@
 ﻿using System;
+using Attributes;
 using Core;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +12,7 @@ namespace Management
 
         [Tooltip("The initial state of the game is set to currentState on Start.")]
         [SerializeField] private GameState initialState;
-        [SerializeField] private GameState currentState;
+        [SerializeField, ReadOnly] private GameState currentState;
 
         [SerializeField] private UnityEvent onSceneIntroState;
         [SerializeField] private UnityEvent onPlayingState;

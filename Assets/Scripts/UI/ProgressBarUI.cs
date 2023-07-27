@@ -8,7 +8,7 @@ namespace UI
     public sealed class ProgressBarUI : MonoBehaviour
     {
         [SerializeField] private GameObject hasProgress;
-        [SerializeField] private Image type;
+        [SerializeField] private Image progressBarImage;
 
         private void Start()
         {
@@ -27,7 +27,7 @@ namespace UI
 
         private void OnProgressUpdated(float progress)
         {
-            type.fillAmount = progress;
+            progressBarImage.fillAmount = progress;
         }
     }
 }

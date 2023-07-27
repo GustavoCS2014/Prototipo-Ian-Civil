@@ -1,4 +1,5 @@
 ﻿using System;
+using Attributes;
 using Core;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,14 +15,19 @@ namespace Entities
         public event Action<int> DamageTaken;
         public event Action HealthDepleted;
 
-        [SerializeField] private BaseEntitySettings entitySettings;
+        [SerializeField, Min(1)] private int maxHealth;
+        [SerializeField, ReadOnly] private int health;
         [SerializeField] private bool hasCooldown;
-
-        [SerializeField] private int health;
+        [SerializeField]
+        [ShowIfBool(nameof(hasCooldown))]
+        [Min(0f)]
+        private float damageTime;
         [SerializeField] private UnityEvent onHealthDepleted;
 
         private bool _isInvulnerable;
         private float _timer;
+
+        public int MaxHealth => maxHealth;
 
         public int Health
         {
@@ -29,15 +35,14 @@ namespace Entities
             set => health = value.ClampMin(0);
         }
 
-        public float DamageTime => entitySettings.DamageTime;
+        public float DamageTime => damageTime;
 
-        public float ProgressNormalized => (float)Health / entitySettings.MaxHealth;
-        public Range ProgressRange => new(0, entitySettings.MaxHealth);
+        public float ProgressNormalized => (float)Health / MaxHealth;
+        public Range ProgressRange => new(0, MaxHealth);
 
         private void Awake()
         {
-            if (!entitySettings) return;
-            Health = entitySettings.MaxHealth;
+            Health = MaxHealth;
         }
 
         public void TakeDamage(int damage)
@@ -62,7 +67,7 @@ namespace Entities
             if (!hasCooldown) return;
             if (!_isInvulnerable) return;
 
-            if (_timer >= entitySettings.DamageTime)
+            if (_timer >= damageTime)
             {
                 _timer = 0;
                 _isInvulnerable = false;

@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using Attributes;
+using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,10 @@ namespace UI
     {
         [SerializeField] private bool startHidden;
         [SerializeField] private GameInputAction showOnInput;
-        [SerializeField, Min(0f)] private float showForSeconds;
+        [SerializeField]
+        [ShowIfBool(nameof(showOnInput))]
+        [Min(0f)]
+        private float showForSeconds;
 
         private bool _holdingInput;
         private float _timer;
