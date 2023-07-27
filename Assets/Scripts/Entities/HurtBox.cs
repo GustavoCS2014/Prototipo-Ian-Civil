@@ -15,8 +15,13 @@ namespace Entities
         public event Action HealthDepleted;
 
         [SerializeField] private BaseEntitySettings entitySettings;
-        [SerializeField, Min(0)] private int health;
+        [SerializeField] private bool hasCooldown;
+
+        [SerializeField] private int health;
         [SerializeField] private UnityEvent onHealthDepleted;
+
+        private bool _isInvulnerable;
+        private float _timer;
 
         public int Health
         {
@@ -37,6 +42,11 @@ namespace Entities
 
         public void TakeDamage(int damage)
         {
+            if (_isInvulnerable) return;
+
+            if (hasCooldown)
+                _isInvulnerable = true;
+
             Health -= damage;
             DamageTaken?.Invoke(damage);
             ProgressUpdated?.Invoke(ProgressNormalized);
@@ -45,6 +55,20 @@ namespace Entities
             gameObject.SetActive(false);
             HealthDepleted?.Invoke();
             onHealthDepleted?.Invoke();
+        }
+
+        private void Update()
+        {
+            if (!hasCooldown) return;
+            if (!_isInvulnerable) return;
+
+            if (_timer >= entitySettings.DamageTime)
+            {
+                _timer = 0;
+                _isInvulnerable = false;
+            }
+
+            _timer += Time.deltaTime;
         }
     }
 }

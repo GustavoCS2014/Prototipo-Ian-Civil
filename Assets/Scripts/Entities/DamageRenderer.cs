@@ -10,13 +10,11 @@ namespace Entities
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private HurtBox hurtBox;
 
-        private static readonly Color NeutralColor = Color.white;
-
-        private float _time;
+        private Color _neutralColor;
 
         private void Start()
         {
-            _time = hurtBox.DamageTime;
+            _neutralColor = spriteRenderer.color;
             hurtBox.DamageTaken += OnDamageTaken;
         }
 
@@ -28,11 +26,12 @@ namespace Entities
 
         private IEnumerator LerpColor()
         {
-            for (var t = 0f; t < _time; t += Time.deltaTime)
+            for (var t = 0f; t < hurtBox.DamageTime * 1.1; t += Time.deltaTime)
             {
-                spriteRenderer.color = Color.Lerp(damageColor, NeutralColor, Utilities.Ease.InOutSine(t));
+                spriteRenderer.color = Color.Lerp(damageColor, _neutralColor, Utilities.Ease.InOutSine(t));
                 yield return null;
             }
+            spriteRenderer.color = _neutralColor;
         }
     }
 }

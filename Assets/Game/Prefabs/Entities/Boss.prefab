@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entitySettings: {fileID: 11400000, guid: 9e8199b6f3d31de4fa9bb3bc6faed14c, type: 2}
+  hasCooldown: 0
   health: 0
   onHealthDepleted:
     m_PersistentCalls:
@@ -449,6 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148cfa94eb6c42138a4175473ec87e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageColor: {r: 0.2509804, g: 0, b: 1, a: 1}
   spriteRenderer: {fileID: 8689538762535061205}
   hurtBox: {fileID: 6333694077941118587}

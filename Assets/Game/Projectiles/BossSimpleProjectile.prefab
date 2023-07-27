@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.2
   destroyOnHit: 1
-  projectileInfo: {fileID: 11400000, guid: 68b953f7b387bbd46bcb1553ace53e96, type: 2}
+  projectileInfo: {fileID: 11400000, guid: 46ee75abfd3e5674f9713f03d409c6e7, type: 2}
 --- !u!50 &629468627829080130
 Rigidbody2D:
   serializedVersion: 4

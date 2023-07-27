@@ -9,6 +9,7 @@ namespace Core
         Playing = 2,
         Paused = 4,
         SceneOutro = 8,
-        Cutscene = 16
+        Cutscene = 16,
+        PlayerDead = 32,
     }
 }
