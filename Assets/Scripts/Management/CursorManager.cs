@@ -39,15 +39,11 @@ namespace Management
             Cursor.visible = (state & mouseVisibleOnStates) is not 0
                              && (visibleOnControllerScheme
                              || GameInput.CurrentControlScheme is ControlScheme.Keyboard);
-
-            Debug.Log($"Game state changed: {(Cursor.visible ? "Cursor visible" : "Cursor invisible")}");
         }
 
         private void OnControlSchemeChanged(ControlScheme scheme)
         {
             Cursor.visible = visibleOnControllerScheme || scheme is ControlScheme.Keyboard;
-
-            Debug.Log($"Control scheme changed: {(Cursor.visible ? "Cursor visible" : "Cursor invisible")}");
         }
 
         private void OnClickPerformed(InputAction.CallbackContext context)
