@@ -7,9 +7,20 @@ namespace Attributes.Editor
     [CustomPropertyDrawer(typeof(ShowIfBoolAttribute))]
     public class ShowIfBoolPropertyDrawer : PropertyDrawer
     {
+        private SerializedProperty _conditionalProperty;
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             var showIfBool = attribute as ShowIfBoolAttribute;
+
+            _conditionalProperty ??= property.serializedObject.FindProperty(showIfBool!.conditionFieldName);
+
+            if (_conditionalProperty.propertyType != SerializedPropertyType.Boolean)
+            {
+                EditorGUI.HelpBox(position, $"[ShowIfBool] {_conditionalProperty.displayName} must be a bool.", MessageType.Error);
+                return;
+            }
+
             bool enabled = GetConditionValue(showIfBool, property);
 
             bool wasEnabled = GUI.enabled;
@@ -22,6 +33,10 @@ namespace Attributes.Editor
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             var showIf = attribute as ShowIfBoolAttribute;
+
+            if (_conditionalProperty?.propertyType != SerializedPropertyType.Boolean)
+                return EditorGUI.GetPropertyHeight(property, label);
+
             bool enabled = GetConditionValue(showIf, property);
 
             if (enabled)

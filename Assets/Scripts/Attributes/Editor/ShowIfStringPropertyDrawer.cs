@@ -20,7 +20,7 @@ namespace Attributes.Editor
 
             if (_conditionalProperty.propertyType != SerializedPropertyType.String)
             {
-                EditorGUI.HelpBox(position, $"{_showIfStringAttribute!.conditionalFieldName} must be a string.", MessageType.Error);
+                EditorGUI.HelpBox(position, $"[ShowIfString] {_conditionalProperty.displayName} must be a string.", MessageType.Error);
                 return;
             }
 
