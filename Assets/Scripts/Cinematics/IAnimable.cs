@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace Cinematics
 {
     public interface IAnimable
     {

@@ -1,5 +1,5 @@
 using System;
-using Core;
+using Cinematics;
 using Entities.Player.States;
 using UnityEngine;
 
