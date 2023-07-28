@@ -22,17 +22,16 @@ namespace Attributes.Editor
                 return;
             }
 
-            var caller = attribute as CallerAttribute;
             var target = property.serializedObject.targetObject;
             if (methods == null)
             {
-                methods = GetScriptMethods(target, caller!.scriptType);
+                methods = GetScriptMethods(target);
                 property.stringValue = methods.Length > 0 ? methods[0] : string.Empty;
             }
 
             if (methods?.Length == 0)
             {
-                EditorGUI.HelpBox(position, $"No methods found in {caller!.scriptType}", MessageType.Warning);
+                EditorGUI.HelpBox(position, $"No methods found in {target.GetType()}", MessageType.Warning);
                 return;
             }
 
@@ -52,12 +51,12 @@ namespace Attributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private static string[] GetScriptMethods(object target, Type type)
+        private static string[] GetScriptMethods(object target)
         {
             return target.GetType()
                 .GetMethods(Filter)
                 .Where(m => m.GetParameters().Length == 0)
-                .Where(m => m.DeclaringType == type)
+                .Where(m => m.DeclaringType == target.GetType())
                 .Select(m => m.Name)
                 .ToArray();
         }
