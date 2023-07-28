@@ -1,5 +1,4 @@
-﻿using Core;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Cinematics
@@ -27,16 +26,22 @@ namespace Cinematics
 
         public void ChangeState(string state)
         {
+            if (!Application.isPlaying) return;
+
             _animableComponent?.ChangeState(state);
         }
 
         public void FaceDirection(float direction)
         {
+            if (!Application.isPlaying) return;
+
             _animableComponent?.FaceDirection(direction);
         }
 
         public void StartAnimating()
         {
+            if (!Application.isPlaying) return;
+
             if (_animableComponent is null) return;
 
             _animableComponent.Animating = true;
@@ -45,6 +50,8 @@ namespace Cinematics
 
         public void StopAnimating()
         {
+            if (!Application.isPlaying) return;
+
             if (_animableComponent is null) return;
 
             _animableComponent.Animating = false;

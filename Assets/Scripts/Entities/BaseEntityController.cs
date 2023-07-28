@@ -38,7 +38,7 @@ namespace Entities
                 if (value != 0f)
                 {
                     transform.localScale = new Vector3(
-                        Mathf.Ceil(value) * Mathf.Abs(localScale.x),
+                        Mathf.Sign(value) * Mathf.Abs(localScale.x),
                         localScale.y,
                         localScale.z
                     );
