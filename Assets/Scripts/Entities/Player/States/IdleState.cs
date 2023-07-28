@@ -40,6 +40,12 @@ namespace Entities.Player.States
             StateMachine.ChangeState(Owner.MoveState);
         }
 
+        public override void Update()
+        {
+            if (Owner.Direction != 0f)
+                StateMachine.ChangeState(Owner.MoveState);
+        }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();

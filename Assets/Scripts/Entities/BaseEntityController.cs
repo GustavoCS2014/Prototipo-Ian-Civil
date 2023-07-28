@@ -1,6 +1,7 @@
 ﻿using Attributes;
 using Core;
 using UnityEngine;
+using Utilities;
 
 namespace Entities
 {
@@ -31,16 +32,19 @@ namespace Entities
             set
             {
                 Vector3 localScale = transform.localScale;
+
+                value = value.Clamp(-1f, 1f);
+
                 if (value != 0f)
                 {
                     transform.localScale = new Vector3(
-                        value * Mathf.Abs(localScale.x),
+                        Mathf.Ceil(value) * Mathf.Abs(localScale.x),
                         localScale.y,
                         localScale.z
                     );
                 }
 
-                _direction = Mathf.Clamp(value, -1f, 1f);
+                _direction = value;
             }
         }
 

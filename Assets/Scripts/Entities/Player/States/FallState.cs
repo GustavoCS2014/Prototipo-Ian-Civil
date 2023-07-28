@@ -40,7 +40,7 @@ namespace Entities.Player.States
             };
 
             if (Owner.Grounded)
-                StateMachine.ChangeState(GameplayInput.MoveDirection.x != 0f ? Owner.MoveState : Owner.IdleState);
+                StateMachine.ChangeState(Owner.Direction != 0f ? Owner.MoveState : Owner.IdleState);
         }
 
         public override string ToString() => nameof(FallState);

@@ -57,20 +57,5 @@ namespace Entities.Player
         {
             Direction = direction;
         }
-
-        private void OnGUI()
-        {
-            GUI.Label(
-                new Rect(0f, 0f, Screen.width, Screen.height),
-                $"State: {StateMachine.CurrentState}",
-                new GUIStyle
-                {
-                    fontSize = 20,
-                    fontStyle = FontStyle.Bold,
-                    alignment = TextAnchor.LowerLeft,
-                    normal = { textColor = Color.white }
-                }
-            );
-        }
     }
 }
