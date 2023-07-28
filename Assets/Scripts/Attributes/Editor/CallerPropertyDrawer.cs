@@ -19,7 +19,7 @@ namespace Attributes.Editor
         {
             if (property.propertyType != SerializedPropertyType.String)
             {
-                EditorGUI.LabelField(position, "Caller supports only string properties.");
+                DrawInvalidProperty(position, property, label, "Use [Caller] with string fields only.");
                 return;
             }
 
@@ -30,7 +30,7 @@ namespace Attributes.Editor
 
             if (methods?.Length == 0)
             {
-                EditorGUI.LabelField(position, $"No methods found in {type.Name}.");
+                DrawInvalidProperty(position, property, label, $"No methods found in {type}");
                 return;
             }
 
@@ -64,6 +64,15 @@ namespace Attributes.Editor
         private static void CallMethod(object target, string methodName)
         {
             target.GetType().GetMethod(methodName, Filter)!.Invoke(target, null);
+        }
+
+        private void DrawInvalidProperty(Rect position, SerializedProperty property, GUIContent label, string message)
+        {
+            EditorGUI.BeginProperty(position, label, property);
+            GUI.enabled = false;
+            EditorGUI.TextField(position, label.text, message);
+            GUI.enabled = true;
+            EditorGUI.EndProperty();
         }
     }
 }
