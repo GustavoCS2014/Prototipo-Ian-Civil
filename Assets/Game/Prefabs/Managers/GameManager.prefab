@@ -78,6 +78,7 @@ MonoBehaviour:
   mouseVisibleOnStates: 4
   allowVisibleOnClick: 0
   timeVisible: 5
+  visibleOnControllerScheme: 0
 --- !u!114 &4142877840601212308
 MonoBehaviour:
   m_ObjectHideFlags: 0
