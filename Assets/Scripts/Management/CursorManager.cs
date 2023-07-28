@@ -14,10 +14,12 @@ namespace Management
         [ShowIfBool(nameof(allowVisibleOnClick))]
         [Min(0f)]
         private float timeVisible;
+        [SerializeField] private bool visibleOnControllerScheme;
 
         private void Awake()
         {
             GameManager.StateChanged += OnGameStateChanged;
+            GameInput.ControlSchemeChanged += OnControlSchemeChanged;
             UIInput.LeftClickPerformed += OnClickPerformed;
             UIInput.RightClickPerformed += OnClickPerformed;
             UIInput.MiddleClickPerformed += OnClickPerformed;
@@ -26,6 +28,7 @@ namespace Management
         private void OnDestroy()
         {
             GameManager.StateChanged -= OnGameStateChanged;
+            GameInput.ControlSchemeChanged -= OnControlSchemeChanged;
             UIInput.LeftClickPerformed -= OnClickPerformed;
             UIInput.RightClickPerformed -= OnClickPerformed;
             UIInput.MiddleClickPerformed -= OnClickPerformed;
@@ -33,7 +36,14 @@ namespace Management
 
         private void OnGameStateChanged(GameState state)
         {
-            Cursor.visible = (state & mouseVisibleOnStates) != 0;
+            Cursor.visible = (state & mouseVisibleOnStates) is not 0
+                             && (visibleOnControllerScheme
+                             || GameInput.CurrentControlScheme is ControlScheme.Keyboard);
+        }
+
+        private void OnControlSchemeChanged(ControlScheme scheme)
+        {
+            Cursor.visible = visibleOnControllerScheme || scheme is ControlScheme.Keyboard;
         }
 
         private void OnClickPerformed(InputAction.CallbackContext context)
