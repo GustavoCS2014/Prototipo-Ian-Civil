@@ -1,10 +1,9 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-
-#if UNITY_EDITOR
 
 namespace Attributes.Editor
 {
@@ -19,18 +18,21 @@ namespace Attributes.Editor
         {
             if (property.propertyType != SerializedPropertyType.String)
             {
-                DrawInvalidProperty(position, property, label, "Use [Caller] with string fields only.");
+                EditorGUI.HelpBox(position, "Use [Caller] with string fields only.", MessageType.Error);
                 return;
             }
 
             var caller = attribute as CallerAttribute;
-            Type type = caller!.scriptType;
             var target = property.serializedObject.targetObject;
-            methods ??= GetScriptMethods(target, type);
+            if (methods == null)
+            {
+                methods = GetScriptMethods(target, caller!.scriptType);
+                property.stringValue = methods.Length > 0 ? methods[0] : string.Empty;
+            }
 
             if (methods?.Length == 0)
             {
-                DrawInvalidProperty(position, property, label, $"No methods found in {type}");
+                EditorGUI.HelpBox(position, $"No methods found in {caller!.scriptType}", MessageType.Warning);
                 return;
             }
 
@@ -40,14 +42,12 @@ namespace Attributes.Editor
             var popupRect = new Rect(contentRect.x, contentRect.y, contentRect.width - ButtonWidth, contentRect.height);
             var buttonRect = new Rect(contentRect.x + contentRect.width - ButtonWidth, contentRect.y, ButtonWidth, contentRect.height);
 
-            int i = EditorGUI.Popup(popupRect, Array.IndexOf(methods, property.stringValue), methods);
+            int i = EditorGUI.Popup(popupRect, Array.IndexOf(methods!, property.stringValue), methods);
 
             property.stringValue = methods[i];
 
             if (GUI.Button(buttonRect, "Call"))
-            {
                 CallMethod(target, methods[i]);
-            }
 
             EditorGUI.EndProperty();
         }
@@ -56,6 +56,7 @@ namespace Attributes.Editor
         {
             return target.GetType()
                 .GetMethods(Filter)
+                .Where(m => m.GetParameters().Length == 0)
                 .Where(m => m.DeclaringType == type)
                 .Select(m => m.Name)
                 .ToArray();
@@ -64,15 +65,6 @@ namespace Attributes.Editor
         private static void CallMethod(object target, string methodName)
         {
             target.GetType().GetMethod(methodName, Filter)!.Invoke(target, null);
-        }
-
-        private void DrawInvalidProperty(Rect position, SerializedProperty property, GUIContent label, string message)
-        {
-            EditorGUI.BeginProperty(position, label, property);
-            GUI.enabled = false;
-            EditorGUI.TextField(position, label.text, message);
-            GUI.enabled = true;
-            EditorGUI.EndProperty();
         }
     }
 }
