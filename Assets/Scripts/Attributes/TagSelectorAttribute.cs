@@ -23,7 +23,7 @@ namespace Attributes
             }
             else
             {
-                EditorGUI.LabelField(position, label.text, "Use <b>[TagSelector]</b> with string fields only.");
+                EditorGUI.LabelField(position, label.text, "Use [TagSelector] with string fields only.");
             }
         }
     }

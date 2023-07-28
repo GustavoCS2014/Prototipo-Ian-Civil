@@ -5,12 +5,12 @@ namespace Attributes
 {
     public class ShowIfStringAttribute : PropertyAttribute
     {
-        public readonly string conditionFieldName;
+        public readonly string conditionalFieldName;
         public readonly string targetValue;
 
-        public ShowIfStringAttribute(string conditionFieldName, string targetValue)
+        public ShowIfStringAttribute(string conditionalFieldName, string targetValue)
         {
-            this.conditionFieldName = conditionFieldName;
+            this.conditionalFieldName = conditionalFieldName;
             this.targetValue = targetValue;
         }
     }
@@ -19,10 +19,23 @@ namespace Attributes
     [CustomPropertyDrawer(typeof(ShowIfStringAttribute))]
     public class ShowIfStringPropertyDrawer : PropertyDrawer
     {
+        private ShowIfStringAttribute _showIfStringAttribute;
+        private SerializedProperty _conditionalProperty;
+        private string _targetValue;
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            var showIfString = attribute as ShowIfStringAttribute;
-            bool enabled = GetConditionValue(showIfString, property);
+            _showIfStringAttribute ??= attribute as ShowIfStringAttribute;
+            _conditionalProperty ??= property.serializedObject.FindProperty(_showIfStringAttribute!.conditionalFieldName);
+            _targetValue ??= _showIfStringAttribute!.targetValue;
+
+            if (_conditionalProperty.propertyType != SerializedPropertyType.String)
+            {
+                EditorGUI.LabelField(position, "ShowIfString supports only string properties.");
+                return;
+            }
+
+            bool enabled = GetConditionValue();
 
             bool wasEnabled = GUI.enabled;
             GUI.enabled = enabled;
@@ -33,19 +46,18 @@ namespace Attributes
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            var showIf = attribute as ShowIfStringAttribute;
-            bool enabled = GetConditionValue(showIf, property);
+            if (_conditionalProperty?.propertyType != SerializedPropertyType.String)
+                return EditorGUI.GetPropertyHeight(property, label);
 
-            if (enabled)
+            if (GetConditionValue())
                 return EditorGUI.GetPropertyHeight(property, label);
 
             return -EditorGUIUtility.standardVerticalSpacing;
         }
 
-        private static bool GetConditionValue(ShowIfStringAttribute showIfString, SerializedProperty property)
+        private bool GetConditionValue()
         {
-            SerializedProperty conditionProperty = property.serializedObject.FindProperty(showIfString.conditionFieldName);
-            return conditionProperty is not null && conditionProperty.stringValue == showIfString.targetValue;
+            return _conditionalProperty is not null && _conditionalProperty.stringValue == _targetValue;
         }
     }
 #endif
