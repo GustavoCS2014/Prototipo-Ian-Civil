@@ -2,7 +2,7 @@
 
 namespace Attributes
 {
-    public class ShowIfStringAttribute : PropertyAttribute
+    public sealed class ShowIfStringAttribute : PropertyAttribute
     {
         public readonly string conditionalFieldName;
         public readonly string targetValue;

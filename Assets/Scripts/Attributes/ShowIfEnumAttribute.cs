@@ -2,7 +2,7 @@
 
 namespace Attributes
 {
-    public class ShowIfEnumAttribute : PropertyAttribute
+    public sealed class ShowIfEnumAttribute : PropertyAttribute
     {
         public readonly string conditionalFieldName;
         public readonly int targetValue;

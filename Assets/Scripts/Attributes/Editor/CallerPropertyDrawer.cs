@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Attributes.Editor
 {
     [CustomPropertyDrawer(typeof(CallerAttribute))]
-    public class CallerPropertyDrawer : PropertyDrawer
+    public sealed class CallerPropertyDrawer : PropertyDrawer
     {
         private const BindingFlags Filter = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private const float ButtonWidth = 50f;

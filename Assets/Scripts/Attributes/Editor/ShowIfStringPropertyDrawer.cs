@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Attributes.Editor
 {
     [CustomPropertyDrawer(typeof(ShowIfStringAttribute))]
-    public class ShowIfStringPropertyDrawer : PropertyDrawer
+    public sealed class ShowIfStringPropertyDrawer : PropertyDrawer
     {
         private SerializedProperty _conditionalProperty;
         private ShowIfStringAttribute _showIfStringAttribute;

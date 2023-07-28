@@ -2,7 +2,7 @@
 
 namespace Attributes
 {
-    public class ShowIfBoolAttribute : PropertyAttribute
+    public sealed class ShowIfBoolAttribute : PropertyAttribute
     {
         public readonly string conditionFieldName;
 

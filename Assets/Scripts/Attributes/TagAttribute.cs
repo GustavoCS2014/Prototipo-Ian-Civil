@@ -2,5 +2,5 @@
 
 namespace Attributes
 {
-    public class TagAttribute : PropertyAttribute { }
+    public sealed class TagAttribute : PropertyAttribute { }
 }

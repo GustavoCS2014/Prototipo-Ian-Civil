@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Attributes.Editor
 {
     [CustomPropertyDrawer(typeof(TagAttribute))]
-    public class TagPropertyDrawer : PropertyDrawer
+    public sealed class TagPropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Attributes.Editor
 {
     [CustomPropertyDrawer(typeof(ShowIfBoolAttribute))]
-    public class ShowIfBoolPropertyDrawer : PropertyDrawer
+    public sealed class ShowIfBoolPropertyDrawer : PropertyDrawer
     {
         private SerializedProperty _conditionalProperty;
 

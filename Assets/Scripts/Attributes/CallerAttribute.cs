@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Attributes
 {
-    public class CallerAttribute : PropertyAttribute
+    public sealed class CallerAttribute : PropertyAttribute
     {
         public readonly Type scriptType;
 

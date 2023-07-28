@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Attributes.Editor
 {
     [CustomPropertyDrawer(typeof(ShowIfEnumAttribute))]
-    public class ShowIfEnumPropertyDrawer : PropertyDrawer
+    public sealed class ShowIfEnumPropertyDrawer : PropertyDrawer
     {
         private SerializedProperty _conditionalProperty;
 
