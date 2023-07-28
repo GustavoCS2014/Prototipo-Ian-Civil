@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Attributes.Editor
 {
-    [CustomPropertyDrawer(typeof(TagSelectorAttribute))]
-    public class TagSelectorPropertyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(TagAttribute))]
+    public class TagPropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
