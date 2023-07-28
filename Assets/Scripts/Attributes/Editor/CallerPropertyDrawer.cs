@@ -10,13 +10,17 @@ namespace Attributes.Editor
     [CustomPropertyDrawer(typeof(CallerAttribute))]
     public sealed class CallerPropertyDrawer : PropertyDrawer
     {
-        private const BindingFlags Filter = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        private const BindingFlags Filter = BindingFlags.Instance
+                                            | BindingFlags.Public
+                                            | BindingFlags.NonPublic
+                                            | BindingFlags.Static
+                                            | BindingFlags.DeclaredOnly;
         private const float ButtonWidth = 50f;
         private string[] methods;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            if (property.propertyType != SerializedPropertyType.String)
+            if (property.propertyType is not SerializedPropertyType.String)
             {
                 EditorGUI.HelpBox(position, "Use [Caller] with string fields only.", MessageType.Error);
                 return;
@@ -56,14 +60,13 @@ namespace Attributes.Editor
             return target.GetType()
                 .GetMethods(Filter)
                 .Where(m => m.GetParameters().Length == 0)
-                .Where(m => m.DeclaringType == target.GetType())
                 .Select(m => m.Name)
                 .ToArray();
         }
 
         private static void CallMethod(object target, string methodName)
         {
-            target.GetType().GetMethod(methodName, Filter)!.Invoke(target, null);
+            target.GetType().GetMethod(methodName, Filter, null, Type.EmptyTypes, null)!.Invoke(target, null);
         }
     }
 }
