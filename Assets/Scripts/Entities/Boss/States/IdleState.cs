@@ -17,7 +17,7 @@ namespace Entities.Boss.States
 
         public override void OnStart()
         {
-            Owner.Rigidbody.velocity = Vector2.zero;
+            Owner.Velocity = Vector2.zero;
             Owner.FacePlayer();
 
             _idleTime = Time.time + Owner.Settings.IdleTime;

@@ -27,7 +27,7 @@ namespace Entities.Player
 
         private void Start()
         {
-            Initialize(IdleState);
+            StateMachine.Initialize(IdleState);
         }
 
         protected override void OnDrawGizmosSelected()

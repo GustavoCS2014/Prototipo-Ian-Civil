@@ -45,7 +45,7 @@ namespace Entities.Boss.States
         {
             float t = _lerpTimer / Owner.Settings.DashTime;
 
-            Owner.Rigidbody.MovePosition(Vector2.Lerp(
+            Owner.MovePosition(Vector2.Lerp(
                 _initialPosition, _targetPosition,
                 Owner.Settings.DashCurve(t).Clamp01())
             );

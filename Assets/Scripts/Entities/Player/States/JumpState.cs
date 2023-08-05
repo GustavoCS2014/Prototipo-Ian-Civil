@@ -20,7 +20,7 @@ namespace Entities.Player.States
             GameplayInput.OnMove += OnMoveInput;
 
             float force = PhysicsCalculator.JumpStrength(Owner.Rigidbody, Owner.Settings.JumpHeight);
-            Owner.Rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+            Owner.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
             Started?.Invoke(this);
         }
@@ -38,13 +38,13 @@ namespace Entities.Player.States
 
         public override void FixedUpdate()
         {
-            Owner.Rigidbody.velocity = new Vector2
+            Owner.Velocity = new Vector2
             {
                 x = Owner.Direction * Owner.Settings.Speed * Owner.Settings.AirInputInfluence,
-                y = Owner.Rigidbody.velocity.y
+                y = Owner.Velocity.y
             };
 
-            if (Owner.Rigidbody.velocity.y < 0f)
+            if (Owner.Velocity.y < 0f)
                 StateMachine.ChangeState(Owner.FallState);
         }
 

@@ -19,7 +19,7 @@ namespace Entities.Player.States
             base.OnStart();
             GameplayInput.OnMove += OnMoveInput;
 
-            Owner.Rigidbody.velocity = Vector2.zero;
+            Owner.Velocity = Vector2.zero;
 
             Started?.Invoke(this);
         }
@@ -44,10 +44,10 @@ namespace Entities.Player.States
         {
             base.FixedUpdate();
 
-            Owner.Rigidbody.velocity = new Vector2
+            Owner.Velocity = new Vector2
             {
                 x = 0f,
-                y = Owner.Rigidbody.velocity.y
+                y = Owner.Velocity.y
             };
         }
 

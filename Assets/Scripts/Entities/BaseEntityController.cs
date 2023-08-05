@@ -44,7 +44,6 @@ namespace Entities
             }
         }
 
-
         public Vector2 FacingDirection => transform.localScale.x * Vector2.right;
 
         public bool Grounded => Physics2D.OverlapCircle(
@@ -52,8 +51,6 @@ namespace Entities
             settings.GroundCheckRadius,
             settings.GroundLayer
         );
-
-        protected void Initialize(State<T> state) => StateMachine?.Initialize(state);
 
         private void OnStateChanged(State<T> state) => currentState = state.ToString();
 
@@ -63,9 +60,9 @@ namespace Entities
 
         protected virtual void OnDestroy()
         {
-            StateMachine?.Kill();
-            if (StateMachine is not null)
-                StateMachine.StateChanged -= OnStateChanged;
+            if (StateMachine is null) return;
+            StateMachine.Kill();
+            StateMachine.StateChanged -= OnStateChanged;
         }
 
         protected virtual void OnDrawGizmosSelected()
@@ -74,5 +71,19 @@ namespace Entities
             if (settings)
                 Gizmos.DrawWireSphere(transform.position, settings.GroundCheckRadius);
         }
+
+        #region Rigidbody
+
+        public Vector2 Velocity
+        {
+            get => Rigidbody.velocity;
+            set => Rigidbody.velocity = value;
+        }
+
+        public void MovePosition(Vector2 position) => Rigidbody.MovePosition(position);
+
+        public void AddForce(Vector2 force, ForceMode2D mode) => Rigidbody.AddForce(force, mode);
+
+        #endregion
     }
 }

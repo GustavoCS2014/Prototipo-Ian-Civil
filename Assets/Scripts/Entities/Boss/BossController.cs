@@ -35,7 +35,7 @@ namespace Entities.Boss
         {
             _player = PlayerController.Instance;
             Direction = -1f;
-            Initialize(IdleState);
+            StateMachine.Initialize(IdleState);
             if (hurtBox) hurtBox.HealthDepleted += OnHealthDepleted;
         }
 
@@ -48,7 +48,7 @@ namespace Entities.Boss
         private void OnHealthDepleted()
         {
             StopAllCoroutines();
-            Rigidbody.velocity = Vector2.zero;
+            Velocity = Vector2.zero;
             StateMachine.ChangeState(DieState);
         }
 

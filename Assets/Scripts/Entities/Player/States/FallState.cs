@@ -33,10 +33,10 @@ namespace Entities.Player.States
 
         public override void FixedUpdate()
         {
-            Owner.Rigidbody.velocity = new Vector2
+            Owner.Velocity = new Vector2
             {
                 x = Owner.Direction * Owner.Settings.Speed * Owner.Settings.AirInputInfluence,
-                y = Owner.Rigidbody.velocity.y
+                y = Owner.Velocity.y
             };
 
             if (Owner.Grounded)

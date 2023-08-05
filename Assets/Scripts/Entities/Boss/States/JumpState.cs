@@ -22,7 +22,7 @@ namespace Entities.Boss.States
                 x = Owner.Settings.JumpDisplacement.x * Owner.Direction,
                 y = PhysicsCalculator.JumpStrength(Owner.Rigidbody, Owner.Settings.JumpDisplacement.y)
             };
-            Owner.Rigidbody.AddForce(force, ForceMode2D.Impulse);
+            Owner.AddForce(force, ForceMode2D.Impulse);
 
             Started?.Invoke(this);
         }
@@ -34,7 +34,7 @@ namespace Entities.Boss.States
 
         public override void FixedUpdate()
         {
-            if (Owner.Rigidbody.velocity.y <= 0f)
+            if (Owner.Velocity.y <= 0f)
                 StateMachine.ChangeState(Owner.FallState);
         }
 
