@@ -18,7 +18,7 @@ namespace Cinematics
             ValidateEntity();
         }
 
-        public void ValidateEntity()
+        private void ValidateEntity()
         {
             if (!animableEntity) return;
 
@@ -62,7 +62,7 @@ namespace Cinematics
 
         public void SkipAnimation()
         {
-            animableEntity.transform.position = endPosition.position;
+            _animableComponent?.IdleTo(endPosition);
             StopAnimating();
         }
     }

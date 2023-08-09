@@ -2,6 +2,7 @@ using System;
 using Cinematics;
 using Entities.Player.States;
 using UnityEngine;
+using Utilities;
 
 namespace Entities.Player
 {
@@ -56,6 +57,14 @@ namespace Entities.Player
         public void FaceDirection(float direction)
         {
             Direction = direction;
+        }
+
+        public void IdleTo(Transform target)
+        {
+            Direction = target.localScale.x.Sign();
+            StateMachine.ChangeState(IdleState);
+            Direction = 0f;
+            transform.position = target.position;
         }
     }
 }

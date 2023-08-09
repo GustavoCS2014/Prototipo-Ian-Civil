@@ -33,5 +33,20 @@ namespace Utilities
         {
             return Mathf.Ceil(value);
         }
+
+        public static float Floor(this float value)
+        {
+            return Mathf.Floor(value);
+        }
+
+        public static float Round(this float value)
+        {
+            return Mathf.Round(value);
+        }
+
+        public static float Sign(this float value)
+        {
+            return Mathf.Sign(value);
+        }
     }
 }

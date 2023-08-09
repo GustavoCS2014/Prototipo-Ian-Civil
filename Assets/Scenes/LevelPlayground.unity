@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 323542144}
   m_Layer: 7
   m_Name: Ground_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 400834670}
   m_Layer: 7
   m_Name: Ground_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -661,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.560968, y: 14, z: -2}
+  m_LocalPosition: {x: -17.556976, y: 14, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1105,7 +1105,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &649646349 stripped
 Transform:
@@ -1209,6 +1209,10 @@ PrefabInstance:
     - target: {fileID: 5504653125534437484, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
       propertyPath: m_Name
       value: Button_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504653125534437484, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
+      propertyPath: m_TagString
+      value: HurtBox
       objectReference: {fileID: 0}
     - target: {fileID: 6026869200697771738, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
       propertyPath: m_RootOrder
@@ -1500,7 +1504,7 @@ GameObject:
   - component: {fileID: 946563139}
   m_Layer: 7
   m_Name: Ground_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1691,7 +1695,7 @@ GameObject:
   - component: {fileID: 972181940}
   m_Layer: 7
   m_Name: Ground_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1821,7 +1825,7 @@ GameObject:
   - component: {fileID: 1005609328}
   m_Layer: 7
   m_Name: Ground_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2265,7 +2269,7 @@ GameObject:
   - component: {fileID: 1277201526}
   m_Layer: 7
   m_Name: Ground_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2395,7 +2399,7 @@ GameObject:
   - component: {fileID: 1314383830}
   m_Layer: 7
   m_Name: Ground_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2796,7 +2800,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1524817575
 PrefabInstance:
@@ -2982,7 +2986,7 @@ Transform:
   m_Children:
   - {fileID: 1195351192}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547275020
 MonoBehaviour:
@@ -3209,7 +3213,7 @@ GameObject:
   - component: {fileID: 1606952041}
   m_Layer: 7
   m_Name: Ground_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3488,7 +3492,7 @@ GameObject:
   - component: {fileID: 1727424481}
   m_Layer: 7
   m_Name: Ground_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3743,7 +3747,7 @@ GameObject:
   - component: {fileID: 2027217379}
   m_Layer: 7
   m_Name: Ground_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4347,6 +4351,10 @@ PrefabInstance:
     - target: {fileID: 5504653125534437484, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504653125534437484, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
+      propertyPath: m_TagString
+      value: HurtBox
       objectReference: {fileID: 0}
     - target: {fileID: 6026869200697771738, guid: 96ae0ffe1933b984cab8961241201253, type: 3}
       propertyPath: m_RootOrder
