@@ -1,6 +1,4 @@
-﻿using Core;
-using Entities.Player.States;
-using Media;
+﻿using Entities.Player.States;
 using UnityEngine;
 
 namespace Entities.Player
@@ -9,10 +7,9 @@ namespace Entities.Player
     public sealed class PlayerAnimatorController : MonoBehaviour
     {
         private static readonly int Idle = Animator.StringToHash("Idle");
+        private static readonly int Move = Animator.StringToHash("Move");
         private static readonly int Jump = Animator.StringToHash("Jump");
         private static readonly int Death = Animator.StringToHash("Death");
-
-        [SerializeField] private EntityAnimationsMedia animationsMedia;
 
         private Animator _animator;
 
@@ -24,18 +21,25 @@ namespace Entities.Player
         private void OnEnable()
         {
             IdleState.Started += OnIdleStateStarted;
+            MoveState.Started += OnMoveStateStarted;
             JumpState.Started += OnJumpStateStarted;
         }
 
         private void OnDisable()
         {
             IdleState.Started -= OnIdleStateStarted;
+            MoveState.Started -= OnMoveStateStarted;
             JumpState.Started -= OnJumpStateStarted;
         }
 
         private void OnIdleStateStarted(IdleState idleState)
         {
             _animator.Play(Idle);
+        }
+
+        private void OnMoveStateStarted(MoveState moveState)
+        {
+            _animator.Play(Move);
         }
 
         private void OnJumpStateStarted(JumpState state)
