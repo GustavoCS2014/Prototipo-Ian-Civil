@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSimpleProjectile
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 40
+  speed: 30
   lifetime: 2
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 384
+  targetTags:
+  - HurtBox
+  - Ground

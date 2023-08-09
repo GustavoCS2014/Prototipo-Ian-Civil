@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Core;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ namespace Units.Hazards
     {
         public static event Action<Projectile, GameObject> Hit;
 
-        [SerializeField] private float radius;
         [SerializeField] private bool destroyOnHit;
         [SerializeField] private ProjectileInfo projectileInfo;
 
@@ -27,11 +27,10 @@ namespace Units.Hazards
             _rigidbody.velocity = direction * projectileInfo.Speed;
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
-        private void FixedUpdate()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Transform t = transform;
-            Collider2D other = Physics2D.OverlapCircle(t.position, radius, projectileInfo.TargetLayer);
+            if (!projectileInfo.TargetTags.Any(other.CompareTag))
+                return;
 
             if (other == _lastCollider) return;
 
@@ -46,13 +45,6 @@ namespace Units.Hazards
 
             if (destroyOnHit)
                 Destroy(gameObject);
-        }
-
-        private void OnDrawGizmos()
-        {
-            Transform t = transform;
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(t.position, radius);
         }
     }
 }

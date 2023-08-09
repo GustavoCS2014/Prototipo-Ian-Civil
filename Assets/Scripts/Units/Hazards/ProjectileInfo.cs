@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Attributes;
 using UnityEngine;
 
 namespace Units.Hazards
@@ -14,7 +16,7 @@ namespace Units.Hazards
         [SerializeField] private float lifetime;
         public float Lifetime => lifetime;
 
-        [SerializeField] private LayerMask targetLayer;
-        public LayerMask TargetLayer => targetLayer;
+        [SerializeField, Tag] private string[] targetTags;
+        public IEnumerable<string> TargetTags => targetTags;
     }
 }
