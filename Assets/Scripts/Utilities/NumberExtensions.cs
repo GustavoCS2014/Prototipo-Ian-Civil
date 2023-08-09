@@ -2,7 +2,7 @@
 
 namespace Utilities
 {
-    public static class ClampExtensions
+    public static class NumberExtensions
     {
         public static float Clamp01(this float value)
         {
@@ -27,6 +27,26 @@ namespace Utilities
         public static int Clamp(this int value, int min, int max)
         {
             return Mathf.Clamp(value, min, max);
+        }
+
+        public static float Ceil(this float value)
+        {
+            return Mathf.Ceil(value);
+        }
+
+        public static float Floor(this float value)
+        {
+            return Mathf.Floor(value);
+        }
+
+        public static float Round(this float value)
+        {
+            return Mathf.Round(value);
+        }
+
+        public static float Sign(this float value)
+        {
+            return Mathf.Sign(value);
         }
     }
 }

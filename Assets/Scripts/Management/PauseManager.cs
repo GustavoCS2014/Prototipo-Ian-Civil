@@ -17,6 +17,8 @@ namespace Management
         [SerializeField] private UnityEvent onPause;
         [SerializeField] private UnityEvent onResume;
 
+        private GameState _previousState;
+
         private void Awake()
         {
             Instance = this;
@@ -42,6 +44,7 @@ namespace Management
 
         public void Pause()
         {
+            _previousState = GameManager.Instance.CurrentState;
             GameManager.Instance.CurrentState = GameState.Paused;
 
             Time.timeScale = 0f;
@@ -51,7 +54,7 @@ namespace Management
 
         public void Resume()
         {
-            GameManager.Instance.CurrentState = GameState.Playing;
+            GameManager.Instance.CurrentState = _previousState;
 
             Time.timeScale = 1f;
             Resumed?.Invoke();
