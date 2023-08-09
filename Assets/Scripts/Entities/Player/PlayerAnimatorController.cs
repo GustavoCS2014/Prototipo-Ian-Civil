@@ -1,5 +1,8 @@
-﻿using Entities.Player.States;
+﻿using Entities.Boss.States;
+using Entities.Player.States;
 using UnityEngine;
+using IdleState = Entities.Player.States.IdleState;
+using JumpState = Entities.Player.States.JumpState;
 
 namespace Entities.Player
 {
@@ -9,7 +12,9 @@ namespace Entities.Player
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int Move = Animator.StringToHash("Move");
         private static readonly int Jump = Animator.StringToHash("Jump");
-        private static readonly int Death = Animator.StringToHash("Death");
+        private static readonly int Die = Animator.StringToHash("Die");
+
+        [SerializeField, Range(0f, 1f)] private float transitionTime;
 
         private Animator _animator;
 
@@ -23,6 +28,7 @@ namespace Entities.Player
             IdleState.Started += OnIdleStateStarted;
             MoveState.Started += OnMoveStateStarted;
             JumpState.Started += OnJumpStateStarted;
+            DieState.Started += OnDieStateStarted;
         }
 
         private void OnDisable()
@@ -30,21 +36,27 @@ namespace Entities.Player
             IdleState.Started -= OnIdleStateStarted;
             MoveState.Started -= OnMoveStateStarted;
             JumpState.Started -= OnJumpStateStarted;
+            DieState.Started -= OnDieStateStarted;
         }
 
         private void OnIdleStateStarted(IdleState idleState)
         {
-            _animator.Play(Idle);
+            _animator.CrossFade(Idle, transitionTime);
         }
 
         private void OnMoveStateStarted(MoveState moveState)
         {
-            _animator.Play(Move);
+            _animator.CrossFade(Move, transitionTime);
         }
 
         private void OnJumpStateStarted(JumpState state)
         {
-            _animator.Play(Jump);
+            _animator.CrossFade(Jump, transitionTime);
+        }
+
+        private void OnDieStateStarted(DieState state)
+        {
+            _animator.CrossFade(Die, transitionTime);
         }
     }
 }
