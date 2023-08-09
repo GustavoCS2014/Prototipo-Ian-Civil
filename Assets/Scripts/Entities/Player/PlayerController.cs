@@ -2,7 +2,6 @@ using System;
 using Cinematics;
 using Entities.Player.States;
 using UnityEngine;
-using Utilities;
 
 namespace Entities.Player
 {
@@ -59,11 +58,15 @@ namespace Entities.Player
             Direction = direction;
         }
 
-        public void IdleTo(Transform target)
+        public void Idle(float direction)
         {
-            Direction = target.localScale.x.Sign();
+            Direction = direction;
             StateMachine.ChangeState(IdleState);
             Direction = 0f;
+        }
+
+        public void MoveTo(Transform target)
+        {
             transform.position = target.position;
         }
     }

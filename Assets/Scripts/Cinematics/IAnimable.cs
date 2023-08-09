@@ -8,7 +8,9 @@ namespace Cinematics
 
         void FaceDirection(float direction);
 
-        void IdleTo(Transform target);
+        void Idle(float direction);
+
+        void MoveTo(Transform target);
 
         bool Animating { get; set; }
     }

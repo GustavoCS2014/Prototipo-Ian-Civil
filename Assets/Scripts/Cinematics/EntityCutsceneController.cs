@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using Utilities;
 
 namespace Cinematics
 {
-    public class EntityAnimatorController : MonoBehaviour
+    public sealed class EntityCutsceneController : MonoBehaviour
     {
         [SerializeField] private GameObject animableEntity;
         [Tooltip("The position where the entity is expected to be at the end of the animation. Useful in case the animation is skipped.")]
@@ -55,14 +56,17 @@ namespace Cinematics
             if (!Application.isPlaying) return;
 
             if (_animableComponent is not null)
+            {
                 _animableComponent.Animating = false;
+                _animableComponent.Idle(endPosition.localScale.x.Sign());
+            }
 
             onStopAnimating?.Invoke();
         }
 
         public void SkipAnimation()
         {
-            _animableComponent?.IdleTo(endPosition);
+            _animableComponent?.MoveTo(endPosition);
             StopAnimating();
         }
     }

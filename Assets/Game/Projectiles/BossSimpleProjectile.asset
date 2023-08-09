@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BossSimpleProjectile
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 25
+  speed: 20
   lifetime: 2
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 640
+  targetTags:
+  - Ground
+  - HurtBox
