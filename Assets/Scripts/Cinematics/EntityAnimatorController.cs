@@ -6,6 +6,8 @@ namespace Cinematics
     public class EntityAnimatorController : MonoBehaviour
     {
         [SerializeField] private GameObject animableEntity;
+        [Tooltip("The position where the entity is expected to be at the end of the animation. Useful in case the animation is skipped.")]
+        [SerializeField] private Transform endPosition;
         [SerializeField] private UnityEvent onStartAnimating;
         [SerializeField] private UnityEvent onStopAnimating;
 
@@ -42,9 +44,9 @@ namespace Cinematics
         {
             if (!Application.isPlaying) return;
 
-            if (_animableComponent is null) return;
+            if (_animableComponent is not null)
+                _animableComponent.Animating = true;
 
-            _animableComponent.Animating = true;
             onStartAnimating?.Invoke();
         }
 
@@ -52,10 +54,16 @@ namespace Cinematics
         {
             if (!Application.isPlaying) return;
 
-            if (_animableComponent is null) return;
+            if (_animableComponent is not null)
+                _animableComponent.Animating = false;
 
-            _animableComponent.Animating = false;
             onStopAnimating?.Invoke();
+        }
+
+        public void SkipAnimation()
+        {
+            animableEntity.transform.position = endPosition.position;
+            StopAnimating();
         }
     }
 }
