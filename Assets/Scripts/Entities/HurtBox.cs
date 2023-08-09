@@ -17,9 +17,7 @@ namespace Entities
 
         [SerializeField, Min(1)] private int maxHealth;
         [SerializeField, ReadOnly] private int health;
-        [SerializeField] private bool hasCooldown;
         [SerializeField]
-        [ShowIfBool(nameof(hasCooldown))]
         [Min(0f)]
         private float damageTime;
         [SerializeField] private UnityEvent onHealthDepleted;
@@ -49,7 +47,7 @@ namespace Entities
         {
             if (_isInvulnerable) return;
 
-            if (hasCooldown)
+            if (damageTime > 0f)
                 _isInvulnerable = true;
 
             Health -= damage;
@@ -64,7 +62,8 @@ namespace Entities
 
         private void Update()
         {
-            if (!hasCooldown) return;
+            if (damageTime <= 0f) return;
+
             if (!_isInvulnerable) return;
 
             if (_timer >= damageTime)
