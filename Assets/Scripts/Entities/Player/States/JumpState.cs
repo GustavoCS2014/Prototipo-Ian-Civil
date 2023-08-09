@@ -11,9 +11,9 @@ namespace Entities.Player.States
     {
         public JumpState(PlayerController player, StateMachine<PlayerController> stateMachine) : base(player, stateMachine) { }
 
-        public static event Action<State<PlayerController>> Started;
+        public static event Action<JumpState> Started;
 
-        public static event Action<State<PlayerController>> Ended;
+        public static event Action<JumpState> Ended;
 
         public override void OnStart()
         {
