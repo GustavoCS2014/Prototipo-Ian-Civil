@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using Input;
+using Management;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ namespace Cinematics
     {
         public event Action<float> ProgressUpdated;
 
+        [SerializeField] private GameState allowInputInState;
         [SerializeField, Min(0f)] private float pressTime;
         [SerializeField] private UnityEvent onProgressCompleted;
 
@@ -56,6 +58,9 @@ namespace Cinematics
 
         private void OnSkipPressed(InputAction.CallbackContext context)
         {
+            if (!GameManager.Instance.CurrentState.HasFlag(allowInputInState))
+                return;
+
             _isProgressing = true;
             _timer = 0f;
             ProgressUpdated?.Invoke(0f);

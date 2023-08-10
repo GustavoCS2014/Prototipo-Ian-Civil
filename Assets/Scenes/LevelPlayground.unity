@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &30643192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7871097605007247380, guid: 84b05241dd591c14aa01872ee51efd8e, type: 3}
+  m_PrefabInstance: {fileID: 427411645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &83495078 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6219890876995455196, guid: b3a2d8c5ff4e2104fa1a410a36c7552d, type: 3}
@@ -537,6 +542,14 @@ PrefabInstance:
       propertyPath: hasProgress
       value: 
       objectReference: {fileID: 644522517}
+    - target: {fileID: 2769053289988442870, guid: 84b05241dd591c14aa01872ee51efd8e, type: 3}
+      propertyPath: allowedStates
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769053289988442870, guid: 84b05241dd591c14aa01872ee51efd8e, type: 3}
+      propertyPath: statesAllowed
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2769053289988442870, guid: 84b05241dd591c14aa01872ee51efd8e, type: 3}
       propertyPath: showForSeconds
       value: 1
@@ -1173,6 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3da067bdfd420193defcff759baeb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowInputInState: 16
   pressTime: 1
   onProgressCompleted:
     m_PersistentCalls:
@@ -1181,18 +1195,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Cinematics.EntityAnimatorController, Assembly-CSharp
         m_MethodName: SkipAnimation
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2795,7 +2797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animableEntity: {fileID: 669677891}
-  endPosition: {fileID: 0}
+  endPosition: {fileID: 1162570428}
   onStartAnimating:
     m_PersistentCalls:
       m_Calls:
@@ -2822,6 +2824,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: ShowBars
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 30643192}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ShowBars
+          m_BoolArgument: 1
         m_CallState: 2
   onStopAnimating:
     m_PersistentCalls:
@@ -3003,6 +3017,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HideBars
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 30643192}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -1,4 +1,6 @@
-﻿using Input;
+﻿using Core;
+using Input;
+using Management;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +9,7 @@ namespace UI
     public sealed class TogglePanelUI : MonoBehaviour
     {
         [SerializeField] private bool startHidden;
+        [SerializeField] private GameState allowedStates;
         [SerializeField] private GameInputAction showOnInput;
         [SerializeField]
         [Min(0f)]
@@ -33,6 +36,9 @@ namespace UI
 
         private void OnAnyInput(InputAction.CallbackContext context, GameInputAction action)
         {
+            if (allowedStates != 0 && !GameManager.Instance.CurrentState.HasFlag(allowedStates))
+                return;
+
             if (action != showOnInput) return;
 
             _holdingInput = context.performed;
