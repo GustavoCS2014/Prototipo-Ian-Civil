@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Media;
+using UnityEngine;
 
 namespace Entities
 {
@@ -11,6 +12,11 @@ namespace Entities
         [SerializeField] private float groundCheckRadius;
         public float GroundCheckRadius => groundCheckRadius;
 
-        public float DieTime => 0.5f;
+        [Header("Media")]
+        [SerializeField] private EntityAnimationsMedia animationsMedia;
+        public float IdleAnimationTime => animationsMedia && animationsMedia.Idle ? animationsMedia.Idle.length : 0f;
+        public float JumpAnimationTime => animationsMedia && animationsMedia.Jump ? animationsMedia.Jump.length : 0f;
+        public float LandAnimationTime => animationsMedia && animationsMedia.Land ? animationsMedia.Land.length : 0f;
+        public float DieAnimationTime => animationsMedia && animationsMedia.Die ? animationsMedia.Die.length : 0f;
     }
 }

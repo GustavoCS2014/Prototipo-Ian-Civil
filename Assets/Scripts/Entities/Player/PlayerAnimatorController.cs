@@ -1,8 +1,5 @@
-﻿using Entities.Boss.States;
-using Entities.Player.States;
+﻿using Entities.Player.States;
 using UnityEngine;
-using IdleState = Entities.Player.States.IdleState;
-using JumpState = Entities.Player.States.JumpState;
 
 namespace Entities.Player
 {
@@ -12,7 +9,7 @@ namespace Entities.Player
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int Move = Animator.StringToHash("Move");
         private static readonly int Jump = Animator.StringToHash("Jump");
-        private static readonly int Die = Animator.StringToHash("Die");
+        private static readonly int Land = Animator.StringToHash("Land");
 
         [SerializeField, Range(0f, 1f)] private float transitionTime;
 
@@ -28,7 +25,7 @@ namespace Entities.Player
             IdleState.Started += OnIdleStateStarted;
             MoveState.Started += OnMoveStateStarted;
             JumpState.Started += OnJumpStateStarted;
-            DieState.Started += OnDieStateStarted;
+            LandState.Started += OnLandStateStarted;
         }
 
         private void OnDisable()
@@ -36,15 +33,15 @@ namespace Entities.Player
             IdleState.Started -= OnIdleStateStarted;
             MoveState.Started -= OnMoveStateStarted;
             JumpState.Started -= OnJumpStateStarted;
-            DieState.Started -= OnDieStateStarted;
+            LandState.Started -= OnLandStateStarted;
         }
 
-        private void OnIdleStateStarted(IdleState idleState)
+        private void OnIdleStateStarted(IdleState state)
         {
             _animator.CrossFade(Idle, transitionTime);
         }
 
-        private void OnMoveStateStarted(MoveState moveState)
+        private void OnMoveStateStarted(MoveState state)
         {
             _animator.CrossFade(Move, transitionTime);
         }
@@ -54,9 +51,9 @@ namespace Entities.Player
             _animator.CrossFade(Jump, transitionTime);
         }
 
-        private void OnDieStateStarted(DieState state)
+        private void OnLandStateStarted(LandState state)
         {
-            _animator.CrossFade(Die, transitionTime);
+            _animator.CrossFade(Land, transitionTime);
         }
     }
 }

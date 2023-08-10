@@ -11,7 +11,10 @@ namespace Media
         [SerializeField] private AnimationClip jump;
         public AnimationClip Jump => jump;
 
-        [SerializeField] private AnimationClip death;
-        public AnimationClip Death => death;
+        [SerializeField] private AnimationClip land;
+        public AnimationClip Land => land;
+
+        [SerializeField] private AnimationClip die;
+        public AnimationClip Die => die;
     }
 }

@@ -16,7 +16,7 @@ namespace Entities.Boss.States
 
         public override void OnStart()
         {
-            _dieTime = Time.time + Owner.Settings.DieTime;
+            _dieTime = Time.time + Owner.Settings.DieAnimationTime;
             Started?.Invoke(this);
         }
 

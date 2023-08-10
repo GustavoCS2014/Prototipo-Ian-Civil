@@ -4067,7 +4067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4312609404550669102, guid: 4ee6e03f77b01b740b88ee50d4a44bf5, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5729432827770348695, guid: 4ee6e03f77b01b740b88ee50d4a44bf5, type: 3}
       propertyPath: m_Name

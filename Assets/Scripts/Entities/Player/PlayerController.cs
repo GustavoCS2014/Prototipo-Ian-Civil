@@ -16,6 +16,7 @@ namespace Entities.Player
         public MoveState MoveState { get; private set; }
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
+        public LandState LandState { get; private set; }
 
         public bool Animating { get; set; }
 
@@ -27,6 +28,7 @@ namespace Entities.Player
             MoveState = new MoveState(this, StateMachine);
             JumpState = new JumpState(this, StateMachine);
             FallState = new FallState(this, StateMachine);
+            LandState = new LandState(this, StateMachine);
         }
 
         private void Start()
