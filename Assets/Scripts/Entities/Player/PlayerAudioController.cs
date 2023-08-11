@@ -1,6 +1,7 @@
 ﻿using Entities.Player.States;
 using Media;
 using UnityEngine;
+using Utilities;
 
 namespace Entities.Player
 {
@@ -19,16 +20,23 @@ namespace Entities.Player
         private void OnEnable()
         {
             JumpState.Started += OnJumpStateStarted;
+            LandState.Started += OnLandStateStarted;
         }
 
         private void OnDisable()
         {
             JumpState.Started -= OnJumpStateStarted;
+            LandState.Started -= OnLandStateStarted;
         }
 
         private void OnJumpStateStarted(JumpState state)
         {
             _audioSource.PlayOneShot(audioMedia.Jump);
+        }
+
+        private void OnLandStateStarted(LandState state)
+        {
+            _audioSource.PlayOneShot(audioMedia.Land);
         }
     }
 }

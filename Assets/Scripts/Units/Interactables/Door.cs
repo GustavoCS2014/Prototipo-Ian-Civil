@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using Utilities;
 
 namespace Units.Interactables
@@ -11,6 +12,8 @@ namespace Units.Interactables
         [SerializeField] private float activeTime;
         [SerializeField, Min(1E-5f)] private float displacementTime;
         [SerializeField] private WallButton[] buttons;
+
+        [SerializeField] private UnityEvent onOpen;
 
         private void Start()
         {
@@ -37,6 +40,7 @@ namespace Units.Interactables
 
         private void OpenDoor()
         {
+            onOpen?.Invoke();
             StartCoroutine(DisplaceDoor());
         }
 

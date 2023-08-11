@@ -4,7 +4,7 @@ using Utilities;
 
 namespace Cinematics
 {
-    public sealed class EntityCutsceneController : MonoBehaviour
+    public sealed class EntityCutsceneController : Cutscene
     {
         [SerializeField] private GameObject animableEntity;
         [Tooltip("The position where the entity is expected to be at the end of the animation. Useful in case the animation is skipped.")]
@@ -41,7 +41,7 @@ namespace Cinematics
             _animableComponent?.FaceDirection(direction);
         }
 
-        public void StartAnimating()
+        public override void Play()
         {
             if (!Application.isPlaying) return;
 
@@ -51,7 +51,7 @@ namespace Cinematics
             onStartAnimating?.Invoke();
         }
 
-        public void StopAnimating()
+        public override void Stop()
         {
             if (!Application.isPlaying) return;
 
@@ -64,10 +64,10 @@ namespace Cinematics
             onStopAnimating?.Invoke();
         }
 
-        public void SkipAnimation()
+        public override void Skip()
         {
             _animableComponent?.MoveTo(endPosition);
-            StopAnimating();
+            Stop();
         }
     }
 }

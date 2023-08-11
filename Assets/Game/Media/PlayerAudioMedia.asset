@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d112432cc2a457392fe6c081c406ce5, type: 3}
   m_Name: PlayerAudioMedia
   m_EditorClassIdentifier: 
-  jump: {fileID: 8300000, guid: d113c2c1c6cd78a489fd6c623dfee1e7, type: 3}
-  death: {fileID: 0}
-  shoot: {fileID: 0}
+  jump: {fileID: 8300000, guid: 5cb806f078e86c442a40c604c290fade, type: 3}
+  death: {fileID: 8300000, guid: f7de1e9cf26b9334c9ca536d3f8f3748, type: 3}
+  shoot: {fileID: 8300000, guid: f7de1e9cf26b9334c9ca536d3f8f3748, type: 3}
+  land: {fileID: 8300000, guid: f7de1e9cf26b9334c9ca536d3f8f3748, type: 3}
