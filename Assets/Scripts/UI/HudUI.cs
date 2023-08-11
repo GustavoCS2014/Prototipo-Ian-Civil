@@ -12,6 +12,13 @@ namespace UI
         private void Start()
         {
             PlayerCollector.CoinCollected += OnCoinCollected;
+
+            if (!PlayerCollector.Instance)
+            {
+                Debug.LogWarning("PlayerCollector instance not found!", this);
+                return;
+            }
+
             coinsText.text = $"{MultiplierSymbol}{PlayerCollector.Instance.CoinAmount:D2}";
         }
 
