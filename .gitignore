@@ -1,3 +1,16 @@
+# Items added to template
+#
+# Text Mesh Pro files
+**/TextMesh Pro/
+**/TextMesh Pro.meta
+# Builds
+/*[Bb]uild/
+/*[Bb]uilds/
+# Editors
+.vscode/
+.idea/
+.vsconfig
+
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
@@ -9,10 +22,6 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-
-# Text Mesh Pro files
-**/TextMesh Pro/
-**/TextMesh Pro.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -29,9 +38,6 @@
 
 # Visual Studio cache directory
 .vs/
-.vscode/
-.idea/
-.vsconfig
 
 # Gradle cache directory
 .gradle/
