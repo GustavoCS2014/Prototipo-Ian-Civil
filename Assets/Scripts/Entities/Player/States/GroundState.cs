@@ -22,7 +22,7 @@ namespace Entities.Player.States
         {
             if (!context.performed) return;
 
-            if (!Owner.Grounded) return;
+            if (!Owner.IsOnCoyoteTime) return;
 
             StateMachine.ChangeState(Owner.JumpState);
         }

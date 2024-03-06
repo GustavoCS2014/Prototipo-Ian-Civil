@@ -17,18 +17,25 @@ namespace Entities.Player.States
         public override void OnStart()
         {
             GameplayInput.OnMove += OnMoveInput;
+            GameplayInput.OnJump += OnJumpInput;
             Started?.Invoke(this);
         }
 
         public override void OnEnd()
         {
             GameplayInput.OnMove -= OnMoveInput;
+            GameplayInput.OnJump -= OnJumpInput;
             Ended?.Invoke(this);
         }
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
             Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+        }
+
+        private void OnJumpInput(InputAction.CallbackContext context){
+            if(!Owner.IsOnCoyoteTime) return;
+            StateMachine.ChangeState(Owner.JumpState);
         }
 
         public override void FixedUpdate()

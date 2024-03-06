@@ -40,7 +40,8 @@ namespace Entities.Player.States
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            Owner.Velocity = Owner.Direction * Owner.Settings.Speed * Vector2.right;
+            Vector2 directionVector = Owner.GetDirectionVector();
+            Owner.Velocity = Owner.Direction * Owner.Settings.Speed * directionVector;
         }
 
         public override string ToString() => nameof(MoveState);
