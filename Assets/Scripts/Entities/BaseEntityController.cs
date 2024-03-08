@@ -14,7 +14,8 @@ namespace Entities
         [SerializeField] protected BaseEntitySettings settings;
         [SerializeField] protected HurtBox hurtBox;
         [SerializeField] protected LayerMask StairsMask;
-        [SerializeField, Range(0f, .5f)] private float debugRay; 
+        [SerializeField] protected Transform feetRaycast;
+        [SerializeField, Range(0f, 2f)] private float debugRay; 
 
         const float GRAVITY = -9.807f;
         private float _direction;
@@ -70,7 +71,7 @@ namespace Entities
             StateMachine?.CurrentState?.Update();
             
             _lastGrounded = !Grounded ? _lastGrounded + Time.deltaTime : 0;
-            GetDirectionVector();
+            VerifyDirectionVector();
         }
 
         private void FixedUpdate() => StateMachine?.CurrentState?.FixedUpdate();
@@ -103,29 +104,62 @@ namespace Entities
 
         public void ChangeGravityDirection(Vector2 downDirection) => Physics2D.gravity = downDirection * GRAVITY;
 
+
         /// <summary>
-        /// Gets the direction in which the player should move, if it's on stairs it'll move on the direction of
-        /// the stairs instead of the default Vector2.Right.
+        /// Checks whether the player is standing on flat ground or a slope.
         /// </summary>
         /// <returns>Vector2, multiply this vector two with the input direction and speed to move.</returns>
-        public Vector2 GetDirectionVector(){
-            float rayLenght = .25f;
-            float maxAngle = 45f;
-            Rigidbody.sharedMaterial = settings.SlipperyMaterial;
-            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, rayLenght, StairsMask);
-            if(hit2D){
-                float floorAngle = Vector2.Angle(Vector2.up, hit2D.normal);
-                if(floorAngle > maxAngle) return Vector2.right;
+        public Vector2 VerifyDirectionVector(){
+            Vector2 vectorFront, vectorFeet, vectorBack;
+            Vector2 playerTransform = new Vector2(transform.position.x, transform.position.y + .2f);
+            float offset = .25f;
+            float transitionSlowDown = .5f;
+
+            //? Getting the moving direction of 3 points.
+            vectorFront = GetDirectionVectorFromPosition(playerTransform + Vector2.right * offset);
+            vectorFeet = GetDirectionVectorFromPosition(playerTransform);
+            vectorBack = GetDirectionVectorFromPosition(playerTransform + Vector2.left * offset);
+
+            bool allVectorsAreEqual = vectorFront.normalized == vectorFeet.normalized && 
+                                        vectorFeet.normalized == vectorBack.normalized;
+
+            //? checks if the player is at the start or end of some slope.
+            if(!allVectorsAreEqual && vectorFeet != Vector2.right){
+                Rigidbody.sharedMaterial = settings.SlipperyMaterial;
+                return Vector2.right * transitionSlowDown;
+            }
+
+            //? checks if the player is in the stairs, if so, corrects movement vector 
+            //? and increases grip so the player doesn't slide.
+            if(allVectorsAreEqual && vectorFeet != Vector2.right){
                 Rigidbody.sharedMaterial = settings.GripMaterial;
+                return vectorFront;
+            }
+            //? if the player is standing on flat ground return default settings.
+            Rigidbody.sharedMaterial = settings.SlipperyMaterial;
+            return Vector2.right;
+        }
+
+        /// <summary>
+        /// Casts a ray down and calculates the direction vector from the normal of the surface.
+        /// </summary>
+        /// <param name="startPosition">Point from which the ray is cast.</param>
+        /// <returns>The direction vector.</returns>
+        public Vector2 GetDirectionVectorFromPosition(Vector2 startPosition){
+            float rayLenght = debugRay;
+            RaycastHit2D hit2D = Physics2D.Raycast(startPosition, Vector2.down, rayLenght, StairsMask);
+            Debug.DrawRay(startPosition, Vector2.down * rayLenght, Color.red);
+            if(hit2D){
                 Vector2 upStairsDirection = GetPerpendicularVector(hit2D.normal, true);
                 //?Checking if it's too close to the ground.
-                if(Physics2D.Raycast(transform.position, upStairsDirection * transform.localScale.x, rayLenght, settings.GroundLayer))
+                if(Physics2D.Raycast(startPosition, upStairsDirection * startPosition.x, rayLenght, settings.GroundLayer)){
                     return Vector2.right;
-                    
-                return upStairsDirection;
+                }
+                Debug.DrawRay(startPosition, upStairsDirection, Color.blue);
+                return upStairsDirection.normalized;
             }
             return Vector2.right;
-        }    
+        }        
         /// <summary>
         /// Get's a vector perpendicular to the inputVector and returns it.
         /// useful for getting the direction of a surface from the normal.

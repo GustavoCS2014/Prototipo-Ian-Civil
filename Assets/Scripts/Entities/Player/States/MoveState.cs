@@ -40,7 +40,7 @@ namespace Entities.Player.States
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            Vector2 directionVector = Owner.GetDirectionVector();
+            Vector2 directionVector = Owner.VerifyDirectionVector();
             Owner.Velocity = Owner.Direction * Owner.Settings.Speed * directionVector;
         }
 
