@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using Attributes;
 using Cinematics;
 using Entities.Player.States;
 using UnityEngine;
@@ -17,8 +19,10 @@ namespace Entities.Player
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
         public LandState LandState { get; private set; }
+        public StairsState StairsState {get; private set;}
 
         public bool Animating { get; set; }
+        public bool OnStairs {get; private set;}
 
         protected override void Awake()
         {
@@ -29,6 +33,8 @@ namespace Entities.Player
             JumpState = new JumpState(this, StateMachine);
             FallState = new FallState(this, StateMachine);
             LandState = new LandState(this, StateMachine);
+            StairsState = new StairsState(this, StateMachine);
+            OnStairs = false;
         }
 
         private void Start()
@@ -51,6 +57,7 @@ namespace Entities.Player
                 "Move" => MoveState,
                 "Jump" => JumpState,
                 "Fall" => FallState,
+                "Stairs" => StairsState,
                 _ => throw new Exception($"State {state} not found")
             });
         }
@@ -71,5 +78,26 @@ namespace Entities.Player
         {
             transform.position = target.position;
         }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+                OnStairs = true;
+                Rigidbody.gravityScale = 0;
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D other) {
+            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+                OnStairs = true;
+                Rigidbody.gravityScale = 0;
+            }
+        }
+        private void OnTriggerExit2D(Collider2D other) {
+            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+                OnStairs = false;
+                Rigidbody.gravityScale = 10;
+            }
+        }
+
     }
 }
