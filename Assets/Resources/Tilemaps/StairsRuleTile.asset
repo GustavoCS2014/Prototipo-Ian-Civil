@@ -342,7 +342,7 @@ MonoBehaviour:
     - {x: 1, y: 0, z: 0}
     - {x: 0, y: 1, z: 0}
     - {x: -1, y: 0, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3
   - m_Id: 0
     m_Sprites:
     - {fileID: 1105986972, guid: 309f2fc9e35531741867e5dcf1963469, type: 3}
@@ -358,7 +358,7 @@ MonoBehaviour:
     - {x: 1, y: 0, z: 0}
     - {x: 0, y: 1, z: 0}
     - {x: -1, y: 0, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3
   - m_Id: 2
     m_Sprites:
     - {fileID: 2095174754, guid: 309f2fc9e35531741867e5dcf1963469, type: 3}
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_NeighborPositions:
     - {x: -1, y: 0, z: 0}
     - {x: 0, y: 1, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3
   - m_Id: 4
     m_Sprites:
     - {fileID: 108055232, guid: 309f2fc9e35531741867e5dcf1963469, type: 3}
@@ -388,7 +388,7 @@ MonoBehaviour:
     m_NeighborPositions:
     - {x: 0, y: 1, z: 0}
     - {x: 1, y: 0, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3
   - m_Id: 3
     m_Sprites:
     - {fileID: -1971409233, guid: 309f2fc9e35531741867e5dcf1963469, type: 3}
@@ -403,7 +403,7 @@ MonoBehaviour:
     m_NeighborPositions:
     - {x: -1, y: 0, z: 0}
     - {x: 0, y: 1, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3
   - m_Id: 5
     m_Sprites:
     - {fileID: -2849995, guid: 309f2fc9e35531741867e5dcf1963469, type: 3}
@@ -418,4 +418,4 @@ MonoBehaviour:
     m_NeighborPositions:
     - {x: 0, y: 1, z: 0}
     - {x: 1, y: 0, z: 0}
-    m_RuleTransform: 0
+    m_RuleTransform: 3

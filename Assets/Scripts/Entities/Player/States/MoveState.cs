@@ -33,19 +33,27 @@ namespace Entities.Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+            // if(context.performed){
             inputDirection = context.ReadValue<Vector2>();
-            Debug.Log($"Inputs {inputDirection}");   
+            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
+            Debug.Log($"Inputs {inputDirection}, MDir {GameplayInput.MoveDirection}, Cntx {context.phase}");   
+            
+            // }
             if (!context.canceled) return;
 
             StateMachine.ChangeState(Owner.IdleState);
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            Debug.DrawRay(Vector3.zero, GameplayInput.MoveDirection, Color.red);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             if(Owner.OnStairs){
-                Debug.Log($"Owner Velocity {Owner.Velocity.x}, {Owner.Velocity.y}, On Stairs? {Owner.OnStairs}"); 
                 Owner.Velocity = new Vector2(inputDirection.x * Owner.Settings.Speed, inputDirection.y * Owner.Settings.Speed);
                 return;
             }
