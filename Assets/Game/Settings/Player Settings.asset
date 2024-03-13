@@ -22,6 +22,7 @@ MonoBehaviour:
   animationsMedia: {fileID: 11400000, guid: ed10ec4a5f1d4b64283f9051ab6f2025, type: 2}
   speed: 10
   jumpHeight: 4.5
+  originalGravityScale: 10
   airInputInfluence: 1
   collectableLayer:
     serializedVersion: 2

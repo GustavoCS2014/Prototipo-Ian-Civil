@@ -10,7 +10,7 @@ namespace Entities
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseEntityController<T> : MonoBehaviour where T : BaseEntityController<T>
     {
-        [SerializeField, ReadOnly] private string currentState;
+        [SerializeField, ReadOnly] protected string currentState;
         [SerializeField] protected BaseEntitySettings settings;
         [SerializeField] protected HurtBox hurtBox;
         [SerializeField] protected LayerMask stairsMask;
@@ -66,7 +66,7 @@ namespace Entities
 
         private void OnStateChanged(State<T> state) => currentState = state.ToString();
 
-        private void Update() {
+        protected virtual void Update() {
             StateMachine?.CurrentState?.Update();
             
             _lastGrounded = !Grounded ? _lastGrounded + Time.deltaTime : 0;

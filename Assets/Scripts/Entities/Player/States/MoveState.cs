@@ -33,30 +33,30 @@ namespace Entities.Player.States
 
         private void OnMoveInput(InputAction.CallbackContext context)
         {
-            // if(context.performed){
-            inputDirection = context.ReadValue<Vector2>();
-            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);
-            Debug.Log($"Inputs {inputDirection}, MDir {GameplayInput.MoveDirection}, Cntx {context.phase}");   
+            Owner.Direction = Mathf.Round(context.ReadValue<Vector2>().x);  
             
-            // }
             if (!context.canceled) return;
 
             StateMachine.ChangeState(Owner.IdleState);
         }
 
-        public override void Update()
-        {
-            base.Update();
-            Debug.DrawRay(Vector3.zero, GameplayInput.MoveDirection, Color.red);
-        }
-
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            //? allow the player to move freely on the stairs.
             if(Owner.OnStairs){
-                Owner.Velocity = new Vector2(inputDirection.x * Owner.Settings.Speed, inputDirection.y * Owner.Settings.Speed);
+                Owner.Rigidbody.gravityScale = 0;
+                Owner.Velocity = new Vector2(GameplayInput.MoveDirection.x * Owner.Settings.Speed, GameplayInput.MoveDirection.y * Owner.Settings.Speed);
                 return;
             }
+            //? if posible make some other form to go down the stairs, but for the prototipe this might work.
+            if(Owner.IsOverStairs()){
+                if(GameplayInput.MoveDirection.y < 0){
+                    float downJump = .5f;
+                    Owner.MovePosition(Owner.Rigidbody.position + Vector2.down * GameplayInput.MoveDirection.y * downJump);
+                }
+            }
+            Owner.Rigidbody.gravityScale = Owner.Settings.OriginalGravityScale;
             Vector2 directionVector = Owner.VerifyDirectionVector();
             Owner.Velocity = Owner.Direction * Owner.Settings.Speed * directionVector;
         }

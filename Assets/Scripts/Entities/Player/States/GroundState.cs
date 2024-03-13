@@ -24,6 +24,8 @@ namespace Entities.Player.States
 
             if (!Owner.IsOnCoyoteTime) return;
 
+            if (Owner.OnStairs) return;
+
             StateMachine.ChangeState(Owner.JumpState);
         }
 

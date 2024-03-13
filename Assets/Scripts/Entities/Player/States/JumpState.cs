@@ -19,6 +19,7 @@ namespace Entities.Player.States
         {
             GameplayInput.OnMove += OnMoveInput;
 
+            Owner.Rigidbody.gravityScale = Owner.Settings.OriginalGravityScale;
             float force = PhysicsCalculator.JumpStrength(Owner.Rigidbody, Owner.Settings.JumpHeight);
             Owner.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
@@ -27,6 +28,7 @@ namespace Entities.Player.States
 
         public override void OnEnd()
         {
+            
             GameplayInput.OnMove -= OnMoveInput;
             Ended?.Invoke(this);
         }
@@ -43,6 +45,13 @@ namespace Entities.Player.States
                 x = Owner.Direction * Owner.Settings.Speed * Owner.Settings.AirInputInfluence,
                 y = Owner.Velocity.y
             };
+
+            if(Owner.OnStairs && Owner.Velocity.y < 0){
+                Owner.Velocity = new Vector2(Owner.Velocity.x, 0);
+                Owner.Rigidbody.gravityScale = 0;
+                StateMachine.ChangeState(Owner.FallState);
+                return;
+            }
 
             if (Owner.Velocity.y < 0f)
                 StateMachine.ChangeState(Owner.FallState);

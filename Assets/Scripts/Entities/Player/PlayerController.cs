@@ -22,7 +22,8 @@ namespace Entities.Player
         public StairsState StairsState {get; private set;}
 
         public bool Animating { get; set; }
-        public bool OnStairs {get; private set;}
+        public bool OnStairs;
+        // public bool OnStairs {get; private set;}
 
         protected override void Awake()
         {
@@ -40,6 +41,10 @@ namespace Entities.Player
         private void Start()
         {
             StateMachine.Initialize(IdleState);
+        }
+
+        protected override void Update() {
+            base.Update();
         }
 
         protected override void OnDrawGizmosSelected()
@@ -85,18 +90,30 @@ namespace Entities.Player
                 Rigidbody.gravityScale = 0;
             }
         }
-
         private void OnTriggerStay2D(Collider2D other) {
             if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
                 OnStairs = true;
-                Rigidbody.gravityScale = 0;
             }
         }
         private void OnTriggerExit2D(Collider2D other) {
             if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
                 OnStairs = false;
-                Rigidbody.gravityScale = 10;
+                Rigidbody.gravityScale = Settings.OriginalGravityScale;
             }
+        }
+
+        public bool IsOverStairs(){
+            bool isOverStairs = false;
+            float feetOffset = .2f;
+            float rayDistance = .3f;
+            Vector2 rayPos = transform.position + Vector3.up * feetOffset;
+            RaycastHit2D hit;
+
+            hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, stairsMask);
+            Debug.DrawRay(rayPos, Vector3.down * rayDistance, Color.green);
+            if(hit && !OnStairs) isOverStairs = true;
+            
+            return isOverStairs;
         }
 
     }

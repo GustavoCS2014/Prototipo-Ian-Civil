@@ -11,6 +11,9 @@ namespace Entities.Player
         [SerializeField] private float jumpHeight;
         public float JumpHeight => jumpHeight;
 
+        [SerializeField] private float originalGravityScale;
+        public float OriginalGravityScale => originalGravityScale;
+
         [SerializeField, Range(0f, 1f)] private float airInputInfluence;
         public float AirInputInfluence => airInputInfluence;
 
