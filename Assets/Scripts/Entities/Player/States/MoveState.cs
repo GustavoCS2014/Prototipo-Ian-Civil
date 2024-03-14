@@ -50,10 +50,12 @@ namespace Entities.Player.States
                 return;
             }
             //? if posible make some other form to go down the stairs, but for the prototipe this might work.
+            /* other possible solutions might be to manually set other platform collider at the top of the stairs or
+               search for a way to automatically do that.*/
             if(Owner.IsOverStairs()){
                 if(GameplayInput.MoveDirection.y < 0){
                     float downJump = .5f;
-                    Owner.MovePosition(Owner.Rigidbody.position + Vector2.down * GameplayInput.MoveDirection.y * downJump);
+                    Owner.MovePosition(Owner.Rigidbody.position + GameplayInput.MoveDirection * downJump);
                 }
             }
             Owner.Rigidbody.gravityScale = Owner.Settings.OriginalGravityScale;

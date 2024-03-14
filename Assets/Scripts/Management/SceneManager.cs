@@ -8,5 +8,9 @@ namespace Management
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene((int)scene);
         }
+
+        public static void LoadSceneAsync(GameScene scene){
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync((int)scene);
+        }
     }
 }

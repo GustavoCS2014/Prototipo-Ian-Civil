@@ -21,9 +21,8 @@ namespace Entities.Player
         public LandState LandState { get; private set; }
         public StairsState StairsState {get; private set;}
 
+        [field: SerializeField]public bool OnStairs {get; private set;}
         public bool Animating { get; set; }
-        public bool OnStairs;
-        // public bool OnStairs {get; private set;}
 
         protected override void Awake()
         {
@@ -84,6 +83,7 @@ namespace Entities.Player
             transform.position = target.position;
         }
 
+        #region  STAIRS
         private void OnTriggerEnter2D(Collider2D other) {
             if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
                 OnStairs = true;
@@ -107,14 +107,16 @@ namespace Entities.Player
             float feetOffset = .2f;
             float rayDistance = .3f;
             Vector2 rayPos = transform.position + Vector3.up * feetOffset;
-            RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, stairsMask);
-            Debug.DrawRay(rayPos, Vector3.down * rayDistance, Color.green);
-            if(hit && !OnStairs) isOverStairs = true;
+            RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, stairsMask);
             
+            if(hit && !OnStairs) isOverStairs = true;
+
             return isOverStairs;
+
         }
+
+        #endregion
 
     }
 }

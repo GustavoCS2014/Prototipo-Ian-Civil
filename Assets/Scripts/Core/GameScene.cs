@@ -3,8 +3,8 @@
     public enum GameScene
     {
         MainMenu,
-        Level1,
-        BossLevel,
+        Outside,
+        Inside,
         Credits
     }
 }

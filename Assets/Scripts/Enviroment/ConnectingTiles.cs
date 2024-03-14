@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Connecting Tile", menuName = "2D/Tiles/Connecting Rule Tile")]
 public class ConnectingTiles : RuleTile<ConnectingTiles.Neighbor> {
 
     public class Neighbor : RuleTile.TilingRule.Neighbor {
