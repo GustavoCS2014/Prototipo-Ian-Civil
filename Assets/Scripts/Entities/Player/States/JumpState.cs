@@ -46,9 +46,8 @@ namespace Entities.Player.States
                 y = Owner.Velocity.y
             };
 
-            if(Owner.OnStairs && Owner.Velocity.y < 0){
+            if(Owner.IsOnStairs() && Owner.Velocity.y < 0){
                 Owner.Velocity = new Vector2(Owner.Velocity.x, 0);
-                Owner.Rigidbody.gravityScale = 0;
                 StateMachine.ChangeState(Owner.FallState);
                 return;
             }

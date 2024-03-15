@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -22,8 +24,8 @@ public class SceneField
 	{
 		return sceneField.SceneName;
 	}
-}
 
+}
 #if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(SceneField))]
 public class SceneFieldPropertyDrawer : PropertyDrawer 
@@ -46,4 +48,5 @@ public class SceneFieldPropertyDrawer : PropertyDrawer
 		EditorGUI.EndProperty( );
 	}
 }
+
 #endif

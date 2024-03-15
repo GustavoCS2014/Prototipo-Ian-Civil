@@ -44,8 +44,8 @@ namespace Entities.Player.States
         {
             base.FixedUpdate();
             //? allow the player to move freely on the stairs.
-            if(Owner.OnStairs){
-                Owner.Rigidbody.gravityScale = 0;
+            if(Owner.IsOnStairs()){
+                // Owner.Rigidbody.gravityScale = 0;
                 Owner.Velocity = new Vector2(GameplayInput.MoveDirection.x * Owner.Settings.Speed, GameplayInput.MoveDirection.y * Owner.Settings.Speed);
                 return;
             }

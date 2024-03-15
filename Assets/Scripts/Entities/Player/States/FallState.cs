@@ -35,7 +35,7 @@ namespace Entities.Player.States
 
         private void OnJumpInput(InputAction.CallbackContext context){
             if(!Owner.IsOnCoyoteTime) return;
-            if(Owner.OnStairs) return;
+            if(Owner.IsOnStairs()) return;
             StateMachine.ChangeState(Owner.JumpState);
         }
 

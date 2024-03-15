@@ -35,7 +35,7 @@ namespace Entities.Player.States
 
         private void OnJumpInput(InputAction.CallbackContext context)
         {
-            if (context.performed && !Owner.OnStairs)
+            if (context.performed && !Owner.IsOnStairs())
                 StateMachine.ChangeState(Owner.JumpState);
         }
 

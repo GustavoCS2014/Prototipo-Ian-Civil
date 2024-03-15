@@ -99,6 +99,8 @@ namespace Entities
 
         public void MovePosition(Vector2 position) => Rigidbody.MovePosition(position);
 
+        public void SetPosition(Vector2 position) => transform.position = position;
+
         public void AddForce(Vector2 force, ForceMode2D mode) => Rigidbody.AddForce(force, mode);
     
         /// <summary>

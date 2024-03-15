@@ -44,13 +44,21 @@ namespace Entities.Player
 
         protected override void Update() {
             base.Update();
+            ChangeGravity();
         }
 
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
-            if (Settings)
+            if (Settings && showDebug)
                 Gizmos.DrawRay(transform.position, Settings.JumpHeight * Vector3.up);
+
+            if(showDebug){
+                float castRadius = .25f;
+                Vector2 castPosition = transform.position + Vector3.up * (castRadius + .1f);
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(castPosition, castRadius);
+            }
         }
 
         public void ChangeState(string state)
@@ -84,22 +92,36 @@ namespace Entities.Player
         }
 
         #region  STAIRS
-        private void OnTriggerEnter2D(Collider2D other) {
-            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-                OnStairs = true;
-                Rigidbody.gravityScale = 0;
-            }
-        }
-        private void OnTriggerStay2D(Collider2D other) {
-            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-                OnStairs = true;
-            }
-        }
-        private void OnTriggerExit2D(Collider2D other) {
-            if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-                OnStairs = false;
-                Rigidbody.gravityScale = Settings.OriginalGravityScale;
-            }
+        // private void OnTriggerEnter2D(Collider2D other) {
+        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+        //         OnStairs = true;
+        //         Rigidbody.gravityScale = 0;
+        //     }
+        // }
+        // private void OnTriggerStay2D(Collider2D other) {
+        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+        //         OnStairs = true;
+        //     }
+        // }
+        // private void OnTriggerExit2D(Collider2D other) {
+        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
+        //         OnStairs = false;
+        //         Rigidbody.gravityScale = Settings.OriginalGravityScale;
+        //     }
+        // }
+
+        private void ChangeGravity() => Rigidbody.gravityScale = IsOnStairs() ? 
+                                        0f :
+                                        Settings.OriginalGravityScale;
+
+        public bool IsOnStairs(){
+            bool isOnStairs = false;
+            float castRadius = .25f;
+            Vector2 castPosition = transform.position + Vector3.up * (castRadius + .1f);
+            Collider2D stairsCollider = Physics2D.OverlapCircle(castPosition, castRadius, stairsMask);
+
+            if(stairsCollider) isOnStairs = true;
+            return isOnStairs;
         }
 
         public bool IsOverStairs(){
@@ -110,7 +132,7 @@ namespace Entities.Player
 
             RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, stairsMask);
             
-            if(hit && !OnStairs) isOverStairs = true;
+            if(hit && !IsOnStairs()) isOverStairs = true;
 
             return isOverStairs;
 
