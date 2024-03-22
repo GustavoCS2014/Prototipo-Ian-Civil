@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Attributes;
 using Cinematics;
 using Entities.Player.States;
+using Input;
 using UnityEngine;
 
 namespace Entities.Player
@@ -19,7 +20,6 @@ namespace Entities.Player
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
         public LandState LandState { get; private set; }
-        public StairsState StairsState {get; private set;}
 
         [field: SerializeField]public bool OnStairs {get; private set;}
         public bool Animating { get; set; }
@@ -27,13 +27,15 @@ namespace Entities.Player
         protected override void Awake()
         {
             base.Awake();
+            // THIS IS SUPER HARD CODED BUT I GOT LAZY
+            // ignores collisions between Layer 6: player and Layer 15: NPC
+            Physics2D.IgnoreLayerCollision(6,15);
             Instance = this;
             IdleState = new IdleState(this, StateMachine);
             MoveState = new MoveState(this, StateMachine);
             JumpState = new JumpState(this, StateMachine);
             FallState = new FallState(this, StateMachine);
             LandState = new LandState(this, StateMachine);
-            StairsState = new StairsState(this, StateMachine);
             OnStairs = false;
         }
 
@@ -44,7 +46,10 @@ namespace Entities.Player
 
         protected override void Update() {
             base.Update();
-            ChangeGravity();
+            UpdateGravity();
+            if(GameplayInput.MoveDirection.y < 0 && IsOverStairs()){
+                DisableStairsCollider();
+            }
         }
 
         protected override void OnDrawGizmosSelected()
@@ -69,7 +74,6 @@ namespace Entities.Player
                 "Move" => MoveState,
                 "Jump" => JumpState,
                 "Fall" => FallState,
-                "Stairs" => StairsState,
                 _ => throw new Exception($"State {state} not found")
             });
         }
@@ -92,25 +96,7 @@ namespace Entities.Player
         }
 
         #region  STAIRS
-        // private void OnTriggerEnter2D(Collider2D other) {
-        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-        //         OnStairs = true;
-        //         Rigidbody.gravityScale = 0;
-        //     }
-        // }
-        // private void OnTriggerStay2D(Collider2D other) {
-        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-        //         OnStairs = true;
-        //     }
-        // }
-        // private void OnTriggerExit2D(Collider2D other) {
-        //     if(other.TryGetComponent<BackgroundStairs>(out BackgroundStairs stairs)){
-        //         OnStairs = false;
-        //         Rigidbody.gravityScale = Settings.OriginalGravityScale;
-        //     }
-        // }
-
-        private void ChangeGravity() => Rigidbody.gravityScale = IsOnStairs() ? 
+        private void UpdateGravity() => Rigidbody.gravityScale = IsOnStairs() ? 
                                         0f :
                                         Settings.OriginalGravityScale;
 
@@ -118,7 +104,7 @@ namespace Entities.Player
             bool isOnStairs = false;
             float castRadius = .25f;
             Vector2 castPosition = transform.position + Vector3.up * (castRadius + .1f);
-            Collider2D stairsCollider = Physics2D.OverlapCircle(castPosition, castRadius, stairsMask);
+            Collider2D stairsCollider = Physics2D.OverlapCircle(castPosition, castRadius, Settings.StairsMask);
 
             if(stairsCollider) isOnStairs = true;
             return isOnStairs;
@@ -130,7 +116,7 @@ namespace Entities.Player
             float rayDistance = .3f;
             Vector2 rayPos = transform.position + Vector3.up * feetOffset;
 
-            RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, stairsMask);
+            RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, Settings.StairsMask);
             
             if(hit && !IsOnStairs()) isOverStairs = true;
 
@@ -138,7 +124,20 @@ namespace Entities.Player
 
         }
 
+        public void DisableStairsCollider(){
+            float feetOffset = .2f;
+            float rayDistance = .3f;
+            Vector2 rayPos = transform.position + Vector3.up * feetOffset;
+
+            RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, Settings.StairsMask);
+            
+
+            if(hit.transform.TryGetComponent<StairTopHandler>(out StairTopHandler stairTop)){
+                stairTop.DisableCollider();
+            }
+        }
         #endregion
+
 
     }
 }

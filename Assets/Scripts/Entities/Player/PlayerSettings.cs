@@ -19,5 +19,8 @@ namespace Entities.Player
 
         [SerializeField] private LayerMask collectableLayer;
         public LayerMask CollectableLayer => collectableLayer;
+
+        [SerializeField] private LayerMask stairsMask;
+        public LayerMask StairsMask => stairsMask;
     }
 }

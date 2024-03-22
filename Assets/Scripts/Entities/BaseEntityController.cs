@@ -13,7 +13,6 @@ namespace Entities
         [SerializeField, ReadOnly] protected string currentState;
         [SerializeField] protected BaseEntitySettings settings;
         [SerializeField] protected HurtBox hurtBox;
-        [SerializeField] protected LayerMask stairsMask;
         [SerializeField] protected bool showDebug;
 
         const float GRAVITY = -9.807f;
@@ -107,10 +106,8 @@ namespace Entities
         /// Checks whether the player is standing on flat ground or a slope.
         /// </summary>
         /// <returns>Vector2, multiply this vector two with the input direction and speed to move.</returns>
-        public Vector2 VerifyDirectionVector(){
+        public Vector2 VerifyDirectionVector(float downStairsTransitionSlowdown = .5f, float offset = .25f){
             Vector2 playerTransform = new Vector2(transform.position.x, transform.position.y + .2f);
-            float offset = .25f;
-            float downStairsTransitionSlowdown = .5f;
 
             //? Getting the moving direction of 3 points.
             Vector2 vectorFront = GetDirectionVectorFromPosition(playerTransform + Vector2.right * offset);
