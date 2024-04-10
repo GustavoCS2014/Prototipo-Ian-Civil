@@ -6,6 +6,7 @@
         Jump,
         Move,
         Shoot,
+        Interact,
         Skip,
         Navigate,
         Submit,

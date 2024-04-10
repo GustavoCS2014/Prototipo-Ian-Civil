@@ -1,7 +1,7 @@
 using System;
-using System.ComponentModel;
-using Attributes;
+using System.Collections.Generic;
 using Cinematics;
+using Entities.Follower;
 using Entities.Player.States;
 using Input;
 using UnityEngine;
@@ -20,9 +20,9 @@ namespace Entities.Player
         public JumpState JumpState { get; private set; }
         public FallState FallState { get; private set; }
         public LandState LandState { get; private set; }
-
-        [field: SerializeField]public bool OnStairs {get; private set;}
+        public bool OnStairs {get; private set;}
         public bool Animating { get; set; }
+        public List<FollowerController> Followers;
 
         protected override void Awake()
         {

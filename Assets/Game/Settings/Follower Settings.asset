@@ -20,9 +20,9 @@ MonoBehaviour:
   gripMaterial: {fileID: 6200000, guid: 6371dc38826f45f4ba7c7d422f292c51, type: 2}
   coyoteTime: 0.25
   animationsMedia: {fileID: 11400000, guid: ed10ec4a5f1d4b64283f9051ab6f2025, type: 2}
-  idleArea: 2
+  idleArea: 4
   walkingArea: 5
-  runningArea: 12
+  runningArea: 8
   walkingSpeed: 6
   runningSpeed: 11
   jumpHeight: 5

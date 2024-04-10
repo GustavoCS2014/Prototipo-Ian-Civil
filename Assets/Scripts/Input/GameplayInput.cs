@@ -11,6 +11,7 @@ namespace Input
         public static event Action<InputAction.CallbackContext> OnJump;
         public static event Action<InputAction.CallbackContext> OnMove;
         public static event Action<InputAction.CallbackContext> OnShoot;
+        public static event Action<InputAction.CallbackContext> OnInteract;
 
         #endregion
 
@@ -36,6 +37,9 @@ namespace Input
 
             _gameplayActions.Ground.Shoot.performed += ShootAction;
             _gameplayActions.Ground.Shoot.canceled += ShootAction;
+
+            _gameplayActions.Ground.Interact.performed += InteractAction;
+            _gameplayActions.Ground.Interact.canceled += InteractAction;
         }
 
         private void OnDisable()
@@ -50,6 +54,9 @@ namespace Input
 
             _gameplayActions.Ground.Shoot.performed -= ShootAction;
             _gameplayActions.Ground.Shoot.canceled -= ShootAction;
+
+            _gameplayActions.Ground.Interact.performed -= InteractAction;
+            _gameplayActions.Ground.Interact.canceled -= InteractAction;
         }
 
         private static void JumpAction(InputAction.CallbackContext context)
@@ -68,6 +75,12 @@ namespace Input
         {
             OnShoot?.Invoke(context);
             OnAnyInput(context, GameInputAction.Shoot);
+        }
+
+        private static void InteractAction(InputAction.CallbackContext context)
+        {
+            OnInteract?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Interact);
         }
     }
 }
