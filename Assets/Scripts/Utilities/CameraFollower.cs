@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Entities.Player;
 using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
@@ -9,8 +10,10 @@ public class CameraFollower : MonoBehaviour
         FixedUpdate,
         LateUpdate
     }
+    public static CameraFollower Instance {private set; get;}
+
     [SerializeField] private UpdateType updateType;
-    [SerializeField] private Transform target;
+    private Transform target;
     [SerializeField] private Vector3 offset;
 
     [SerializeField] private float speed;
@@ -21,10 +24,19 @@ public class CameraFollower : MonoBehaviour
     private Vector3 desiredPosition;
 
     private void Awake() {
-        
+        if(Instance){
+            Destroy(gameObject);
+        }else{
+            Instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+
+
+    }
+    private void Start() {
+        target = PlayerController.Instance.transform;
         desiredPosition = target.position;
         transform.position = (desiredPosition + offset);
-
     }
 
     private void Update(){
@@ -54,7 +66,7 @@ public class CameraFollower : MonoBehaviour
     }
 
     private void OnValidate() {
-        FollowTarget();
+        // FollowTarget();
     }
 
     private void OnDrawGizmos() {

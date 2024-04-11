@@ -26,11 +26,18 @@ namespace Entities.Player
 
         protected override void Awake()
         {
+            if(Instance){
+                Debug.Log($"Destroyed {gameObject.name}");
+                Destroy(gameObject);
+            }else{
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
             base.Awake();
             // THIS IS SUPER HARD CODED BUT I GOT LAZY
             // ignores collisions between Layer 6: player and Layer 15: NPC
             Physics2D.IgnoreLayerCollision(6,15);
-            Instance = this;
+            // Instance = this;
             IdleState = new IdleState(this, StateMachine);
             MoveState = new MoveState(this, StateMachine);
             JumpState = new JumpState(this, StateMachine);
@@ -46,6 +53,7 @@ namespace Entities.Player
 
         protected override void Update() {
             base.Update();
+            // Debug.Log($"Instance {Instance.name}");
             UpdateGravity();
             if(GameplayInput.MoveDirection.y < 0 && IsOverStairs()){
                 DisableStairsCollider();

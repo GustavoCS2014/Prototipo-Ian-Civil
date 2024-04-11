@@ -1294,7 +1294,7 @@ Tilemap:
       m_TileSpriteIndex: 17
       m_TileMatrixIndex: 7
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 70, y: 7, z: 0}
@@ -1304,7 +1304,7 @@ Tilemap:
       m_TileSpriteIndex: 8
       m_TileMatrixIndex: 7
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 1
+      m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 71, y: 7, z: 0}
@@ -1314,7 +1314,7 @@ Tilemap:
       m_TileSpriteIndex: 8
       m_TileMatrixIndex: 7
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 1
+      m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 72, y: 7, z: 0}
@@ -1324,7 +1324,7 @@ Tilemap:
       m_TileSpriteIndex: 8
       m_TileMatrixIndex: 7
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 1
+      m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 73, y: 7, z: 0}
@@ -1334,7 +1334,7 @@ Tilemap:
       m_TileSpriteIndex: 16
       m_TileMatrixIndex: 7
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 7
+      m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   m_AnimatedTiles: {}
@@ -1533,8 +1533,6 @@ Tilemap:
   m_TileObjectToInstantiateArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 3
-    m_Data: {fileID: 7379874471163005315, guid: 20ba2176f5641da459bae4ed34c6a2bb, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -1545,10 +1543,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 1842005701190337396, guid: 30cf3918e1778c342aeb27c71765a2aa, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 4808244801516178395, guid: 8e1529cbeb790a14fa4f67510c13c4d6, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -51, y: -11, z: 0}

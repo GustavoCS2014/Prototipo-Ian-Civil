@@ -15,6 +15,7 @@ public class SceneTransitioner : MonoBehaviour
     private SceneField _scene;
     private Vector3 _doorPosition;
     private AsyncOperation _sceneLoading;
+    private PlayerController _player;
     public bool SceneChanged {get; private set;}
 
     private void Awake() {
@@ -27,12 +28,17 @@ public class SceneTransitioner : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start() {
+        _player = PlayerController.Instance;
+    }
+
     public void TransitionToScene(DoorSettings door){
         _animator.Play(FADE_IN);
         _scene = door.DoorScene;
         _doorPosition = door.DoorPosition;
     }
 
+    // llamado por el animator al finalizar FADE_IN
     public void ChangeScene(){
         _sceneLoading = SceneManager.LoadSceneAsync(_scene);
     }
@@ -41,8 +47,8 @@ public class SceneTransitioner : MonoBehaviour
         if(_sceneLoading is null) return;
         if(_sceneLoading.isDone){
             _animator.Play(FADE_OUT);
-            PlayerController player = FindObjectOfType<PlayerController>();
-            player.SetPosition(_doorPosition);
+            // PlayerController player = PlayerController.Instance;
+            _player.SetPosition(_doorPosition);
             _sceneLoading = null;
         }
     }
