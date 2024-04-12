@@ -40,6 +40,7 @@ namespace CesarJZO.DialogueSystem
             {
                 DialogueNodeType.ConditionalNode => CreateInstance<ItemConditionalNode>(),
                 DialogueNodeType.ResponseNode => CreateInstance<ResponseNode>(),
+                DialogueNodeType.ItemProviderNode => CreateInstance<ItemProviderNode>(),
                 _ => CreateInstance<SimpleNode>()
             };
             childNode.name = GetGuidFormatted(childType);

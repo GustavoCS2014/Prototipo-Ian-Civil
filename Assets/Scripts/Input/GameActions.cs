@@ -730,8 +730,8 @@ namespace Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3bc736ac-bc67-48a7-85a1-e1ca9b7af048"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""5544db96-24de-4b26-9b3f-ddeaf963d46d"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -741,8 +741,8 @@ namespace Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5544db96-24de-4b26-9b3f-ddeaf963d46d"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""id"": ""fa327952-5e4b-4c8e-94b8-8d7b561d1463"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -1,0 +1,219 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9204739705044890264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-161d06c9
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: Se me antoja una nieve...
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 1337
+    y: 5165
+    width: 256
+    height: 216
+  child: {fileID: -2201654511542835271}
+--- !u!114 &-7620949062471844244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-184a5144
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: No lo se...
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 1063
+    y: 5166
+    width: 256
+    height: 216
+  child: {fileID: -9204739705044890264}
+--- !u!114 &-5361597288368075127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-5a5a9125
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: "Escuch\xE9 que no tienen entradas... \xBFNo quieren un intercambio?"
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 784
+    y: 5166
+    width: 256
+    height: 216
+  child: {fileID: -7620949062471844244}
+--- !u!114 &-2959331790151813172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-8ecc21b1
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: "\xA1Si me compras una te doy mi boleto!\n*le da un item secreto para recordar
+    que ya tuvo esta interacci\xF3n*"
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 2003
+    y: 5305
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &-2201654511542835271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-8f9225fe
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: 'Checks Whether or not the player
+
+    has ice cream with him.'
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 1677
+    y: 5127
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 0f546afa8330ea641a8da41aae4e3cca, type: 2}
+  trueChild: {fileID: 3250304603490297406}
+  falseChild: {fileID: -2959331790151813172}
+--- !u!114 &-668291360374454796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-783857e4
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: "Che, taca\xF1o, entonces comprate tu propio boleto :p"
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 2347
+    y: 5092
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: MeetingTheKid
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5361597288368075127}
+  - {fileID: -2201654511542835271}
+  - {fileID: -7620949062471844244}
+  - {fileID: -9204739705044890264}
+  - {fileID: 3250304603490297406}
+  - {fileID: 2362440310416083776}
+  - {fileID: -668291360374454796}
+  - {fileID: -2959331790151813172}
+--- !u!114 &2362440310416083776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-65b1c015
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: 'Yeiii, toma mi boleto: *le da el boleto*'
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 2346
+    y: 4853
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &3250304603490297406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d992f4c98448a4b8a609d541be5500, type: 3}
+  m_Name: R-1a8a632b
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: "\xBFMe das tu nieve?"
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 2004
+    y: 5002
+    width: 256
+    height: 288
+  timeLimit: 0
+  responses:
+  - text: Ok
+    trigger: 
+    child: {fileID: 2362440310416083776}
+  - text: No
+    trigger: 
+    child: {fileID: -668291360374454796}

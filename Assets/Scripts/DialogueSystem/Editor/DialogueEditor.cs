@@ -124,7 +124,8 @@ namespace CesarJZO.DialogueSystem.Editor
             scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, GUIStyle.none, GUIStyle.none);
             {
                 Rect canvasRect = GUILayoutUtility.GetRect(CanvasSize, CanvasSize);
-                GUI.DrawTextureWithTexCoords(canvasRect, _backgroundTexture, BackgroundCoords);
+                // BackgroundTexture Missing, but still works so imma just comment it xD.
+                // GUI.DrawTextureWithTexCoords(canvasRect, _backgroundTexture, BackgroundCoords);
                 if (selectedDialogue)
                 {
                     foreach (DialogueNode node in selectedDialogue.Nodes)

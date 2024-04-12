@@ -15,10 +15,13 @@ namespace Management
                 Debug.LogWarning("<b>GameManager</b> was not found in the scene.", this);
         }
 
+        public void ResetLastGameState(){
+            SetGameState(lastState);
+        }
+        
         public void SetGameState()
         {
             lastState = GameManager.Instance.CurrentState;
-            Debug.Log($"LS {lastState} CS {GameManager.Instance.CurrentState}");
             GameManager.Instance.CurrentState = state;
         }
         public void SetGameState(GameState state)
@@ -27,8 +30,5 @@ namespace Management
             GameManager.Instance.CurrentState = state;
         }
 
-        public void ResetLastGameState(){
-            SetGameState(lastState);
-        }
     }
 }

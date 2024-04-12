@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5933962963589307127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-0d26781a
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 40dfc7d0f8e4c8c4f8028dab97a70290, type: 2}
+  text: "\xBFTienen reservaci\xF3n?"
+  emotion: 0
+  portraitSide: 1
+  rect:
+    serializedVersion: 2
+    x: 1016
+    y: 5106
+    width: 256
+    height: 216
+  child: {fileID: 6013876357310187376}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: MeetingTheHost
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4064314518730081031}
+  - {fileID: 5428689578801091293}
+  - {fileID: -5933962963589307127}
+  - {fileID: 6013876357310187376}
+  - {fileID: 8639557359274280073}
+  - {fileID: 4304953542887610426}
+--- !u!114 &4064314518730081031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-fdf12553
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 40dfc7d0f8e4c8c4f8028dab97a70290, type: 2}
+  text: Checks if the player walks in with adama or not.
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 375
+    y: 5172
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 8bc74cc45f80cf74a952aedd5d8951f3, type: 2}
+  trueChild: {fileID: 5428689578801091293}
+  falseChild: {fileID: 8639557359274280073}
+--- !u!114 &4304953542887610426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-63a0a675
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 40dfc7d0f8e4c8c4f8028dab97a70290, type: 2}
+  text: Lo siento, no me parece haberla visto...
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 1010
+    y: 5377
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &5428689578801091293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-45379cfb
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: Hola, mesa para dos, por favor.
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 688
+    y: 5110
+    width: 256
+    height: 216
+  child: {fileID: -5933962963589307127}
+--- !u!114 &6013876357310187376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-ed4f4956
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: Este...
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 1327
+    y: 5107
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &8639557359274280073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-6f3a41ed
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Hola, ha visto a una chica por aqu\xED?"
+  emotion: 0
+  portraitSide: 0
+  rect:
+    serializedVersion: 2
+    x: 689
+    y: 5377
+    width: 256
+    height: 216
+  child: {fileID: 4304953542887610426}

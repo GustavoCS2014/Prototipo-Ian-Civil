@@ -4,6 +4,7 @@
     {
         SimpleNode,
         ConditionalNode,
-        ResponseNode
+        ResponseNode,
+        ItemProviderNode,
     }
 }

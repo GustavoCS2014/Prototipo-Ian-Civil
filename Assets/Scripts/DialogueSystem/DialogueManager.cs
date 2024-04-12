@@ -83,7 +83,6 @@ namespace CesarJZO.DialogueSystem
         public void StartDialogue(Dialogue dialogue)
         {
             if (!dialogue) return;
-            Debug.Log("Dialogue Started");
 
             _currentDialogue = dialogue;
             _currentNode = _currentDialogue.RootNode;
@@ -101,7 +100,6 @@ namespace CesarJZO.DialogueSystem
         /// </summary>
         public void Quit()
         {
-            Debug.Log("Dialogue ended");
             _currentDialogue = null;
             _currentNode = null;
             ConversationUpdated?.Invoke();

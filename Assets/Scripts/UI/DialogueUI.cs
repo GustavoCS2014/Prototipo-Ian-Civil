@@ -81,7 +81,8 @@ namespace CesarJZO.UI
             UpdatePortraitImage();
             UpdateResponseUI();
             UpdateItemConditionalUI();
-            UpdateNextButton();
+            UpdateNextButton(); 
+            inventoryPanel.Open();
         }
 
         /// <summary>
@@ -216,7 +217,9 @@ namespace CesarJZO.UI
         /// </summary>
         private void UpdateItemConditionalUI()
         {
-            if (_dialogueManager.CurrentNode is not ItemConditionalNode) return;
+            if (_dialogueManager.CurrentNode is not ItemConditionalNode){
+                return;
+            } 
 
             if (inventoryPanel)
                 inventoryPanel.Open();
@@ -246,11 +249,11 @@ namespace CesarJZO.UI
             if (_dialogueManager.Prompting) 
                 return;
 
-            Debug.Log($"has Next Node? {_dialogueManager.HasNextNode}");
             if (_dialogueManager.HasNextNode){
                 _dialogueManager.Next();
             }
             else{
+                inventoryPanel.Quit();
                 _dialogueManager.Quit();
             }
         }
@@ -260,8 +263,10 @@ namespace CesarJZO.UI
                 return;
             if (_dialogueManager.HasNextNode)
                 _dialogueManager.Next();
-            else
+            else{
+                inventoryPanel.Quit();
                 _dialogueManager.Quit();
+            }
         }
 
         /// <summary>
