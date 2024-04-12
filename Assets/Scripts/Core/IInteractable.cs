@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace CesarJZO
 {
     public interface IInteractable
     {

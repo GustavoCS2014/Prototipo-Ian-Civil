@@ -27,7 +27,6 @@ namespace Entities.Player
         protected override void Awake()
         {
             if(Instance){
-                Debug.Log($"Destroyed {gameObject.name}");
                 Destroy(gameObject);
             }else{
                 Instance = this;

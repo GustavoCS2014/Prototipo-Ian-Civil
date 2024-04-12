@@ -11,5 +11,6 @@ namespace Core
         SceneOutro = 8,
         Cutscene = 16,
         PlayerDead = 32,
+        Dialogue = 64,
     }
 }

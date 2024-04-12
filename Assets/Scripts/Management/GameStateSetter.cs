@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Attributes;
+using Core;
 using UnityEngine;
 
 namespace Management
@@ -6,6 +7,7 @@ namespace Management
     public sealed class GameStateSetter : MonoBehaviour
     {
         [SerializeField] private GameState state;
+        [SerializeField, ReadOnly] private GameState lastState;
 
         private void Start()
         {
@@ -15,7 +17,18 @@ namespace Management
 
         public void SetGameState()
         {
+            lastState = GameManager.Instance.CurrentState;
+            Debug.Log($"LS {lastState} CS {GameManager.Instance.CurrentState}");
             GameManager.Instance.CurrentState = state;
+        }
+        public void SetGameState(GameState state)
+        {
+            lastState = GameManager.Instance.CurrentState;
+            GameManager.Instance.CurrentState = state;
+        }
+
+        public void ResetLastGameState(){
+            SetGameState(lastState);
         }
     }
 }

@@ -6,8 +6,7 @@ interface IInteractable {
     /// <summary>
     /// Executes what happens when interacted.
     /// </summary>
-    /// <param name="interactor">The object interacting.</param>
-    void Interaction(PlayerController interactor);
-    Vector3 InteractablePosition();
+    void Interact();
+    Vector3 GetPosition();
 
 }

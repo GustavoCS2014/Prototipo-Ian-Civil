@@ -14,6 +14,7 @@ namespace Input
         public static event Action<InputAction.CallbackContext> LeftClickPerformed;
         public static event Action<InputAction.CallbackContext> RightClickPerformed;
         public static event Action<InputAction.CallbackContext> MiddleClickPerformed;
+        public static event Action<InputAction.CallbackContext> NextDialoguePerformed;
 
         public static Vector2 Direction => _uiActions.UI.Navigate.ReadValue<Vector2>();
         public static bool SkipIsPressed { get; private set; }
@@ -38,6 +39,7 @@ namespace Input
             _uiActions.UI.Click.performed += ClickAction;
             _uiActions.UI.RightClick.performed += RightClickAction;
             _uiActions.UI.MiddleClick.performed += MiddleClickAction;
+            _uiActions.UI.NextDialogue.performed += NextDialogueAction;
         }
 
         private void OnDisable()
@@ -52,6 +54,7 @@ namespace Input
             _uiActions.UI.Click.performed -= ClickAction;
             _uiActions.UI.RightClick.performed -= RightClickAction;
             _uiActions.UI.MiddleClick.performed -= MiddleClickAction;
+            _uiActions.UI.NextDialogue.performed += NextDialogueAction;
         }
 
         private static void NavigateAction(InputAction.CallbackContext context)
@@ -98,6 +101,11 @@ namespace Input
         {
             MiddleClickPerformed?.Invoke(context);
             OnAnyInput(context, GameInputAction.MiddleClick);
+        }
+
+        private static void NextDialogueAction(InputAction.CallbackContext context){
+            NextDialoguePerformed?.Invoke(context);
+            OnAnyInput(context, GameInputAction.Next);
         }
     }
 }

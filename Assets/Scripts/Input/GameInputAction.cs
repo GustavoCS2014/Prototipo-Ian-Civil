@@ -14,6 +14,7 @@
         Click,
         RightClick,
         MiddleClick,
-        Pause
+        Pause,
+        Next
     }
 }

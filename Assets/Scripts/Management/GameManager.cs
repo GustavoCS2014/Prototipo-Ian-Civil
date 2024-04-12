@@ -16,6 +16,7 @@ namespace Management
 
         [SerializeField] private UnityEvent onSceneIntroState;
         [SerializeField] private UnityEvent onPlayingState;
+        [SerializeField] private UnityEvent onDialogueState;
         [SerializeField] private UnityEvent onPausedState;
         [SerializeField] private UnityEvent onSceneOutroState;
         [SerializeField] private UnityEvent onCutsceneState;
@@ -62,6 +63,7 @@ namespace Management
             {
                 case GameState.SceneIntro: onSceneIntroState?.Invoke(); break;
                 case GameState.Playing: onPlayingState?.Invoke(); break;
+                case GameState.Dialogue: onDialogueState?.Invoke(); break;
                 case GameState.Paused: onPausedState?.Invoke(); break;
                 case GameState.SceneOutro: onSceneOutroState?.Invoke(); break;
                 case GameState.Cutscene: onCutsceneState?.Invoke(); break;
