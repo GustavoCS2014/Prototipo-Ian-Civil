@@ -7,7 +7,6 @@ namespace CesarJZO.InventorySystem
     [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory/Inventory", order = 0)]
     public class Inventory : ScriptableObject
     {
-
         [SerializeField] private List<Item> items;
         public List<Item> Items => items;
 
@@ -16,13 +15,11 @@ namespace CesarJZO.InventorySystem
             return items.Contains(item);
         }
 
-        private int _lastCount;
-        public bool CountChanged(){
-            if(_lastCount != items.Count){
-                _lastCount = items.Count;
-                return true;
-            }
-            return false;
+        public void AddItem(Item item){
+            items.Add(item);
+        }
+        public void RemoveItem(Item item){
+            items.Remove(item);
         }
     }
 }

@@ -45,6 +45,11 @@ namespace CesarJZO.UI
             gameObject.SetActive(false);
         }
 
+
+        /// <summary>
+        /// Invokes the event <see cref="ItemSelected"/>
+        /// </summary>
+        /// <param name="item"></param>
         public void SelectItem(Item item)
         {
             ItemSelected?.Invoke(item);
@@ -73,6 +78,11 @@ namespace CesarJZO.UI
             }
         }
 
+        /// <summary>
+        /// Checks if the player has the item in his inventory.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool SearchItem(Item item){
             return inventory.HasItem(item);
         }
