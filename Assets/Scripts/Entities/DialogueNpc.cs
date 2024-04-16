@@ -25,6 +25,7 @@ using UnityEngine;
 
             _dialogueManager.ConditionalNodeEvaluated += OnConditionalNodeEvaluated;
             _dialogueManager.ResponseSelected += OnResponseSelected;
+            _dialogueManager.ConversationUpdated += OnEndNode;
 
             try
             {
@@ -34,6 +35,10 @@ using UnityEngine;
             {
                 Debug.LogWarning($"{name} NPC has no dialogues.", this);
             }
+        }
+        private void OnDestroy() {
+            
+            _dialogueManager.ConversationUpdated -= OnEndNode;
         }
 
         private void OnConditionalNodeEvaluated(bool hadItem)
@@ -50,6 +55,15 @@ using UnityEngine;
 
             if (onResponseSelected)
                 onResponseSelected.OnResponseSelected(response);
+        }
+
+        private void OnEndNode(){
+            if(!_dialogueManager.CurrentNode) return;
+            string trigger = _dialogueManager.CurrentNode.TriggerKey;
+            DialogueListener[] listeners = GetComponents<DialogueListener>();
+            foreach(DialogueListener listener in listeners){
+                listener.EvaluateTrigger(trigger);
+            }
         }
 
         public void Interact()

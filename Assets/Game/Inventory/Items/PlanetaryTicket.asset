@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67929232bed445de85eeba04711435c2, type: 3}
   m_Name: PlanetaryTicket
   m_EditorClassIdentifier: 
-  displayName: Planetary Ticket
+  displayName: Entrada doble
   displaySprite: {fileID: 21300000, guid: 00b8ce4a201871b498992f536279acf7, type: 3}
-  isVisible: 1
+  isKey: 0

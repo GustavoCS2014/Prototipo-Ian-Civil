@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel;
+using UnityEngine;
 
 namespace CesarJZO.InventorySystem
 {
@@ -13,9 +14,9 @@ namespace CesarJZO.InventorySystem
         [SerializeField] private Sprite displaySprite;
         public Sprite DisplaySprite => displaySprite;
         
-        [Tooltip("Determines whether the player will know this exist or not.")]
-        [SerializeField] private bool isVisible;
-        public bool IsVisible => isVisible;
+        [Tooltip("Determines if this is a hidden item used to change dialogues.")]
+        [SerializeField] private bool isKey;
+        public bool IsKey => isKey;
 
     }
 }

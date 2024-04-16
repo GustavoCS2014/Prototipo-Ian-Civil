@@ -1,28 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9204739705044890264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
-  m_Name: S-161d06c9
-  m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
-  text: Se me antoja una nieve...
-  emotion: 0
-  portraitSide: 0
-  rect:
-    serializedVersion: 2
-    x: 1337
-    y: 5165
-    width: 256
-    height: 216
-  child: {fileID: -2201654511542835271}
 --- !u!114 &-7620949062471844244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,16 +13,41 @@ MonoBehaviour:
   m_Name: S-184a5144
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
-  text: No lo se...
+  text: "Quiz\xE1s..."
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 1063
-    y: 5166
+    x: 1059
+    y: 5289
     width: 256
     height: 216
-  child: {fileID: -9204739705044890264}
+  child: {fileID: -2201654511542835271}
+--- !u!114 &-6242071584233151353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-da859978
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Yo creo que es un buen trato Ian, \xBFte parece? "
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2057
+    y: 4843
+    width: 256
+    height: 216
+  child: {fileID: -2895375535560734053}
 --- !u!114 &-5361597288368075127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,15 +63,16 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
   text: "Escuch\xE9 que no tienen entradas... \xBFNo quieren un intercambio?"
   emotion: 0
-  portraitSide: 0
+  portraitSide: 1
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 784
-    y: 5166
+    x: 137
+    y: 5290
     width: 256
     height: 216
-  child: {fileID: -7620949062471844244}
---- !u!114 &-2959331790151813172
+  child: {fileID: 8668168086018092379}
+--- !u!114 &-2895375535560734053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,17 +82,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
-  m_Name: S-8ecc21b1
+  m_Name: S-dacc1ed7
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
-  text: "\xA1Si me compras una te doy mi boleto!\n*le da un item secreto para recordar
-    que ya tuvo esta interacci\xF3n*"
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Si te parece a ti, a m\xED tambi\xE9n."
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 2003
-    y: 5305
+    x: 2377
+    y: 4843
+    width: 256
+    height: 216
+  child: {fileID: 2362440310416083776}
+--- !u!114 &-2655061836908037198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-cdce0f78
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Me parece bien!"
+  emotion: 1
+  portraitSide: 0
+  triggerKey: TalkedWithKid
+  rect:
+    serializedVersion: 2
+    x: 2372
+    y: 5368
     width: 256
     height: 216
   child: {fileID: 0}
@@ -111,16 +138,17 @@ MonoBehaviour:
     has ice cream with him.'
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 1677
-    y: 5127
+    x: 1412
+    y: 5107
     width: 256
     height: 252
   hasItem: {fileID: 11400000, guid: 0f546afa8330ea641a8da41aae4e3cca, type: 2}
-  trueChild: {fileID: 3250304603490297406}
-  falseChild: {fileID: -2959331790151813172}
---- !u!114 &-668291360374454796
+  trueChild: {fileID: -2121548858425054704}
+  falseChild: {fileID: 3529922548429930466}
+--- !u!114 &-2121548858425054704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,19 +158,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
-  m_Name: S-783857e4
+  m_Name: S-8a2f8968
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
-  text: "Che, taca\xF1o, entonces comprate tu propio boleto :p"
+  text: "\xBFEntonces qu\xE9 les parece el trato?"
   emotion: 0
-  portraitSide: 0
+  portraitSide: 1
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 2347
-    y: 5092
+    x: 1736
+    y: 4843
     width: 256
     height: 216
-  child: {fileID: 0}
+  child: {fileID: -6242071584233151353}
+--- !u!114 &-993176929397999866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-57049bf9
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
+  text: "\xBFQu\xE9 les parece si me dan un helado a cambio de esta entrada doble
+    al planetario?"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 749
+    y: 5292
+    width: 256
+    height: 216
+  child: {fileID: -7620949062471844244}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,14 +210,43 @@ MonoBehaviour:
   m_Name: MeetingTheKid
   m_EditorClassIdentifier: 
   nodes:
+  - {fileID: 5885437566029531160}
   - {fileID: -5361597288368075127}
   - {fileID: -2201654511542835271}
   - {fileID: -7620949062471844244}
-  - {fileID: -9204739705044890264}
-  - {fileID: 3250304603490297406}
   - {fileID: 2362440310416083776}
-  - {fileID: -668291360374454796}
-  - {fileID: -2959331790151813172}
+  - {fileID: 3529922548429930466}
+  - {fileID: 551301727931277226}
+  - {fileID: -2655061836908037198}
+  - {fileID: -2121548858425054704}
+  - {fileID: -6242071584233151353}
+  - {fileID: -2895375535560734053}
+  - {fileID: 8668168086018092379}
+  - {fileID: -993176929397999866}
+--- !u!114 &551301727931277226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-053ff697
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Tal vez como postre. \xBFVamos y aprovechamos para comer algo?"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2052
+    y: 5368
+    width: 256
+    height: 216
+  child: {fileID: -2655061836908037198}
 --- !u!114 &2362440310416083776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,17 +260,18 @@ MonoBehaviour:
   m_Name: S-65b1c015
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
-  text: 'Yeiii, toma mi boleto: *le da el boleto*'
+  text: "\xA1Qu\xE9 a gusto! \xA1Tomen!"
   emotion: 0
-  portraitSide: 0
+  portraitSide: 1
+  triggerKey: GaveIceCream
   rect:
     serializedVersion: 2
-    x: 2346
-    y: 4853
+    x: 2719
+    y: 4836
     width: 256
     height: 216
   child: {fileID: 0}
---- !u!114 &3250304603490297406
+--- !u!114 &3529922548429930466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,24 +280,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d992f4c98448a4b8a609d541be5500, type: 3}
-  m_Name: R-1a8a632b
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-cbadbc16
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: cade60a3abde1834b994de33dcb07053, type: 2}
-  text: "\xBFMe das tu nieve?"
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xBFVender\xE1n helado en el restaurante, Ian?"
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 2004
-    y: 5002
+    x: 1732
+    y: 5368
     width: 256
-    height: 288
-  timeLimit: 0
-  responses:
-  - text: Ok
-    trigger: 
-    child: {fileID: 2362440310416083776}
-  - text: No
-    trigger: 
-    child: {fileID: -668291360374454796}
+    height: 216
+  child: {fileID: 551301727931277226}
+--- !u!114 &5885437566029531160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-9bfc2512
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: Checks if the player has talked with the kid before.TalkedWithKid
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: -144
+    y: 4784.5
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: dc8ba976d9bfa5141b9211eeb6877375, type: 2}
+  trueChild: {fileID: -2201654511542835271}
+  falseChild: {fileID: -5361597288368075127}
+--- !u!114 &8668168086018092379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-9f02a59b
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: mmm...
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 457
+    y: 5290
+    width: 256
+    height: 216
+  child: {fileID: -993176929397999866}

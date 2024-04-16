@@ -10,39 +10,28 @@ namespace CesarJZO.UI
     public class InventoryUI : MonoBehaviour
     {
         public static event Action<Item> ItemSelected;
-        [SerializeField] private Item debugItem;
         [SerializeField] private Inventory inventory;
-        [SerializeField] private Inventory allItems;
-        [SerializeField] private List<Item> currentItems;
-        [SerializeField] private Transform itemTemplate;
         [SerializeField] private Transform inventoryContainer;
+        [SerializeField] private Transform itemTemplate;
 
         private void Start()
         {
             Quit();
         }
 
-        private void Update(){
-            // if(inventory.CountChanged())
-            //     UpdateItems();
-
-        }
-
-        private void OnGUI() {
-            if(GUILayout.Button("sendItem", GUILayout.Width(100f), GUILayout.Height(50f))){
-                SelectItem(debugItem);
-            }
-        }
-
         public void Open()
         {
-            UpdateItems();
+            ShowAdquieredItems();
             gameObject.SetActive(true);
         }
 
         public void Quit()
         {
             gameObject.SetActive(false);
+        }
+
+        public void UpdateItems(){
+            ShowAdquieredItems();
         }
 
 
@@ -55,28 +44,26 @@ namespace CesarJZO.UI
             ItemSelected?.Invoke(item);
         }
 
-        private void UpdateItems(){
+
+
+        private void ShowAdquieredItems(){
             foreach(Transform child in inventoryContainer){
                 Destroy(child.gameObject);
             }
-            currentItems.Clear();
 
+            for(int i = 0; i < inventory.GetItemCount(); i++){
+                if(inventory.TryGetItemAtIndex(i, out Item item)){
+                    //Ignores invisible items(keys)
+                    if(item.IsKey) continue;
 
-            //? if the item is visible and is on the player's inventory, show it.
-            foreach(Item item in allItems.Items){
-                if(!item.IsVisible) continue;
-                if(!inventory.HasItem(item)) continue;
+                    Transform itemTransform = Instantiate(itemTemplate, inventoryContainer);
+                    itemTransform.gameObject.SetActive(true);
+                    itemTransform.GetComponent<Image>().sprite = item.DisplaySprite;
+                }
 
-                currentItems.Add(item);
-            }
-
-            //? show the items on screen.
-            foreach (Item item in currentItems){
-                Transform itemTransform = Instantiate(itemTemplate, inventoryContainer);
-                itemTransform.gameObject.SetActive(true);
-                itemTransform.GetComponent<Image>().sprite = item.DisplaySprite;
             }
         }
+
 
         /// <summary>
         /// Checks if the player has the item in his inventory.
@@ -86,6 +73,5 @@ namespace CesarJZO.UI
         public bool SearchItem(Item item){
             return inventory.HasItem(item);
         }
-
     }
 }
