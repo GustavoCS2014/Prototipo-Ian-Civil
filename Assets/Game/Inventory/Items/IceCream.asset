@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67929232bed445de85eeba04711435c2, type: 3}
   m_Name: IceCream
   m_EditorClassIdentifier: 
-  displayName: Ice Cream
+  displayName: Helado
   displaySprite: {fileID: 21300000, guid: 443d05f2a4ae81a4297ac8ec762644c3, type: 3}
-  isVisible: 1
+  isKey: 0
