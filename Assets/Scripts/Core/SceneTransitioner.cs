@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entities.Follower;
 using Entities.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransitioner : MonoBehaviour
 {
     public static SceneTransitioner Instance {get; private set;}
+    public static event Action<Vector3> OnDoorTransitionEnded;
     const string FADE_IN = "Fade_In";
     const string FADE_OUT = "Fade_Out";
 
@@ -46,11 +49,13 @@ public class SceneTransitioner : MonoBehaviour
     private void Update(){
         if(_sceneLoading is null) return;
         if(_sceneLoading.isDone){
-            _animator.Play(FADE_OUT);
-            // PlayerController player = PlayerController.Instance;
-            _player.SetPosition(_doorPosition);
+            PlayerController.Instance.SetPosition(_doorPosition);
+            foreach(FollowerController follower in PlayerController.Instance.Followers){
+                Debug.Log($"{follower}");
+                follower.SetPosition(_doorPosition);
+            }
             _sceneLoading = null;
+            
         }
-    }
-
+    }   
 }

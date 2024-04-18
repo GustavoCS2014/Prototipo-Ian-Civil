@@ -4,7 +4,9 @@ using Cinematics;
 using Entities.Follower;
 using Entities.Player.States;
 using Input;
+using UnityEditor.Overlays;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Entities.Player
 {
@@ -22,7 +24,7 @@ namespace Entities.Player
         public LandState LandState { get; private set; }
         public bool OnStairs {get; private set;}
         public bool Animating { get; set; }
-        public List<FollowerController> Followers;
+        [field: SerializeField] public List<FollowerController> Followers {get; private set;}
 
         protected override void Awake()
         {
@@ -102,6 +104,7 @@ namespace Entities.Player
             transform.position = target.position;
         }
 
+
         #region  STAIRS
         private void UpdateGravity() => Rigidbody.gravityScale = IsOnStairs() ? 
                                         0f :
@@ -137,14 +140,12 @@ namespace Entities.Player
             Vector2 rayPos = transform.position + Vector3.up * feetOffset;
 
             RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, rayDistance, Settings.StairsMask);
-            
 
             if(hit.transform.TryGetComponent<StairTopHandler>(out StairTopHandler stairTop)){
                 stairTop.DisableCollider();
             }
         }
         #endregion
-
 
     }
 }

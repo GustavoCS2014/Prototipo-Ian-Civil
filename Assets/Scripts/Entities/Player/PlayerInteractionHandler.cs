@@ -10,10 +10,13 @@ public class PlayerInteractionHandler : MonoBehaviour
 {
     [SerializeField] private LayerMask interactionLayer;
     [SerializeField] private float interactionRadius;
-    [field: SerializeField] public List<FollowerController> ActiveFollowers {get; private set;} 
-    
+
+    private PlayerController _playerController;
+    private PlayerFollowerManager _followerManager;
 
     private void Start() {
+        _followerManager = GetComponent<PlayerFollowerManager>();
+        _playerController = PlayerController.Instance;
         GameplayInput.OnInteract += OnInteractInput;
     }
 
@@ -58,11 +61,11 @@ public class PlayerInteractionHandler : MonoBehaviour
     /// <param name="follower">The follower in question.</param>
     private void HandleFollowerInteractables(IFollowerInteractable follower){
         follower.FollowerInteraction(GetComponent<PlayerController>(), out FollowerController followerController);
-        if(ActiveFollowers.Contains(followerController)){
-            ActiveFollowers.Remove(followerController);
+        if(_followerManager.Followers.Contains(followerController.gameObject)){
+            _followerManager.RemoveFollower(followerController);
             return;
-        };
-        ActiveFollowers.Add(followerController);
+        }
+        _followerManager.AddFollower(followerController);
     }
 
     private IInteractable GetClosestInteractable(){
