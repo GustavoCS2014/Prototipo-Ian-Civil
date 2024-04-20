@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7036007689374373687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-da15ee91
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Genial, ahora podremos ir al Planetario! Te aprecio, Ian."
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4539
+    y: 5162.5
+    width: 256
+    height: 216
+  child: {fileID: -2037456272081067130}
+--- !u!114 &-5681942498691094211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-3a3cdd7f
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "La verdad no tengo mucho que contar. A m\xED igual me encanta estar junto
+    a ti."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2649
+    y: 5390.5
+    width: 256
+    height: 216
+  child: {fileID: 3084182190082560743}
+--- !u!114 &-4879586195000745591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-4e47dbcc
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Eres un muchacho tan lindoooo! Pero recuerda, \xA1tenemos que conseguir
+    ese helado! \xA1P\xEDdelo ahora mismo!  "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3892
+    y: 5200.5
+    width: 256
+    height: 216
+  child: {fileID: 5016962325137078338}
+--- !u!114 &-2037456272081067130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-951a031a
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: Iguaaaal... igual te aprecio.
+  emotion: 0
+  portraitSide: 0
+  triggerKey: GiveIceCream
+  rect:
+    serializedVersion: 2
+    x: 4876
+    y: 5161.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: DialogueTable
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1750950631619980228}
+  - {fileID: -5681942498691094211}
+  - {fileID: 3084182190082560743}
+  - {fileID: 1495135268235339110}
+  - {fileID: 6624298401688314242}
+  - {fileID: -4879586195000745591}
+  - {fileID: 5016962325137078338}
+  - {fileID: -7036007689374373687}
+  - {fileID: -2037456272081067130}
+  - {fileID: 1595679982819502666}
+--- !u!114 &1495135268235339110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-f74d7ec4
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Est\xE1 excelente. Sabes, me siento m\xE1s feliz al saber que te conoc\xED. "
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3229
+    y: 5385.5
+    width: 256
+    height: 216
+  child: {fileID: 6624298401688314242}
+--- !u!114 &1595679982819502666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-66cb3b64
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Eres un muchacho tan lindoooo! Te mereces un postre, yo lo invito. \xA1Mesero,
+    un helado por favor! "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: GiveIceCream
+  rect:
+    serializedVersion: 2
+    x: 3904
+    y: 5602.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &1750950631619980228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-c05d88e3
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Cu\xE9ntame de ti, Ian. Me ha gustado mucho convivir contigo estos d\xEDas. "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2368
+    y: 5388.5
+    width: 256
+    height: 216
+  child: {fileID: -5681942498691094211}
+--- !u!114 &3084182190082560743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-5d266008
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Ayyyy, gracias. Haces sonrojarme. \xBFQu\xE9 te parece la comida? "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2933
+    y: 5385.5
+    width: 256
+    height: 216
+  child: {fileID: 1495135268235339110}
+--- !u!114 &5016962325137078338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-1c5e7f9f
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "\xA1Mesero, un helado por favor!"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4218
+    y: 5170.5
+    width: 256
+    height: 216
+  child: {fileID: -7036007689374373687}
+--- !u!114 &6624298401688314242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-26cd9500
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: Checks if the player has talked with the kid before.TalkedWithKid
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3536
+    y: 5351.5
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: dc8ba976d9bfa5141b9211eeb6877375, type: 2}
+  trueChild: {fileID: -4879586195000745591}
+  falseChild: {fileID: 1595679982819502666}

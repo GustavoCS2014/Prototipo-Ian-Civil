@@ -7,6 +7,7 @@ interface IInteractable {
     /// Executes what happens when interacted.
     /// </summary>
     void Interact();
+    void ShowInteractionHint(bool SetActive);
     Vector3 GetPosition();
 
 }

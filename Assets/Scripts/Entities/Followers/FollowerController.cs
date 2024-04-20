@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Entities.Follower{
     [RequireComponent(typeof(Rigidbody2D))]
-    public class FollowerController : BaseEntityController<FollowerController> {
+    public class FollowerController : BaseEntityController<FollowerController>, IFollower {
         public Transform Target;
 
         public FollowerSettings Settings => settings as FollowerSettings;
@@ -16,8 +16,10 @@ namespace Entities.Follower{
         {
             base.Awake();
             // THIS IS SUPER HARD CODED BUT I GOT LAZY
-            // ignores collisions between NPCs (Layer 15)
+            // ignores collisions between NPCs and Followers (Layer 15)
             Physics2D.IgnoreLayerCollision(15,15);
+            Physics2D.IgnoreLayerCollision(16,16);
+            Physics2D.IgnoreLayerCollision(16,15);
             IdleState = new IdleState(this, StateMachine);
             FollowState = new FollowState(this, StateMachine);
         }
@@ -82,8 +84,11 @@ namespace Entities.Follower{
 
             return isOverStairs;
         }
+
+        public virtual FollowerController GetController() { return this;}
+
+        public void MoveToTransform(Transform targetPosition) => transform.position = targetPosition.position;
         #endregion
 
     }
-
 }

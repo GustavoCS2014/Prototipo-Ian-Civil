@@ -16,13 +16,64 @@ MonoBehaviour:
   text: "\xBFTienen reservaci\xF3n?"
   emotion: 0
   portraitSide: 1
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 1016
-    y: 5106
+    x: 1020
+    y: 5105
     width: 256
     height: 216
   child: {fileID: 6013876357310187376}
+--- !u!114 &-837947469488101536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-b596cda7
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: 'Checks if the player has got the Reservation before. '
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1606
+    y: 4856
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 6466a7dbd859e874d997479c61c3475c, type: 2}
+  trueChild: {fileID: 322508828233254266}
+  falseChild: {fileID: 4610053378480262481}
+--- !u!114 &-553306657912814384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-9cb1ba98
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Est\xE1 bien."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2882
+    y: 4822
+    width: 256
+    height: 216
+  child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +93,62 @@ MonoBehaviour:
   - {fileID: 6013876357310187376}
   - {fileID: 8639557359274280073}
   - {fileID: 4304953542887610426}
+  - {fileID: -837947469488101536}
+  - {fileID: 322508828233254266}
+  - {fileID: 9145801740066318145}
+  - {fileID: 4610053378480262481}
+  - {fileID: 6430376598284650296}
+  - {fileID: 6999231007727701295}
+  - {fileID: 2558067763782977758}
+  - {fileID: -553306657912814384}
+--- !u!114 &322508828233254266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-170667f1
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Aqu\xED tenemos la reservaci\xF3n!"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1960
+    y: 4820
+    width: 256
+    height: 216
+  child: {fileID: 6999231007727701295}
+--- !u!114 &2558067763782977758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-351e0f03
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Elige, Ian!"
+  emotion: 1
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2562
+    y: 4821
+    width: 256
+    height: 216
+  child: {fileID: -553306657912814384}
 --- !u!114 &4064314518730081031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,10 +165,11 @@ MonoBehaviour:
   text: Checks if the player walks in with adama or not.
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 375
-    y: 5172
+    x: 79
+    y: 5082
     width: 256
     height: 252
   hasItem: {fileID: 11400000, guid: 8bc74cc45f80cf74a952aedd5d8951f3, type: 2}
@@ -83,6 +191,7 @@ MonoBehaviour:
   text: Lo siento, no me parece haberla visto...
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
     x: 1010
@@ -90,6 +199,32 @@ MonoBehaviour:
     width: 256
     height: 216
   child: {fileID: 0}
+--- !u!114 &4610053378480262481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-da5bb004
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: Checks if the player has talked to the Bateado before.TalkedWithBateado
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1874
+    y: 5139
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 45648fdf836f48a4b9f11405fec16e9f, type: 2}
+  trueChild: {fileID: 6430376598284650296}
+  falseChild: {fileID: 9145801740066318145}
 --- !u!114 &5428689578801091293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,10 +241,11 @@ MonoBehaviour:
   text: Hola, mesa para dos, por favor.
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 688
-    y: 5110
+    x: 685
+    y: 5112
     width: 256
     height: 216
   child: {fileID: -5933962963589307127}
@@ -129,13 +265,63 @@ MonoBehaviour:
   text: Este...
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
-    x: 1327
+    x: 1331
     y: 5107
     width: 256
     height: 216
+  child: {fileID: -837947469488101536}
+--- !u!114 &6430376598284650296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-59d32889
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Ian, el tipo con el que hablamos hace rato dijo algo sobre una reservaci\xF3n.
+    \xA1Vamos con \xE9l!"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: TalkedWithHost
+  rect:
+    serializedVersion: 2
+    x: 2303
+    y: 5113
+    width: 256
+    height: 216
   child: {fileID: 0}
+--- !u!114 &6999231007727701295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-3d17fd4f
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 40dfc7d0f8e4c8c4f8028dab97a70290, type: 2}
+  text: "Pueden pasar. Elijan cualquier mesa vac\xEDa. "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: GiveTable
+  rect:
+    serializedVersion: 2
+    x: 2263
+    y: 4815
+    width: 256
+    height: 216
+  child: {fileID: 2558067763782977758}
 --- !u!114 &8639557359274280073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +338,7 @@ MonoBehaviour:
   text: "Hola, ha visto a una chica por aqu\xED?"
   emotion: 0
   portraitSide: 0
+  triggerKey: 
   rect:
     serializedVersion: 2
     x: 689
@@ -159,3 +346,28 @@ MonoBehaviour:
     width: 256
     height: 216
   child: {fileID: 4304953542887610426}
+--- !u!114 &9145801740066318145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-6e7dc9c5
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Me pregunto si alguien en esta zona tendr\xE1 una reservaci\xF3n que le
+    sobre..."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: TalkedWithHost
+  rect:
+    serializedVersion: 2
+    x: 2167
+    y: 5406
+    width: 256
+    height: 216
+  child: {fileID: 0}

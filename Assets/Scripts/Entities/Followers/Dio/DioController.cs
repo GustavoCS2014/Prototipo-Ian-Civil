@@ -2,7 +2,7 @@ using Entities.Player;
 using UnityEngine;
 
 namespace Entities.Follower.Dio{
-    public class DioController : FollowerController, IFollowerInteractable {
+    public class DioController : FollowerController, IFollowerInteractable, IFollower {
         public Vector3 GetPosition(){
             return transform.position;
         }
@@ -16,6 +16,12 @@ namespace Entities.Follower.Dio{
                 return;
             }
             SetTarget(interactor.transform);
+        }
+
+        public override FollowerController GetController() => this;
+
+        public void ShowInteractionHint(bool SetActive)
+        {
         }
     }
 }

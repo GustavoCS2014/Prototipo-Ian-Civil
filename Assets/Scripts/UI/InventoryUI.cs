@@ -17,6 +17,11 @@ namespace CesarJZO.UI
         private void Start()
         {
             Quit();
+            Inventory.OnItemsChanged += OnItemsChangedEvent;
+        }
+        
+        private void OnDestroy(){
+            Inventory.OnItemsChanged -= OnItemsChangedEvent;
         }
 
         public void Open()
@@ -35,16 +40,20 @@ namespace CesarJZO.UI
         }
 
 
+        private void OnItemsChangedEvent()
+        {
+            ShowAdquieredItems();
+        }
+
+
         /// <summary>
         /// Invokes the event <see cref="ItemSelected"/>
         /// </summary>
         /// <param name="item"></param>
-        public void SelectItem(Item item)
+        public static void SelectItem(Item item)
         {
             ItemSelected?.Invoke(item);
         }
-
-
 
         private void ShowAdquieredItems(){
             foreach(Transform child in inventoryContainer){

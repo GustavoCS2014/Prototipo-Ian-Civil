@@ -11,13 +11,16 @@ public class PlayerInteractionHandler : MonoBehaviour
     [SerializeField] private LayerMask interactionLayer;
     [SerializeField] private float interactionRadius;
 
+    private IInteractable _lastInteractable;
     private PlayerController _playerController;
-    private PlayerFollowerManager _followerManager;
 
     private void Start() {
-        _followerManager = GetComponent<PlayerFollowerManager>();
         _playerController = PlayerController.Instance;
         GameplayInput.OnInteract += OnInteractInput;
+    }
+
+    private void LateUpdate(){
+        ShowInteractableHint();
     }
 
     #region  HANDLING DOORS
@@ -41,6 +44,12 @@ public class PlayerInteractionHandler : MonoBehaviour
         
     }
 
+    private void ShowInteractableHint(){
+        if(_lastInteractable is not null) _lastInteractable.ShowInteractionHint(false);
+        _lastInteractable = GetClosestInteractable();
+        if(_lastInteractable is not null) _lastInteractable.ShowInteractionHint(true);
+    }
+
     private void OnInteractInput(InputAction.CallbackContext context){
         if(context.canceled) return;
         if(GetClosestInteractable() == null) return;
@@ -61,11 +70,6 @@ public class PlayerInteractionHandler : MonoBehaviour
     /// <param name="follower">The follower in question.</param>
     private void HandleFollowerInteractables(IFollowerInteractable follower){
         follower.FollowerInteraction(GetComponent<PlayerController>(), out FollowerController followerController);
-        if(_followerManager.Followers.Contains(followerController.gameObject)){
-            _followerManager.RemoveFollower(followerController);
-            return;
-        }
-        _followerManager.AddFollower(followerController);
     }
 
     private IInteractable GetClosestInteractable(){

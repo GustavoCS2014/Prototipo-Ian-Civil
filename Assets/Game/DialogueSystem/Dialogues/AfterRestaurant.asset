@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5283494502310819919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-744e383b
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Claro, no hay problema!"
+  emotion: 1
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4903
+    y: 5208
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &-4289810715409191874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-018ae357
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: Checks if the player has talked with the kid before.TalkedWithKid
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4269
+    y: 5360.5
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: dc8ba976d9bfa5141b9211eeb6877375, type: 2}
+  trueChild: {fileID: 7950230063278788250}
+  falseChild: {fileID: 5355677745734866544}
+--- !u!114 &-471022737585498997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-3916eba6
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: 'Me ha encantado esta noche contigo, no tengo palabras para describirla. '
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3710
+    y: 5372.5
+    width: 256
+    height: 216
+  child: {fileID: 3962807149513227901}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: AfterRestaurant
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -471022737585498997}
+  - {fileID: -4289810715409191874}
+  - {fileID: 3962807149513227901}
+  - {fileID: 7950230063278788250}
+  - {fileID: -5283494502310819919}
+  - {fileID: 5355677745734866544}
+  - {fileID: 5049129669167467177}
+--- !u!114 &3962807149513227901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-f531a943
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: 'De verdad que estoy muy agradecido por conocerte. '
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3988
+    y: 5376
+    width: 256
+    height: 216
+  child: {fileID: -4289810715409191874}
+--- !u!114 &5049129669167467177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-9e8de39a
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xA1Claro, yo encantada de ir contigo! "
+  emotion: 1
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4914
+    y: 5517.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &5355677745734866544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-383c1ff8
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "\xBFTienes ganas de ir al Museo que est\xE1 por aqu\xED? Me har\xEDa feliz
+    recorrerlo junto a ti. "
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4594
+    y: 5517.5
+    width: 256
+    height: 216
+  child: {fileID: 5049129669167467177}
+--- !u!114 &7950230063278788250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-ba432c98
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Ahora que tenemos un helado... \xBFregresamos el museo y se lo damos al
+    ni\xF1o?"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4582
+    y: 5208
+    width: 256
+    height: 216
+  child: {fileID: -5283494502310819919}

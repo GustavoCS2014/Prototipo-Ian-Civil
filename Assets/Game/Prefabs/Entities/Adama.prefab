@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2294310064087155175}
   - component: {fileID: 2910608143396509859}
   - component: {fileID: 6108061751236843851}
+  - component: {fileID: 6853764358625395432}
   m_Layer: 15
   m_Name: Adama
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 5110470936760395451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.68, y: 0, z: 0.068997204}
+  m_LocalPosition: {x: 88.5, y: 104, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -146,6 +147,52 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &6853764358625395432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110470936760395451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955df8624fdeb3489ff444a9e2b7185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkOn: 0
+  inventory: {fileID: 11400000, guid: ed708bcd69bcbc24f905a4643d75c4ff, type: 2}
+  itemToCheck: {fileID: 11400000, guid: 8bc74cc45f80cf74a952aedd5d8951f3, type: 2}
+  onPlayerHasItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2294310064087155175}
+        m_TargetAssemblyTypeName: Entities.Follower.FollowerController, Assembly-CSharp
+        m_MethodName: SetTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2294310064087155175}
+        m_TargetAssemblyTypeName: Entities.Follower.FollowerController, Assembly-CSharp
+        m_MethodName: MoveToTransform
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  itemsToCheck: []
+  onPlayerHasAllItems:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9068399696009129371
 GameObject:
   m_ObjectHideFlags: 0

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3167892422707361105}
   - component: {fileID: 7074647752453897939}
   - component: {fileID: 5405688899962031205}
+  - component: {fileID: 4769003801617540192}
   m_Layer: 15
   m_Name: Dio
   m_TagString: Untagged
@@ -198,3 +199,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4769003801617540192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654463363654531521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955df8624fdeb3489ff444a9e2b7185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkOn: 0
+  inventory: {fileID: 11400000, guid: ed708bcd69bcbc24f905a4643d75c4ff, type: 2}
+  itemToCheck: {fileID: 11400000, guid: 0ffdc4f12f33d8c469d2d9466593a0c0, type: 2}
+  onItemMatch:
+    m_PersistentCalls:
+      m_Calls: []
+  onItemMismatch:
+    m_PersistentCalls:
+      m_Calls: []
+  itemsToCheck: []
+  onItemsMatch:
+    m_PersistentCalls:
+      m_Calls: []
+  onItemsMismatch:
+    m_PersistentCalls:
+      m_Calls: []

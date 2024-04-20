@@ -152,7 +152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 185860190635289381}
   - component: {fileID: 6942605024566233983}
-  - component: {fileID: 9088937479756367715}
   - component: {fileID: 5967387705548010059}
   - component: {fileID: 5987418591238980041}
   - component: {fileID: 124777522887839385}
@@ -199,19 +198,6 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 671a51d50d986414eb0ec5d2100ed7f1, type: 2}
   hurtBox: {fileID: 1732788235520933927}
   showDebug: 1
-  <Followers>k__BackingField: []
---- !u!114 &9088937479756367715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5729432827770348695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1c1bc71a6782749aacaea3ab0e3646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5967387705548010059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +213,7 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 32768
-  interactionRadius: 0
+  interactionRadius: 2.5
 --- !u!50 &5987418591238980041
 Rigidbody2D:
   serializedVersion: 4

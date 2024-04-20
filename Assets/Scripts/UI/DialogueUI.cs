@@ -62,6 +62,19 @@ namespace CesarJZO.UI
             UpdateUI();
         }
 
+        private void OnDestroy() {
+            
+            InventoryUI.ItemSelected -= OnItemSelected;
+            
+            _dialogueManager.ConversationStarted -= ResetUI;
+            _dialogueManager.ConversationUpdated -= UpdateUI;
+
+            InventoryUI.ItemSelected -= OnItemSelected;
+
+            
+            UIInput.NextDialoguePerformed -= TryPerformNextOrQuit;
+        }
+
         private void ResetUI()
         {
             HideComponents();
@@ -198,7 +211,8 @@ namespace CesarJZO.UI
         {
             Speaker speaker = _dialogueManager.CurrentSpeaker;
             if (!speaker) return;
-
+            if(leftSpeakerImage) leftSpeakerImage.gameObject.SetActive(false);
+            if(rightSpeakerImage) rightSpeakerImage.gameObject.SetActive(false);
             Image portraitImage = _dialogueManager.CurrentSide is PortraitSide.Left
                 ? leftSpeakerImage
                 : rightSpeakerImage;
@@ -253,7 +267,8 @@ namespace CesarJZO.UI
                 _dialogueManager.Next();
             }
             else{
-                inventoryPanel.Quit();
+                if(inventoryPanel)
+                    inventoryPanel.Quit();
                 _dialogueManager.Quit();
             }
         }
@@ -264,7 +279,8 @@ namespace CesarJZO.UI
             if (_dialogueManager.HasNextNode)
                 _dialogueManager.Next();
             else{
-                inventoryPanel.Quit();
+                if(inventoryPanel)
+                    inventoryPanel.Quit();
                 _dialogueManager.Quit();
             }
         }

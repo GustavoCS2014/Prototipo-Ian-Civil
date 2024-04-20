@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using CesarJZO.DialogueSystem;
 using UnityEngine;
+using Random = System.Random;
 
 // namespace CesarJZO.DialogueSystem
 // {
-    public class DialogueNpc : MonoBehaviour, IInteractable
+public class DialogueNpc : MonoBehaviour, IInteractable
     {
+        [SerializeField] private Transform interactionHintVisual;
+        [SerializeField] private bool randomizeNextDialogue;
         [SerializeField] private Dialogue[] dialogues;
         [SerializeField] private Dialogue currentDialogue;
 
         private Queue<Dialogue> _dialogueQueue;
-
         private DialogueManager _dialogueManager;
 
         private void Awake()
@@ -64,6 +66,8 @@ using UnityEngine;
             foreach(DialogueListener listener in listeners){
                 listener.EvaluateTrigger(trigger);
             }
+            if(randomizeNextDialogue)
+                ShufleDialogueQueue();
         }
 
         public void Interact()
@@ -82,5 +86,27 @@ using UnityEngine;
             if (_dialogueQueue.TryDequeue(out Dialogue dialogue))
                 currentDialogue = dialogue;
         }
+
+        public void ShufleDialogueQueue(){
+            Dialogue[] shuffledArray = dialogues;
+
+            Random random = new Random();
+            int arrayLenght = shuffledArray.Length;
+            while(arrayLenght > 1){
+                int randomIndex = random.Next(arrayLenght--);
+                Dialogue tempDialogue = shuffledArray[arrayLenght];
+                shuffledArray[arrayLenght] = shuffledArray[randomIndex];
+                shuffledArray[randomIndex] = tempDialogue;
+            } 
+
+            dialogues = shuffledArray;
+            _dialogueQueue = new Queue<Dialogue>(dialogues);
+            currentDialogue = _dialogueQueue.Peek();
+        }
+
+    public void ShowInteractionHint(bool setActive){
+        if(interactionHintVisual is null) return;
+        interactionHintVisual.gameObject.SetActive(setActive);
     }
+}
 // }

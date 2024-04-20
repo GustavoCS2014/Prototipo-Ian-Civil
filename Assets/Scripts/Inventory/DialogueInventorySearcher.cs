@@ -6,9 +6,7 @@ using UnityEngine;
 public class DialogueInventorySearcher : MonoBehaviour {
 
     private DialogueManager _dialogueManager;
-    [SerializeField] private InventoryUI inventoryUI;
-    [Tooltip("This item will be used when the player doesn't have the requiered item to change branches.")]
-    [SerializeField] private Item defaultItem;
+    [SerializeField] private Inventory inventory;
 
     private void Start() {
         _dialogueManager = DialogueManager.Instance;
@@ -20,10 +18,10 @@ public class DialogueInventorySearcher : MonoBehaviour {
     {
         if (_dialogueManager.CurrentNode is not ItemConditionalNode itemConditionalNode) return;
         
-        if(inventoryUI.SearchItem(itemConditionalNode.Item)){
-            inventoryUI.SelectItem(itemConditionalNode.Item);
+        if(inventory.HasItem(itemConditionalNode.Item)){
+            InventoryUI.SelectItem(itemConditionalNode.Item);
         }else{
-            inventoryUI.SelectItem(defaultItem);
+            InventoryUI.SelectItem(null);
         }
     }
 }

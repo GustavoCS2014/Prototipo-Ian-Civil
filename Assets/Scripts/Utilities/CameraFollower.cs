@@ -10,7 +10,6 @@ public class CameraFollower : MonoBehaviour
         FixedUpdate,
         LateUpdate
     }
-    public static CameraFollower Instance {private set; get;}
 
     [SerializeField] private UpdateType updateType;
     private Transform target;
@@ -23,16 +22,6 @@ public class CameraFollower : MonoBehaviour
 
     private Vector3 desiredPosition;
 
-    private void Awake() {
-        if(Instance){
-            Destroy(gameObject);
-        }else{
-            Instance = this;
-        }
-        DontDestroyOnLoad(gameObject);
-
-
-    }
     private void Start() {
         target = PlayerController.Instance.transform;
         desiredPosition = target.position;

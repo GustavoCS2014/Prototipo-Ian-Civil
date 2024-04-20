@@ -1,0 +1,422 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8688947457401568622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-d3d6a0ea
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: "No pasa nada, aqu\xED estoy si necesitan algo."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1391
+    y: 4251.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &-8268058140001340828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-5c9a0d5d
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Hola, \xBFte podemos ayudar? "
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 619
+    y: 4490
+    width: 256
+    height: 216
+  child: {fileID: -7387896233559740917}
+--- !u!114 &-7387896233559740917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-465e4066
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "No lo s\xE9\u2026 Me siento muy triste. No tengo ni ganas de moverme de
+    aqu\xED. "
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 896
+    y: 4530
+    width: 256
+    height: 216
+  child: {fileID: -5026112784377314137}
+--- !u!114 &-6799227278832492132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-83b5bd4e
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "Gracias por animarme, quer\xEDas hablar de algo mas?"
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 806
+    y: 4205.5
+    width: 256
+    height: 216
+  child: {fileID: 5896935287759727779}
+--- !u!114 &-6725565474344043577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-6d655984
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: 
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 450
+    y: 4135.5
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 92afaa43131b4b84187840cc84910041, type: 2}
+  trueChild: {fileID: -5968313396834423421}
+  falseChild: {fileID: -6799227278832492132}
+--- !u!114 &-6513650406122483664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-c327feb6
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "\xA1Gracias a t\xED!"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1759
+    y: 4086
+    width: 256
+    height: 216
+  child: {fileID: 2293602338145534937}
+--- !u!114 &-5968313396834423421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-b8887168
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "\xA1Hola de nuevo! Este..."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 836
+    y: 3898
+    width: 256
+    height: 216
+  child: {fileID: 2528130087836993408}
+--- !u!114 &-5026112784377314137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-20b082e8
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "\xBFQu\xE9 tienes? Si se puede saber, claro. \n"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1166
+    y: 4535
+    width: 256
+    height: 216
+  child: {fileID: -4153558653378978085}
+--- !u!114 &-4153558653378978085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-dc6c446f
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "Hice una reservaci\xF3n en el restaurante que est\xE1 cerca, pero mi novia
+    me termin\xF3 antes de la cita..."
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1448
+    y: 4533
+    width: 256
+    height: 216
+  child: {fileID: 5295825302984435029}
+--- !u!114 &-2238210505909690939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-72792160
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "\xA1S\xED, tengan! Ya no la necesito. Gracias por animarme hace rato."
+  emotion: 0
+  portraitSide: 1
+  triggerKey: GiveReservation
+  rect:
+    serializedVersion: 2
+    x: 1487
+    y: 3999
+    width: 256
+    height: 216
+  child: {fileID: -6513650406122483664}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: MeetingTheBateado
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2136884039672876656}
+  - {fileID: 5295825302984435029}
+  - {fileID: 2293602338145534937}
+  - {fileID: -8268058140001340828}
+  - {fileID: -7387896233559740917}
+  - {fileID: -5026112784377314137}
+  - {fileID: -4153558653378978085}
+  - {fileID: -5968313396834423421}
+  - {fileID: 2528130087836993408}
+  - {fileID: -2238210505909690939}
+  - {fileID: -6513650406122483664}
+  - {fileID: 4447097800824214237}
+  - {fileID: -6725565474344043577}
+  - {fileID: -6799227278832492132}
+  - {fileID: 5896935287759727779}
+  - {fileID: -8688947457401568622}
+--- !u!114 &2136884039672876656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08e6d866a547349bb48a51936eeb08, type: 3}
+  m_Name: C-6e16f72d
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 0}
+  text: Checks if the player has talked to the Bateado before.TalkedWithBateado
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: -8
+    y: 4232
+    width: 256
+    height: 252
+  hasItem: {fileID: 11400000, guid: 45648fdf836f48a4b9f11405fec16e9f, type: 2}
+  trueChild: {fileID: -6725565474344043577}
+  falseChild: {fileID: -8268058140001340828}
+--- !u!114 &2293602338145534937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-c5603617
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "\xA1Espero usen bien la reservaci\xF3n!"
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 2029
+    y: 4135.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &2528130087836993408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-12b512f9
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Quer\xEDamos saber si todav\xEDa tienes la reservaci\xF3n del restaurante..."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1187
+    y: 3914
+    width: 256
+    height: 216
+  child: {fileID: -2238210505909690939}
+--- !u!114 &4447097800824214237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-04e68089
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 0fd601df3dd85e249b0e2d1838ac9903, type: 2}
+  text: "\xA1Gracias por los animos!"
+  emotion: 0
+  portraitSide: 1
+  triggerKey: TalkedWithBateado
+  rect:
+    serializedVersion: 2
+    x: 2027
+    y: 4535.5
+    width: 256
+    height: 216
+  child: {fileID: 0}
+--- !u!114 &5295825302984435029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-e0ce78bd
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: "Tranquilo amigo, todo pasa por algo. Personas as\xED no valen la pena. Ahora
+    enf\xF3cate en t\xED mismo."
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1721
+    y: 4537
+    width: 256
+    height: 216
+  child: {fileID: 4447097800824214237}
+--- !u!114 &5896935287759727779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-a2894233
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: ehh... No, disculpa.
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 1096
+    y: 4228.5
+    width: 256
+    height: 216
+  child: {fileID: -8688947457401568622}

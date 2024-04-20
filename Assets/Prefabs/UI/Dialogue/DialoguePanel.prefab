@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93d9a7dba23ce842857e3b9863c2566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
+  inventory: {fileID: 11400000, guid: ed708bcd69bcbc24f905a4643d75c4ff, type: 2}
   defaultItem: {fileID: 11400000, guid: 76c9232e9a1137444bc68b9c7fffe2be, type: 2}
 --- !u!222 &5165305025464845102
 CanvasRenderer:

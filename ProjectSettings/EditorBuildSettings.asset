@@ -13,10 +13,10 @@ EditorBuildSettings:
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Prototype/Prototype_Museum.unity
-    guid: 9ceba7c75df07944c855160dbf9e4f6c
+    guid: 950fe9e237ac4254595e3cfbac391080
   - enabled: 1
-    path: Assets/Scenes/Prototype/Prototype_MuseumTest.unity
-    guid: 60d57bbad7a77834681d2a404ff103dc
+    path: Assets/Scenes/Prototype/Prototype_Planetary.unity
+    guid: d1d71f5069e322d42a539f7f741afb5a
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 29b609aadf7ec414797f694af0b3057f

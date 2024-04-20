@@ -24,7 +24,6 @@ namespace Entities.Player
         public LandState LandState { get; private set; }
         public bool OnStairs {get; private set;}
         public bool Animating { get; set; }
-        [field: SerializeField] public List<FollowerController> Followers {get; private set;}
 
         protected override void Awake()
         {
@@ -36,8 +35,9 @@ namespace Entities.Player
             }
             base.Awake();
             // THIS IS SUPER HARD CODED BUT I GOT LAZY
-            // ignores collisions between Layer 6: player and Layer 15: NPC
+            // ignores collisions between Layer 6: player and Layer 15: NPC and layer 16: Followers
             Physics2D.IgnoreLayerCollision(6,15);
+            Physics2D.IgnoreLayerCollision(6,16);
             // Instance = this;
             IdleState = new IdleState(this, StateMachine);
             MoveState = new MoveState(this, StateMachine);

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5585287087458258698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-b0e9a1ec
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 222e137debb196d4a880576ef11daf3a, type: 2}
+  text: "Qu\xE9 ciudad tan grande en la que vivimos, \xBFno crees?"
+  emotion: 0
+  portraitSide: 0
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 3954
+    y: 5404
+    width: 256
+    height: 216
+  child: {fileID: 4891879152673077408}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739003c34ecd4ab586ea7d1d61f6120c, type: 3}
+  m_Name: Painting_1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5585287087458258698}
+  - {fileID: 4891879152673077408}
+--- !u!114 &4891879152673077408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b3a485f804adbb81cc4fe5a8aedb0, type: 3}
+  m_Name: S-5924c2e3
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 812c5258fb190ae47950b2ad78b555a7, type: 2}
+  text: Y muy misteriosa, a decir verdad.
+  emotion: 0
+  portraitSide: 1
+  triggerKey: 
+  rect:
+    serializedVersion: 2
+    x: 4291
+    y: 5399
+    width: 256
+    height: 216
+  child: {fileID: 0}
